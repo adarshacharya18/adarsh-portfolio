@@ -24,6 +24,12 @@ const ArticleDetail: React.FC = () => {
   const articleMeta = articles.find((art) => art.slug === slug);
   const rawContent = slug ? articleContentMap[slug] : null;
 
+  // Resolve related articles based on slugs array
+  const relatedArticles = React.useMemo(() => {
+    if (!articleMeta || !articleMeta.relatedSlugs) return [];
+    return articles.filter((art) => articleMeta.relatedSlugs.includes(art.slug));
+  }, [articleMeta, articles]);
+
   const originUrl = typeof window !== 'undefined' ? window.location.origin : 'https://adarsh.dev';
 
   useDocumentMetadata({
@@ -59,7 +65,11 @@ const ArticleDetail: React.FC = () => {
   return (
     <PageWrapper>
       <JsonLd data={blogPostSchema as Record<string, unknown>} />
-      <ArticleDetailPresenter articleMeta={articleMeta} rawContent={rawContent} />
+      <ArticleDetailPresenter
+        articleMeta={articleMeta}
+        rawContent={rawContent}
+        relatedArticles={relatedArticles}
+      />
     </PageWrapper>
   );
 };

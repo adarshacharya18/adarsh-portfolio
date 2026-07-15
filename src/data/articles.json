@@ -4,13 +4,19 @@
     "title": "Configuring Headless WordPress via WP GraphQL",
     "date": "July 15, 2026",
     "excerpt": "A deep dive into setting up a secure, query-optimized headless WordPress database connected to a React Vite client using GraphQL resolvers.",
-    "tags": ["WordPress", "GraphQL", "APIs", "React"]
+    "tags": ["WordPress", "GraphQL", "APIs", "React"],
+    "category": "WordPress Architecture",
+    "readingTime": "5 min read",
+    "relatedSlugs": ["api-design-patterns"]
   },
   {
     "slug": "api-design-patterns",
     "title": "REST and gRPC Design Patterns for High Throughput Apps",
     "date": "June 10, 2026",
     "excerpt": "An architectural review of API protocols, schema validation libraries, and rate-limiting structures to maintain 99.9% platform availability.",
-    "tags": ["Backend", "API Design", "gRPC", "Go"]
+    "tags": ["Backend", "API Design", "gRPC", "Go"],
+    "category": "Systems Design",
+    "readingTime": "8 min read",
+    "relatedSlugs": ["headless-cms-setup"]
   }
 ]

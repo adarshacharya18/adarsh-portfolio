@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.0-blog] - 2026-07-15
+
+### Added
+- Completed **fully scalable Markdown-powered blog engine** integrated into the portfolio content layer:
+  - **Clickable Table of Contents (ToC)**: Built a dynamic headings extractor (`extractToc`) in **[ArticleDetailPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/ArticleDetailPresenter.tsx)** that renders smooth-scrolling anchors on h2 and h3 elements.
+  - **Syntax Highlighting**: Added a lightweight, desaturated regex-based parser inside **[markdown.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/utils/markdown.tsx)** to highlight code keywords, strings, and comments.
+  - **Reading Time Estimation**: Dynamic reading time calculates automatically inside **[ArticleDetail.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/pages/ArticleDetail.tsx)** using word-counts.
+  - **Real-Time Search & Category Filters**: Added text queries search bar and category selection buttons in **[ArticlesPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/ArticlesPresenter.tsx)**.
+  - **Related Posts**: Dynamically queries the articles metadata registry to display a "Related Articles" card deck.
+  - **Automated RSS Feed & Sitemap XML**: Created a build-lifecycle hook script **[generate-rss.cjs](file:///home/adarsh/Documents/Portpolio_website/Website_2026/scripts/generate-rss.cjs)** that compiles sitemaps and feed channels inside `public/`.
+- Updated all models and schemas to enforce typescript validations for the new blog meta tags (`category`, `readingTime`, `relatedSlugs`).
+
+---
+
 ## [0.6.0-ux] - 2026-07-15
 
 ### Added

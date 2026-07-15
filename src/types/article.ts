@@ -4,4 +4,7 @@ export interface ArticleMeta {
   date: string;
   excerpt: string;
   tags: string[];
+  category: string;
+  readingTime: string;
+  relatedSlugs: string[];
 }
