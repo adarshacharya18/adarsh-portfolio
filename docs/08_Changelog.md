@@ -22,6 +22,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Robust Link Rendering & Structured Schemas**:
   - Updated `ProjectItem` type specifications to mark source repo and live demo URLs as optional.
   - Refactored `ProjectLinksGroup` component and `CaseStudy` page containers to conditionally build SEO meta tags and UI links, avoiding broken endpoints for local/internal projects.
+- **Overall View Persona Integration**:
+  - Added new `overall` persona selection to context validation parameters in **[PersonaContext.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/context/PersonaContext.tsx)**, setting it as the default first-time landing experience.
+  - Injected general biography, headings, and a comprehensive skill matrix inside **[profile.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/profile.json)** and **[skills.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/skills.json)**.
+  - Configured project, experience, timeline, and certification router views to bypass filtration logic when `activePersona === 'overall'`, displaying all entries collectively.
+  - Registered custom Zinc HSL color tokens for the `overall` selector dots inside **[index.css](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/index.css)** and integrated the option into **[PersonaSelector.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/molecules/PersonaSelector.tsx)**.
 
 ---
 
