@@ -29,6 +29,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Configured project, experience, timeline, and certification router views to bypass filtration logic when `activePersona === 'overall'`, displaying all entries collectively.
   - Registered custom Zinc HSL color tokens for the `overall` selector dots inside **[index.css](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/index.css)** and integrated the option into **[PersonaSelector.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/molecules/PersonaSelector.tsx)**.
   - Conditionally hid the "Persona active" pulse status badge inside **[HeroPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/HeroPresenter.tsx)** when the active track is set to `overall`.
+- **Static Media Storage Integration**:
+  - Established a dedicated user-uploaded media workspace by creating `public/static/images/`, `public/static/pdfs/`, and `public/static/videos/` folders, equipped with Git placeholders to support dynamic builds.
+  - Configured custom daily re-validation cache strategies for `/static/*` inside **[_headers](file:///home/adarsh/Documents/Portpolio_website/Website_2026/public/_headers)** to ensure updates to documents (such as replacing `resume.pdf`) bypass immutable asset cache limits.
 
 ---
 
