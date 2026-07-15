@@ -8,35 +8,43 @@
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
-    "id": "cryptographic-esign-suite",
+    "id": "globalspaces-platform",
     "quarter": "2026 Q2",
-    "title": "Cryptographic E-Signature Integration",
-    "description": "Built secure, compliant PDF cryptographic signing systems utilizing Express, Node.js, pdf-lib, and Redis/Bull queue workers.",
-    "category": "Security & Core backend",
+    "title": "GlobalSpaces Monorepo Development",
+    "description": "Built the specs-first RESO-aligned real estate platform monorepo in March, May, and June using React 18, Express, Drizzle ORM, and PostgreSQL.",
+    "category": "Fullstack Platform",
+    "personas": ["swe", "backend", "fullstack"]
+  },
+  {
+    "id": "esign-adobe-integrations",
+    "quarter": "2026 Q1",
+    "title": "E-Signature & Adobe LMS integrations",
+    "description": "Started the checkout agreement timer, SignByte API webhooks, Google Drive backups (utee-esign), and Adobe Captivate course sync tools (wdm-adobe-integration) in January & February.",
+    "category": "Integration Modules",
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
-    "id": "intelligent-csv-matching-engine",
+    "id": "ut-ecourse-importer",
     "quarter": "2025 Q4",
-    "title": "Intelligent CSV Importer Engine",
-    "description": "Engineered SQL database caching managers and custom fuzzy-logic scoring algorithms to import and reconcile large sets of registrations.",
+    "title": "Event Espresso eCourse Importer",
+    "description": "Started development of the CSV importer plugin and registrations cache tables in November to optimize registration comparisons.",
     "category": "Database & Scripts",
     "personas": ["swe", "backend", "wordpress"]
   },
   {
-    "id": "redis-integration-milestone",
+    "id": "unitech-event-notification",
     "quarter": "2025 Q4",
-    "title": "Configured Platform Caching Models",
-    "description": "Implemented redis caching layers reducing database query counts and overall API latency responses by 45%.",
-    "category": "Backend",
-    "personas": ["swe", "backend", "fullstack"]
+    "title": "Twilio SMS notification system",
+    "description": "Initiated the Event Espresso status reminders and Twilio gateway sync handler (uniTech-event-notification) in October.",
+    "category": "API Integration",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
-    "id": "twilio-sms-system-launch",
+    "id": "joined-universaltech-msa",
     "quarter": "2025 Q3",
-    "title": "Twilio SMS Automation System",
-    "description": "Configured automated Twilio reminder workflows, customized admin dashboards, and registered status-handling webhook controllers.",
-    "category": "API Integration",
+    "title": "Joined UniversalTech & Started MSA Customization",
+    "description": "Joined as a Junior Software Developer in July (officially in October) and started customization of the Motorcycle Safety Academy (MSA) plugin & child theme.",
+    "category": "Career Milestone",
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
