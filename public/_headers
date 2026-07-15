@@ -2,6 +2,10 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Cache strategies for user-uploaded static media (validate daily)
+/static/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
 # Cache strategies for dynamic configurations and index pages
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
