@@ -21,6 +21,66 @@
     "futureImprovements": "Plan to add a WebAssembly admin dashboard and support hot-swapping consistency profiles."
   },
   {
+    "slug": "enterprise-esign-platform",
+    "title": "Enterprise E-Signature Platform",
+    "personas": ["swe", "backend", "fullstack"],
+    "role": "Junior Software Developer",
+    "timeline": "Apr 2026 - May 2026",
+    "architecture": "A secure monorepo comprising an Express/PostgreSQL API, a Redis/Bull queue processing system, a React document portal, and PDF cryptographic signing filters.",
+    "problem": "Manual document signing bottlenecks and high licensing fees for third-party e-signature services.",
+    "solution": "Engineered a secure, in-house cryptographic document signing portal using @signpdf/signpdf and pdf-lib. Fully integrated digital agreement checkouts and mapped signed PDFs to custom Google Drive backups.",
+    "challenges": "Mitigating API network timeouts and duplicate PDF uploads during peak checkout periods, resolved by building duplicate validation checks and retry hooks.",
+    "techStack": ["Node.js", "Express", "React", "TypeScript", "Sequelize", "PostgreSQL", "Redis", "Bull Queue", "Google Drive API"],
+    "lessonsLearned": "Deepened understanding of asymmetric cryptography, PDF binary streams modifications, and OAuth2 security guidelines.",
+    "video": "",
+    "images": [],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/universaltech/esign-core"
+    },
+    "futureImprovements": "Add support for multi-recipient workflow stages and implement hardware security modules (HSM) for signing keys."
+  },
+  {
+    "slug": "event-automation-sync-engine",
+    "title": "Event Automation & API Sync Engine",
+    "personas": ["swe", "backend", "fullstack", "wordpress"],
+    "role": "Junior Software Developer",
+    "timeline": "Jun 2025 - May 2026",
+    "architecture": "Event-driven integration engine caching Event Espresso course registrations in SQL, triggering Twilio SMS reminders, and fetching student completion certificates from Adobe Captivate APIs.",
+    "problem": "High administrative overhead of manually tracking course completions, scheduling reminders, and updating student certificates across Adobe and WordPress systems.",
+    "solution": "Developed a custom sync plugin processing class updates, automated Twilio reminder workflows with replies caching, and a fuzzy scoring matching algorithm for CSV data uploads.",
+    "challenges": "Optimizing CSV matching speeds and database timeout issues during large class uploads, which was resolved by implementing a dedicated pre-indexed database cache manager.",
+    "techStack": ["PHP", "WordPress", "Event Espresso", "Twilio API", "Adobe Captivate API", "SQL", "JavaScript", "AJAX"],
+    "lessonsLearned": "Acquired experience in relational SQL database optimization, caching, and building reliable event-driven notification pipelines.",
+    "video": "",
+    "images": [],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/universaltech/event-sync"
+    },
+    "futureImprovements": "Introduce a centralized status dashboard and transition background cron processes to Node.js workers."
+  },
+  {
+    "slug": "motorcycle-safety-academy-platform",
+    "title": "Motorcycle Safety Academy Custom Platform",
+    "personas": ["wordpress", "fullstack"],
+    "role": "Junior Software Developer",
+    "timeline": "Jun 2025 - May 2026",
+    "architecture": "Object-oriented custom WordPress plugin combined with a child theme override layer, custom shortcodes, and Map geolocation APIs.",
+    "problem": "Default course checkouts and registration forms lacked custom styling, timezone counters, geolocation searches, and role-based redirects.",
+    "solution": "Built 32 shortcode handlers, secure asynchronous authentication pages, Google Maps distance filters, and optimized checkout pages to minimize drop-off rates.",
+    "challenges": "Fixing layout delays and user experience drops on mobile viewports due to heavy scroll animations, resolved by disabling mobile animations and refining theme stylesheets.",
+    "techStack": ["PHP", "WordPress", "Event Espresso", "JavaScript", "Vanilla CSS", "Google Maps API"],
+    "lessonsLearned": "Gained expert familiarity with the WordPress event loop, actions/filters hooks lifecycle, and mobile UI rendering optimization.",
+    "video": "",
+    "images": [],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/universaltech/msa-platform"
+    },
+    "futureImprovements": "Refactor custom shortcode forms into Gutenberg block modules and port dashboard screens to React."
+  },
+  {
     "slug": "custom-wp-headless-engine",
     "title": "Headless WordPress Rendering Core",
     "personas": ["swe", "fullstack", "wordpress"],

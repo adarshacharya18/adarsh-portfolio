@@ -8,12 +8,36 @@
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
+    "id": "cryptographic-esign-suite",
+    "quarter": "2026 Q2",
+    "title": "Cryptographic E-Signature Integration",
+    "description": "Built secure, compliant PDF cryptographic signing systems utilizing Express, Node.js, pdf-lib, and Redis/Bull queue workers.",
+    "category": "Security & Core backend",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
+  },
+  {
+    "id": "intelligent-csv-matching-engine",
+    "quarter": "2025 Q4",
+    "title": "Intelligent CSV Importer Engine",
+    "description": "Engineered SQL database caching managers and custom fuzzy-logic scoring algorithms to import and reconcile large sets of registrations.",
+    "category": "Database & Scripts",
+    "personas": ["swe", "backend", "wordpress"]
+  },
+  {
     "id": "redis-integration-milestone",
     "quarter": "2025 Q4",
     "title": "Configured Platform Caching Models",
     "description": "Implemented redis caching layers reducing database query counts and overall API latency responses by 45%.",
     "category": "Backend",
     "personas": ["swe", "backend", "fullstack"]
+  },
+  {
+    "id": "twilio-sms-system-launch",
+    "quarter": "2025 Q3",
+    "title": "Twilio SMS Automation System",
+    "description": "Configured automated Twilio reminder workflows, customized admin dashboards, and registered status-handling webhook controllers.",
+    "category": "API Integration",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
     "id": "headless-wordpress-gutenberg",
