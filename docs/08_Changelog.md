@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.0-ux] - 2026-07-15
+
+### Added
+- Integrated user experience (UX) refinements, micro-animations, and viewport tools:
+  - **Smooth Scrolling**: Configured `scroll-behavior: smooth` base rules inside `src/index.css`.
+  - **Scroll Progress Indicator**: Injected a 2px horizontal progress bar in **[MainLayout.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/MainLayout.tsx)** linked to `useScroll` percentage values.
+  - **Theme Transitions**: Bound smooth CSS transition effects on background-color and color properties in `src/index.css`.
+  - **Typing Animation Atom**: Created **[TypingText.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/atoms/TypingText.tsx)** to render dynamic subtitle terminal sequences.
+  - **Boot Loader Screen**: Configured a fading boot loader in `MainLayout.tsx` using `AnimatePresence`.
+  - **Scroll Reveal (Intersection Observer)**: Refactored `SkillsPresenter`, `ExperiencePresenter`, `TimelinePresenter`, and `CertificatesPresenter` to use Framer Motion `whileInView` observers.
+- Enforced complete accessibility compliance for user motion settings:
+  - Added a `prefers-reduced-motion` override query inside `src/index.css` to instantly clamp CSS transition durations.
+  - Leveraged Framer Motion's `useReducedMotion` hook inside `PageTransition.tsx` and all presenter views to bypass translations and scale transitions to instant fades when motion reduction is preferred.
+
+---
+
 ## [0.5.0-cms] - 2026-07-15
 
 ### Added

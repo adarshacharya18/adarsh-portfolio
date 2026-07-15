@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from '../atoms/Section';
 import { FiArrowRight } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import type { ExperienceItem } from '../../types/experience';
 import type { PersonaType } from '../../types/persona';
 
@@ -16,10 +16,21 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
   activePersona,
   compact = false,
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+  const yVal = shouldReduceMotion ? 0 : 6;
+
   const fadeVariants = {
-    initial: { opacity: 0, y: 4 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' as const } },
-    exit: { opacity: 0, y: -4, transition: { duration: 0.15, ease: 'easeIn' as const } },
+    initial: { opacity: 0, y: yVal },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0.05 : 0.2, ease: 'easeOut' as const },
+    },
+    exit: {
+      opacity: 0,
+      y: -yVal,
+      transition: { duration: shouldReduceMotion ? 0.05 : 0.15, ease: 'easeIn' as const },
+    },
   };
 
   if (compact) {
@@ -42,8 +53,12 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
             className="space-y-4 max-w-3xl"
           >
             {experience.map((exp) => (
-              <div
+              <motion.div
                 key={`${exp.role}-${exp.company}`}
+                initial={{ opacity: 0, y: yVal }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-20px' }}
+                transition={{ duration: shouldReduceMotion ? 0.05 : 0.3 }}
                 className="border border-border-primary bg-bg-secondary p-5 rounded-lg flex flex-col sm:flex-row sm:items-start justify-between gap-3 shadow-soft hover:border-border-focus transition"
               >
                 <div className="space-y-1 text-left">
@@ -58,7 +73,7 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
                   <span>View Details</span>
                   <FiArrowRight className="w-3.5 h-3.5" />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
@@ -71,15 +86,19 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
       <AnimatePresence mode="wait">
         <motion.div
           key={activePersona}
-          initial={{ opacity: 0, y: 4 }}
+          initial={{ opacity: 0, y: yVal }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -4 }}
+          exit={{ opacity: 0, y: -yVal }}
           transition={{ duration: 0.2 }}
           className="space-y-8"
         >
           {experience.map((exp) => (
-            <div
+            <motion.div
               key={`${exp.role}-${exp.company}`}
+              initial={{ opacity: 0, y: yVal }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-25px' }}
+              transition={{ duration: shouldReduceMotion ? 0.05 : 0.35 }}
               className="flex flex-col md:flex-row gap-4 md:gap-8 pb-8 border-b border-border-primary last:border-0 last:pb-0 text-left"
             >
               <div className="md:w-1/4">
@@ -92,7 +111,7 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
                   {exp.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </AnimatePresence>

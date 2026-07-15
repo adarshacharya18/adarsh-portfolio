@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from '../atoms/Section';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import type { SkillGroup } from '../../types/skill';
 import type { PersonaType } from '../../types/persona';
 
@@ -10,10 +10,21 @@ interface SkillsPresenterProps {
 }
 
 const SkillsPresenter: React.FC<SkillsPresenterProps> = ({ skills, activePersona }) => {
+  const shouldReduceMotion = useReducedMotion();
+  const yVal = shouldReduceMotion ? 0 : 6;
+
   const fadeVariants = {
-    initial: { opacity: 0, y: 4 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' as const } },
-    exit: { opacity: 0, y: -4, transition: { duration: 0.15, ease: 'easeIn' as const } },
+    initial: { opacity: 0, y: yVal },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: shouldReduceMotion ? 0.05 : 0.2, ease: 'easeOut' as const },
+    },
+    exit: {
+      opacity: 0,
+      y: -yVal,
+      transition: { duration: shouldReduceMotion ? 0.05 : 0.15, ease: 'easeIn' as const },
+    },
   };
 
   return (
@@ -35,8 +46,12 @@ const SkillsPresenter: React.FC<SkillsPresenterProps> = ({ skills, activePersona
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {skills.map((group) => (
-            <div
+            <motion.div
               key={group.category}
+              initial={{ opacity: 0, y: yVal }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={{ duration: shouldReduceMotion ? 0.05 : 0.3 }}
               className="border border-border-primary bg-bg-secondary p-6 rounded-lg space-y-4 shadow-soft"
             >
               <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted border-b border-border-primary pb-2">
@@ -55,7 +70,7 @@ const SkillsPresenter: React.FC<SkillsPresenterProps> = ({ skills, activePersona
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </AnimatePresence>

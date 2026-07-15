@@ -6,6 +6,7 @@ import { SiLeetcode, SiCodeforces } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Profile, PersonaContent } from '../../types/profile';
 import type { PersonaType } from '../../types/persona';
+import TypingText from '../atoms/TypingText';
 
 interface HeroPresenterProps {
   profile: Profile;
@@ -51,7 +52,7 @@ const HeroPresenter: React.FC<HeroPresenterProps> = ({
             className="space-y-4"
           >
             <h2 className="text-xl md:text-2xl font-medium text-text-secondary">
-              {currentPersonaContent.subTitle}
+              <TypingText text={currentPersonaContent.subTitle} />
             </h2>
             <p className="text-sm md:text-base text-text-muted leading-relaxed">
               {currentPersonaContent.description}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from '../atoms/Section';
 import { FiAward, FiExternalLink } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import type { CertificateItem } from '../../types/certificate';
 import type { PersonaType } from '../../types/persona';
 
@@ -14,20 +14,27 @@ const CertificatesPresenter: React.FC<CertificatesPresenterProps> = ({
   certificates,
   activePersona,
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+  const yVal = shouldReduceMotion ? 0 : 6;
+
   return (
     <Section id="certificates-grid">
       <AnimatePresence mode="wait">
         <motion.div
           key={activePersona}
-          initial={{ opacity: 0, y: 4 }}
+          initial={{ opacity: 0, y: yVal }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -4 }}
+          exit={{ opacity: 0, y: -yVal }}
           transition={{ duration: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full"
         >
           {certificates.map((cert) => (
-            <div
+            <motion.div
               key={cert.id}
+              initial={{ opacity: 0, y: yVal }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={{ duration: shouldReduceMotion ? 0.05 : 0.3 }}
               className="border border-border-primary bg-bg-secondary p-6 rounded-lg flex items-start space-x-4 shadow-soft hover:border-border-focus transition text-left"
             >
               <div className="p-3 bg-bg-tertiary rounded-lg border border-border-primary text-text-secondary shrink-0">
@@ -50,7 +57,7 @@ const CertificatesPresenter: React.FC<CertificatesPresenterProps> = ({
                   <FiExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </AnimatePresence>

@@ -72,12 +72,46 @@ html.light {
 
 /* Global Reset overrides */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto !important;
+    }
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   html,
   body {
-    @apply bg-bg-primary text-text-primary font-sans antialiased transition-colors duration-150 ease-out;
+    @apply bg-bg-primary text-text-primary font-sans antialiased;
     margin: 0;
     padding: 0;
     min-height: 100vh;
+  }
+
+  /* Smooth transition effects when theme changes, applied safely to colors only */
+  body,
+  header,
+  footer,
+  main,
+  nav,
+  section,
+  article,
+  div,
+  button,
+  input,
+  textarea {
+    transition:
+      background-color 0.2s ease-out,
+      border-color 0.2s ease-out,
+      color 0.2s ease-out;
   }
 
   h1,
