@@ -1,0 +1,82 @@
+{
+  "swe": [
+    {
+      "category": "Languages",
+      "skills": [
+        { "name": "TypeScript", "level": "Core" },
+        { "name": "JavaScript", "level": "Core" },
+        { "name": "Go", "level": "Intermediate" },
+        { "name": "C++", "level": "Intermediate" }
+      ]
+    },
+    {
+      "category": "Core Concepts",
+      "skills": [
+        { "name": "Data Structures", "level": "Core" },
+        { "name": "Algorithms", "level": "Core" },
+        { "name": "OOP & FP Design Patterns", "level": "Core" },
+        { "name": "CI/CD Pipelines", "level": "Intermediate" }
+      ]
+    }
+  ],
+  "backend": [
+    {
+      "category": "Server & Languages",
+      "skills": [
+        { "name": "Node.js", "level": "Core" },
+        { "name": "Go", "level": "Intermediate" },
+        { "name": "Express", "level": "Core" },
+        { "name": "Fastify", "level": "Intermediate" }
+      ]
+    },
+    {
+      "category": "Databases & Infrastructure",
+      "skills": [
+        { "name": "PostgreSQL", "level": "Core" },
+        { "name": "MySQL", "level": "Core" },
+        { "name": "Redis Caching", "level": "Core" },
+        { "name": "Docker Containers", "level": "Intermediate" }
+      ]
+    }
+  ],
+  "fullstack": [
+    {
+      "category": "Frontend & UI",
+      "skills": [
+        { "name": "React", "level": "Core" },
+        { "name": "Vite & Next.js", "level": "Core" },
+        { "name": "Tailwind CSS", "level": "Core" },
+        { "name": "Framer Motion", "level": "Intermediate" }
+      ]
+    },
+    {
+      "category": "Backend & Routing",
+      "skills": [
+        { "name": "Node.js & APIs", "level": "Core" },
+        { "name": "PostgreSQL", "level": "Core" },
+        { "name": "REST & GraphQL", "level": "Core" },
+        { "name": "Serverless Functions", "level": "Intermediate" }
+      ]
+    }
+  ],
+  "wordpress": [
+    {
+      "category": "PHP & Core CMS",
+      "skills": [
+        { "name": "PHP", "level": "Core" },
+        { "name": "WordPress Core API", "level": "Core" },
+        { "name": "Custom Plugins Dev", "level": "Core" },
+        { "name": "Custom Theme Architecture", "level": "Core" }
+      ]
+    },
+    {
+      "category": "CMS Modernization",
+      "skills": [
+        { "name": "Gutenberg Blocks (React)", "level": "Core" },
+        { "name": "GraphQL (WPGraphQL)", "level": "Intermediate" },
+        { "name": "WP REST API", "level": "Core" },
+        { "name": "WP-CLI & Actions Hooks", "level": "Core" }
+      ]
+    }
+  ]
+}

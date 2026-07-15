@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import Projects from '../pages/Projects';
 import Experience from '../pages/Experience';
 import Articles from '../pages/Articles';
+import ArticleDetail from '../pages/ArticleDetail';
 import Timeline from '../pages/Timeline';
 import Certificates from '../pages/Certificates';
 import Contact from '../pages/Contact';
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
       { path: 'projects', element: <Projects /> },
       { path: 'experience', element: <Experience /> },
       { path: 'articles', element: <Articles /> },
+      { path: 'articles/:slug', element: <ArticleDetail /> },
       { path: 'timeline', element: <Timeline /> },
       { path: 'certificates', element: <Certificates /> },
       { path: 'contact', element: <Contact /> },

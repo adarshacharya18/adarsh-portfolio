@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.0-dynamic] - 2026-07-15
+
+### Added
+- Decoupled content database architecture using JSON schemas for structured datasets:
+  - `src/data/profile.json` (Profile metadata and persona-specific copy summaries).
+  - `src/data/skills.json` (Skill highlights mapping track proficiency groups).
+  - `src/data/experience.json` (Employment milestones tagged by personas).
+  - `src/data/projects.json` (Projects metadata containing Problem, Solution, Challenges, Lessons Learned, and future improvement metrics).
+  - `src/data/certificates.json` (Verified dev certification structures).
+  - `src/data/timeline.json` (Milestone entries for the interactive vertical timeline).
+  - `src/data/articles.json` (Blog meta registry).
+- Embedded Markdown long-form posts folder `src/data/articles/` with:
+  - `headless-cms-setup.md`
+  - `api-design-patterns.md`
+- Created **[markdown.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/utils/markdown.tsx)** parsing utility compiling basic markdown structures into native React components.
+- Added dynamic dynamic article detail route `/articles/:slug` mapped inside routing configurations.
+
+### Removed
+- Superseded static typescript data mapping file `src/data/portfolioData.ts`.
+
+---
+
 ## [0.1.0-planning] - 2026-07-15
 
 ### Added

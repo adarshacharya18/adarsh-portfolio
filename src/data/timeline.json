@@ -1,0 +1,34 @@
+[
+  {
+    "id": "portfolio-initialization-v2",
+    "quarter": "2026 Q3",
+    "title": "Initialized Portfolio v2 Architecture",
+    "description": "Designed a dynamic, multi-persona developer platform utilizing React, Vite, Tailwind CSS v4, and strict TypeScript compilation layers.",
+    "category": "Architecture",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
+  },
+  {
+    "id": "redis-integration-milestone",
+    "quarter": "2025 Q4",
+    "title": "Configured Platform Caching Models",
+    "description": "Implemented redis caching layers reducing database query counts and overall API latency responses by 45%.",
+    "category": "Backend",
+    "personas": ["swe", "backend", "fullstack"]
+  },
+  {
+    "id": "headless-wordpress-gutenberg",
+    "quarter": "2024 Q3",
+    "title": "Released Headless Block Integration Engine",
+    "description": "Authored custom React blocks that render CMS contents seamlessly in decoupled Next.js environments.",
+    "category": "CMS & Frontend",
+    "personas": ["wordpress", "fullstack"]
+  },
+  {
+    "id": "github-actions-automation",
+    "quarter": "2023 Q4",
+    "title": "Automated Testing Pipeline Release",
+    "description": "Designed continuous integration scripts using GitHub Actions, executing ESLint, Prettier, and TypeScript compilations.",
+    "category": "DevOps",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "period": "2025 - Present",
+    "role": "Senior Platform Engineer",
+    "company": "LogixTech Solutions",
+    "description": "Architecting low-latency microservices, relational schemas, and headless block systems.",
+    "personas": ["swe", "backend", "fullstack"]
+  },
+  {
+    "period": "2024 - 2025",
+    "role": "WordPress Technical Lead",
+    "company": "WebSphere CMS Solutions",
+    "description": "Engineered custom payment plugins, Gutenberg block matrices, and configured headless React interfaces.",
+    "personas": ["wordpress", "fullstack"]
+  },
+  {
+    "period": "2023 - 2024",
+    "role": "Software Engineer",
+    "company": "CodeFlow Systems",
+    "description": "Developed REST API endpoints, automated unit test coverages, and built modular frontend UI views.",
+    "personas": ["swe", "backend", "fullstack"]
+  }
+]

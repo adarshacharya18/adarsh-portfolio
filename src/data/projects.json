@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "hyperion-distributed-cache",
+    "title": "Hyperion Distributed Cache Layer",
+    "personas": ["swe", "backend", "fullstack"],
+    "problem": "High-load APIs encountered critical bottleneck issues due to slow database read queries, raising latency averages to 4.2 seconds under heavy load.",
+    "solution": "Engineered a low-latency distributed caching layer written in Go, implementing custom consistent hashing groups and LRU eviction policies.",
+    "challenges": "Managing data inconsistencies during cache evictions and node scaling. Solved by introducing double-barrier consensus patterns and write-through caching buffers.",
+    "techStack": ["Go", "Redis", "Docker", "gRPC", "PostgreSQL"],
+    "lessonsLearned": "Learned deep mechanics of socket connections, memory buffers management, and the performance trade-offs of consistent hashing groups.",
+    "timeline": "6 Weeks (Q1 2025)",
+    "images": [
+      "/images/projects/hyperion-architecture.png",
+      "/images/projects/hyperion-metrics.png"
+    ],
+    "links": {
+      "github": "https://github.com/username/hyperion-cache",
+      "demo": "https://hyperion-demo.dev"
+    },
+    "futureImprovements": "Incorporate Raft consensus for active state replication and automate horizontal pod autoscaling in Kubernetes environments."
+  },
+  {
+    "slug": "headless-gutenberg-bridge",
+    "title": "Decoupled Gutenberg Block Sync Plugin",
+    "personas": ["wordpress", "fullstack"],
+    "problem": "Hiring managers wanted a headless website but struggled to maintain layout designs, as React frontends did not match WordPress block layout structures.",
+    "solution": "Authored a custom WordPress plugin that maps Gutenberg block JSON data schemas dynamically to Next.js components via WP GraphQL.",
+    "challenges": "Resolving nested blocks and dynamic block queries in single queries. Solved by writing custom schema resolvers in PHP and a compiler parsing nested block trees in React.",
+    "techStack": ["PHP", "WordPress Core API", "React", "GraphQL", "Next.js"],
+    "lessonsLearned": "Discovered advanced PHP GraphQL schema filters, custom block definitions, and client-side recursive rendering patterns.",
+    "timeline": "8 Weeks (Q2 2024)",
+    "images": [
+      "/images/projects/gutenberg-bridge-editor.png",
+      "/images/projects/gutenberg-bridge-frontend.png"
+    ],
+    "links": {
+      "github": "https://github.com/username/headless-gutenberg",
+      "demo": "https://gutenberg-bridge-demo.dev"
+    },
+    "futureImprovements": "Implement block pre-render caches on the server side and introduce visual live-preview drag and drop support."
+  }
+]

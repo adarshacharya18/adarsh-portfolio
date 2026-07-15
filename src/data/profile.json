@@ -1,0 +1,42 @@
+{
+  "name": "Adarsh Acharya",
+  "avatarUrl": "/avatar.svg",
+  "email": "mailto:adarsh@example.com",
+  "resumeUrl": "/resume.pdf",
+  "socials": {
+    "github": "https://github.com/adarshacharya",
+    "linkedin": "https://linkedin.com/in/adarshacharya",
+    "leetcode": "https://leetcode.com/adarshacharya",
+    "codeforces": "https://codeforces.com/profile/adarshacharya"
+  },
+  "personaContent": {
+    "swe": {
+      "title": "Software Engineer",
+      "subTitle": "Building Scalable, Highly Maintainable Software Systems",
+      "description": "Focused on core software patterns, algorithmic optimization, and modular component structures. I construct systems with a strict emphasis on SOLID principles, testing coverages, and clean architecture.",
+      "featuredHeading": "Core Competency Focus",
+      "featuredDescription": "Object-oriented and functional paradigm engineering, standard patterns integration, and performance benchmarking."
+    },
+    "backend": {
+      "title": "Backend Engineer",
+      "subTitle": "Designing High-Throughput APIs and Distributed Architectures",
+      "description": "Specialized in server-side frameworks, relational/non-relational database architectures, edge caching layers, and containerized cloud services. I engineer services with high availability and low latency.",
+      "featuredHeading": "Backend Focus Area",
+      "featuredDescription": "API design (REST/GraphQL), query plan optimization, caching strategies, and secure database migrations."
+    },
+    "fullstack": {
+      "title": "Full Stack Developer",
+      "subTitle": "Crafting Seamless, High-Performance End-to-End Solutions",
+      "description": "Bridging the gap between robust serverless architecture and visually polished, responsive user interfaces. I implement modular state flows, CSS layout frameworks, and secure API bridges.",
+      "featuredHeading": "Full Stack Focus Area",
+      "featuredDescription": "State machine synchronization, responsive UI design, edge routing middlewares, and automated test coverages."
+    },
+    "wordpress": {
+      "title": "WordPress Engineer",
+      "subTitle": "Architecting Custom CMS Engines and Headless Implementations",
+      "description": "Dedicated to professional WordPress development including decoupled Gutenberg blocks, complex custom plugins, database fine-tuning, and headless Next.js query layers.",
+      "featuredHeading": "WordPress Dev Focus Area",
+      "featuredDescription": "Custom plugin lifecycle hooks, Gutenberg block development, headless GraphQL integrations, and WP REST API caching."
+    }
+  }
+}
