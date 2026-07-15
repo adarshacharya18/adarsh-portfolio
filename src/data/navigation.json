@@ -1,12 +1,12 @@
 {
   "logoText": "Mriga",
   "links": [
-    { "path": "/", "label": "Dashboard" },
-    { "path": "/projects", "label": "Projects" },
     { "path": "/experience", "label": "Experience" },
+    { "path": "/projects", "label": "Projects" },
+    { "path": "/certificates", "label": "Certifications" },
+    { "path": "/contact", "label": "Contact" },
+    { "path": "/", "label": "Dashboard" },
     { "path": "/articles", "label": "Articles" },
-    { "path": "/timeline", "label": "Timeline" },
-    { "path": "/certificates", "label": "Certificates" },
-    { "path": "/contact", "label": "Contact" }
+    { "path": "/timeline", "label": "Timeline" }
   ]
 }

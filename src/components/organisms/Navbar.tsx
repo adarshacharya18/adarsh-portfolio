@@ -14,13 +14,10 @@ const Navbar: React.FC = () => {
   const moreRef = useRef<HTMLDivElement>(null);
   const nav = navigationData as unknown as NavigationConfig;
 
-  // Split links into core dashboard and secondary dropdown routes
-  const primaryLinks = nav.links.filter((link) =>
-    ['/projects', '/experience', '/articles', '/contact'].includes(link.path),
-  );
-  const secondaryLinks = nav.links.filter((link) =>
-    ['/timeline', '/certificates'].includes(link.path),
-  );
+  // Split links into core navigation and secondary dropdown routes
+  const primaryPaths = ['/experience', '/projects', '/certificates', '/contact'];
+  const primaryLinks = nav.links.filter((link) => primaryPaths.includes(link.path));
+  const secondaryLinks = nav.links.filter((link) => !primaryPaths.includes(link.path));
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

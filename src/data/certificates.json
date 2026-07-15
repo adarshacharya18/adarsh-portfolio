@@ -5,34 +5,7 @@
     "issuer": "Vishwakarma Institute of Technology, Pune",
     "date": "2025-06-15",
     "credentialId": "VIT-BTECH-2025-CSE",
-    "url": "https://www.vit.edu",
+    "url": "https://vit.truecopy.in/fe/v2/files/submitdocverify.tc",
     "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
-  },
-  {
-    "id": "aws-certified-solutions-architect",
-    "title": "AWS Certified Solutions Architect – Associate",
-    "issuer": "Amazon Web Services (AWS)",
-    "date": "2025-10-12",
-    "credentialId": "AWS-ASA-123456",
-    "url": "https://aws.amazon.com/verification",
-    "personas": ["swe", "backend", "fullstack"]
-  },
-  {
-    "id": "wordpress-plugin-development-mastery",
-    "title": "Advanced WordPress Plugin Development & APIs",
-    "issuer": "WP Academy Certification",
-    "date": "2024-06-15",
-    "credentialId": "WPA-PD-654321",
-    "url": "https://wpacademy.com/verify",
-    "personas": ["wordpress"]
-  },
-  {
-    "id": "meta-front-end-developer",
-    "title": "Meta Front-End Developer Professional Certificate",
-    "issuer": "Meta (via Coursera)",
-    "date": "2023-11-20",
-    "credentialId": "META-FE-987654",
-    "url": "https://coursera.org/verify/meta-front-end",
-    "personas": ["swe", "fullstack"]
   }
 ]
