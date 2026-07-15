@@ -5,8 +5,16 @@
   <link>https://adarsh.dev/articles</link>
   <description>Technical essays, architectural reviews, and tutorials on systems design.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 15 Jul 2026 18:25:13 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 15 Jul 2026 18:29:53 GMT</lastBuildDate>
   <atom:link href="https://adarsh.dev/rss.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title>Melodic Sequence Generation: Deep LSTMs vs. Probabilistic Markov Chains in Generative Music AI</title>
+    <link>https://adarsh.dev/articles/sequence-modeling-creative-ai</link>
+    <guid>https://adarsh.dev/articles/sequence-modeling-creative-ai</guid>
+    <pubDate>Tue, 14 Jul 2026 18:30:00 GMT</pubDate>
+    <description>A comparative study of deep recurrent sequence networks and probabilistic Markov models in music generation, analyzing training pipelines, mathematical foundations, and genre-specific performance.</description>
+    <category>Systems Design</category>
+  </item>
   <item>
     <title>Scaling Database Operations in WordPress: Optimizing Bulk Imports and Flat Query Caching</title>
     <link>https://adarsh.dev/articles/database-performance-caching</link>
