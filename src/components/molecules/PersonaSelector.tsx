@@ -8,11 +8,26 @@ const PersonaSelector: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const personas: { id: PersonaType; label: string; dotClass: string }[] = [
-    { id: 'swe', label: 'Software Engineer', dotClass: 'bg-persona-swe' },
-    { id: 'backend', label: 'Backend Engineer', dotClass: 'bg-persona-backend' },
-    { id: 'fullstack', label: 'Full Stack Developer', dotClass: 'bg-persona-fullstack' },
-    { id: 'wordpress', label: 'WordPress Developer', dotClass: 'bg-persona-wordpress' },
+  const personas: { id: PersonaType; label: string; shortLabel: string; dotClass: string }[] = [
+    { id: 'swe', label: 'Software Engineer', shortLabel: 'SWE', dotClass: 'bg-persona-swe' },
+    {
+      id: 'backend',
+      label: 'Backend Engineer',
+      shortLabel: 'Backend',
+      dotClass: 'bg-persona-backend',
+    },
+    {
+      id: 'fullstack',
+      label: 'Full Stack Developer',
+      shortLabel: 'Full Stack',
+      dotClass: 'bg-persona-fullstack',
+    },
+    {
+      id: 'wordpress',
+      label: 'WordPress Developer',
+      shortLabel: 'WordPress',
+      dotClass: 'bg-persona-wordpress',
+    },
   ];
 
   const activeOption = personas.find((p) => p.id === activePersona) || personas[0];
@@ -31,12 +46,12 @@ const PersonaSelector: React.FC = () => {
     <div className="relative inline-block text-left" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-lg border border-border-primary bg-bg-secondary hover:border-border-focus text-2xs font-semibold text-text-secondary hover:text-text-primary transition cursor-pointer"
+        className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg border border-border-primary bg-bg-secondary hover:border-border-focus text-2xs font-semibold text-text-secondary hover:text-text-primary transition cursor-pointer"
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
         <span className={`w-1.5 h-1.5 rounded-full ${activeOption.dotClass}`} />
-        <span>Track: {activeOption.label.split(' ')[0]}</span>
+        <span>{activeOption.shortLabel}</span>
         <FiChevronDown
           className={`w-3.5 h-3.5 text-text-muted transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''

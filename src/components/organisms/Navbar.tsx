@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-5">
+        <nav className="hidden lg:flex items-center space-x-5">
           {primaryLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Toggle Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 rounded-lg text-text-muted hover:text-text-primary md:hidden cursor-pointer"
+          className="p-2 rounded-lg text-text-muted hover:text-text-primary lg:hidden cursor-pointer"
           aria-label="Toggle Menu"
         >
           {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Overlay */}
       {isOpen && (
-        <div className="md:hidden border-b border-border-primary bg-bg-secondary p-4 space-y-4">
+        <div className="lg:hidden border-b border-border-primary bg-bg-secondary p-4 space-y-4">
           <nav className="flex flex-col space-y-3">
             {nav.links.map((link) => (
               <NavLink
