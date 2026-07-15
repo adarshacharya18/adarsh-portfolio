@@ -13,8 +13,8 @@ const Certificates: React.FC = () => {
   const { activePersona } = usePersona();
   const seo = seoData as unknown as SeoConfig;
 
-  const filteredCertificates = (certificatesData as unknown as CertificateItem[]).filter((cert) =>
-    cert.personas.includes(activePersona),
+  const filteredCertificates = (certificatesData as unknown as CertificateItem[]).filter(
+    (cert) => activePersona === 'overall' || cert.personas.includes(activePersona),
   );
 
   useDocumentMetadata({

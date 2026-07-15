@@ -28,11 +28,11 @@ const Home: React.FC = () => {
     activePersona
   ];
   const currentSkills = (skillsData as unknown as Record<PersonaType, SkillGroup[]>)[activePersona];
-  const currentExperience = (experienceData as unknown as ExperienceItem[]).filter((exp) =>
-    exp.personas.includes(activePersona),
+  const currentExperience = (experienceData as unknown as ExperienceItem[]).filter(
+    (exp) => activePersona === 'overall' || exp.personas.includes(activePersona),
   );
-  const currentTestimonials = (testimonialsData as unknown as TestimonialItem[]).filter((t) =>
-    t.personas.includes(activePersona),
+  const currentTestimonials = (testimonialsData as unknown as TestimonialItem[]).filter(
+    (t) => activePersona === 'overall' || t.personas.includes(activePersona),
   );
 
   const originUrl = typeof window !== 'undefined' ? window.location.origin : 'https://adarsh.dev';

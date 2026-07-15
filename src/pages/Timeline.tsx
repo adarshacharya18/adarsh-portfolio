@@ -13,8 +13,8 @@ const Timeline: React.FC = () => {
   const { activePersona } = usePersona();
   const seo = seoData as unknown as SeoConfig;
 
-  const filteredTimeline = (timelineData as unknown as TimelineItem[]).filter((t) =>
-    t.personas.includes(activePersona),
+  const filteredTimeline = (timelineData as unknown as TimelineItem[]).filter(
+    (t) => activePersona === 'overall' || t.personas.includes(activePersona),
   );
 
   useDocumentMetadata({

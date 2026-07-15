@@ -1,4 +1,4 @@
-export type PersonaType = 'swe' | 'backend' | 'fullstack' | 'wordpress';
+export type PersonaType = 'overall' | 'swe' | 'backend' | 'fullstack' | 'wordpress';
 
 export interface PersonaConfig {
   id: PersonaType;

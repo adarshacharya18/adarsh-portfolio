@@ -14,8 +14,8 @@ const Projects: React.FC = () => {
   const seo = seoData as unknown as SeoConfig;
 
   // Filter projects by active recruiter track
-  const filteredProjects = (projectsData as unknown as ProjectItem[]).filter((p) =>
-    p.personas.includes(activePersona),
+  const filteredProjects = (projectsData as unknown as ProjectItem[]).filter(
+    (p) => activePersona === 'overall' || p.personas.includes(activePersona),
   );
 
   useDocumentMetadata({

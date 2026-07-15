@@ -10,6 +10,13 @@
     "codeforces": "https://codeforces.com/profile/adarshacharya"
   },
   "personaContent": {
+    "overall": {
+      "title": "Full Stack & Platform Engineer",
+      "subTitle": "Specializing in Distributed Systems, React Ecosystems, and Custom CMS Architectures",
+      "description": "Fusing robust backend engineering, distributed caching models, dynamic React frontends, and custom CMS plugins. I apply engineering-first principles across the entire stack, from low-latency databases to accessible, responsive user interfaces.",
+      "featuredHeading": "Technical System Portfolio",
+      "featuredDescription": "A complete view of custom software systems, API engines, database models, and web applications developed across multiple engineering disciplines."
+    },
     "swe": {
       "title": "Software Engineer",
       "subTitle": "Building Scalable, Highly Maintainable Software Systems",

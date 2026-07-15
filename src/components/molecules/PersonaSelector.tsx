@@ -9,6 +9,12 @@ const PersonaSelector: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const personas: { id: PersonaType; label: string; shortLabel: string; dotClass: string }[] = [
+    {
+      id: 'overall',
+      label: 'Overall View',
+      shortLabel: 'Overall',
+      dotClass: 'bg-persona-overall',
+    },
     { id: 'swe', label: 'Software Engineer', shortLabel: 'SWE', dotClass: 'bg-persona-swe' },
     {
       id: 'backend',

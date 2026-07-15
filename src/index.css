@@ -18,6 +18,7 @@
   --color-persona-backend: var(--persona-backend);
   --color-persona-fullstack: var(--persona-fullstack);
   --color-persona-wordpress: var(--persona-wordpress);
+  --color-persona-overall: var(--persona-overall);
 
   --font-display: 'Inter', system-ui, sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -48,6 +49,7 @@
   --persona-backend: #90a4ae; /* Slate/Blue Gray */
   --persona-fullstack: #a5d6a7; /* Muted Sage Green */
   --persona-wordpress: #d7ccc8; /* Muted Sand/Brown */
+  --persona-overall: #a1a1aa; /* Zinc 400 */
 }
 
 /* Light Theme Variables overriding Root defaults when .light class is active */
@@ -68,6 +70,7 @@ html.light {
   --persona-backend: #37474f; /* Dark Slate Blue */
   --persona-fullstack: #2e7d32; /* Deep Sage Green */
   --persona-wordpress: #5d4037; /* Deep Sand Brown */
+  --persona-overall: #71717a; /* Zinc 500 */
 }
 
 /* Global Reset overrides */

@@ -13,8 +13,8 @@ const Experience: React.FC = () => {
   const { activePersona } = usePersona();
   const seo = seoData as unknown as SeoConfig;
 
-  const filteredExperience = (experienceData as unknown as ExperienceItem[]).filter((exp) =>
-    exp.personas.includes(activePersona),
+  const filteredExperience = (experienceData as unknown as ExperienceItem[]).filter(
+    (exp) => activePersona === 'overall' || exp.personas.includes(activePersona),
   );
 
   useDocumentMetadata({

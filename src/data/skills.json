@@ -1,4 +1,36 @@
 {
+  "overall": [
+    {
+      "category": "Languages & Core",
+      "skills": [
+        { "name": "TypeScript & JS", "level": "Core" },
+        { "name": "PHP", "level": "Core" },
+        { "name": "Go", "level": "Intermediate" },
+        { "name": "SQL", "level": "Core" },
+        { "name": "Algorithms & OOP", "level": "Core" }
+      ]
+    },
+    {
+      "category": "Frontend & CMS",
+      "skills": [
+        { "name": "React & Next.js", "level": "Core" },
+        { "name": "Tailwind CSS", "level": "Core" },
+        { "name": "WordPress Plugins", "level": "Core" },
+        { "name": "Gutenberg Blocks", "level": "Core" },
+        { "name": "REST & GraphQL", "level": "Core" }
+      ]
+    },
+    {
+      "category": "Backend & Database",
+      "skills": [
+        { "name": "Node.js & Express", "level": "Core" },
+        { "name": "PostgreSQL & MySQL", "level": "Core" },
+        { "name": "Redis Caching", "level": "Core" },
+        { "name": "Docker Containers", "level": "Intermediate" },
+        { "name": "CI/CD Pipelines", "level": "Intermediate" }
+      ]
+    }
+  ],
   "swe": [
     {
       "category": "Languages",

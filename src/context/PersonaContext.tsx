@@ -7,8 +7,8 @@ interface PersonaContextType {
   setPersona: (persona: PersonaType) => void;
 }
 
-const DEFAULT_PERSONA: PersonaType = 'swe';
-const VALID_PERSONAS: PersonaType[] = ['swe', 'backend', 'fullstack', 'wordpress'];
+const DEFAULT_PERSONA: PersonaType = 'overall';
+const VALID_PERSONAS: PersonaType[] = ['overall', 'swe', 'backend', 'fullstack', 'wordpress'];
 
 export const PersonaContext = createContext<PersonaContextType | undefined>(undefined);
 
