@@ -81,6 +81,26 @@
     "futureImprovements": "Introduce a centralized status dashboard and transition background cron processes to Node.js workers."
   },
   {
+    "slug": "ufc-custom-blocks-engine",
+    "title": "UFC Custom Blocks & Components Engine",
+    "personas": ["swe", "fullstack", "wordpress"],
+    "role": "Software Developer Intern",
+    "timeline": "Apr 2025 - Jun 2025",
+    "architecture": "WordPress block extension plugin leveraging React JSX components, SCSS stylesheets, block metadata JSON specs, dynamic PHP shortcodes, and AJAX database synchronization layers.",
+    "problem": "Requirement for high-performance responsive block elements and user role dashboard features that standard block libraries did not support.",
+    "solution": "Engineered 33 custom Gutenberg React blocks, developed a Swiper-powered video slider integrated with YouTube/Vimeo APIs, registered custom coach profile capabilities, and programmed an AJAX-driven local notifications caching database.",
+    "challenges": "Synchronizing YouTube/Vimeo API play states with the Swiper carousel's autoplay functions to prevent slide transitions during active video playbacks, resolved by binding custom JavaScript controllers to iframe events.",
+    "techStack": ["React", "JavaScript", "Sass", "PHP", "WordPress", "Swiper JS", "SQL", "YouTube API"],
+    "lessonsLearned": "Mastered Gutenberg block lifecycle events, enqueuing localized scripts in WordPress admin spaces, and managing asynchronous updates via custom tables.",
+    "video": "",
+    "images": [],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/universaltech/ufc-plugin"
+    },
+    "futureImprovements": "Convert custom React block structures to support full site editing layouts and register render hooks server-side."
+  },
+  {
     "slug": "motorcycle-safety-academy-platform",
     "title": "Motorcycle Safety Academy Custom Platform",
     "personas": ["wordpress", "fullstack"],

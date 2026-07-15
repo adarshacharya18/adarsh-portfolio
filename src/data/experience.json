@@ -14,6 +14,13 @@
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
+    "period": "Jan 2025 - June 2025",
+    "role": "Software Developer Intern",
+    "company": "UniversalTech (universaltech.com)",
+    "description": "Completed training in Git/GitHub, Agile frameworks, and WordPress core. Built the UFC plugin engineering 33 Gutenberg React blocks, dynamic video sliders with YouTube/Vimeo iframe bindings, and an AJAX notification system with custom SQL caching tables.",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
+  },
+  {
     "period": "2024 - 2025",
     "role": "WordPress Technical Lead",
     "company": "WebSphere CMS Solutions",

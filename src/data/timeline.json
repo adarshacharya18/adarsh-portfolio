@@ -48,6 +48,22 @@
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
+    "id": "ufc-block-engine",
+    "quarter": "2025 Q2",
+    "title": "UFC Custom Block Engine Launch",
+    "description": "Completed development on the UFC blocks plugin, delivering 33 Gutenberg React blocks, Swiper sliders, and local notifications cache endpoints.",
+    "category": "Frontend & Block Dev",
+    "personas": ["swe", "fullstack", "wordpress"]
+  },
+  {
+    "id": "joined-universaltech-intern",
+    "quarter": "2025 Q1",
+    "title": "Joined UniversalTech as Developer Intern",
+    "description": "Started a 6-month software developer internship, undergoing intensive training in HTML/CSS/JS, Git/GitHub, Agile workflows, and Redmine.",
+    "category": "Career Milestone",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
+  },
+  {
     "id": "headless-wordpress-gutenberg",
     "quarter": "2024 Q3",
     "title": "Released Headless Block Integration Engine",
