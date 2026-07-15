@@ -17,8 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Documented construction, coordinate maps, and brand symbolism inside **[aa_monogram_rationale.md](file:///home/adarsh/.gemini/antigravity-cli/brain/bcd41c6b-ec39-47a9-88ff-bcd1a7d453af/aa_monogram_rationale.md)**.
 - **UniversalTech Employment Entries**:
   - Added new employment record in **[experience.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/experience.json)** for the Junior Software Developer role.
-  - Injected 3 detailed project showcases (E-Signature document platform, event synchronization engine, and custom academy theme) into **[projects.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/projects.json)**.
-  - Incorporated 3 project milestones chronologically into **[timeline.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/timeline.json)**.
+  - Injected 4 detailed project showcases (E-Signature document platform, event synchronization engine, custom academy theme, and the RESO-aligned **GlobalSpaces Platform** monorepo) into **[projects.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/projects.json)**.
+  - Incorporated project milestones chronologically into **[timeline.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/timeline.json)** to reflect the exact start dates (MSA custom plugin starting in July/October, Twilio notifications in October, CSV importer in November, eSign & Adobe integrations in January/February, and GlobalSpaces in March/May/June).
 - **Robust Link Rendering & Structured Schemas**:
   - Updated `ProjectItem` type specifications to mark source repo and live demo URLs as optional.
   - Refactored `ProjectLinksGroup` component and `CaseStudy` page containers to conditionally build SEO meta tags and UI links, avoiding broken endpoints for local/internal projects.
