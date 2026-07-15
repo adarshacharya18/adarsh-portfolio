@@ -35,12 +35,12 @@ const Navbar: React.FC = () => {
   return (
     <header className="border-b border-border-primary bg-bg-secondary sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
       <div className="container mx-auto px-4 max-w-7xl h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2.5 group">
+        <Link to="/" className="flex items-center space-x-2 group">
           <LogoMark
-            size={28}
+            size={22}
             className="text-text-primary transition-transform duration-200 group-hover:scale-105"
           />
-          <span className="text-md font-bold tracking-tight font-display text-text-primary">
+          <span className="text-lg font-extrabold tracking-wide font-mono text-text-primary">
             {nav.logoText}
           </span>
         </Link>
