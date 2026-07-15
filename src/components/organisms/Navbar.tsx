@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import ThemeSwitcher from '../molecules/ThemeSwitcher';
 import PersonaSelector from '../molecules/PersonaSelector';
+import LogoMark from '../atoms/LogoMark';
 import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
 
 import type { NavigationConfig } from '../../types/navigation';
@@ -34,7 +35,11 @@ const Navbar: React.FC = () => {
   return (
     <header className="border-b border-border-primary bg-bg-secondary sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
       <div className="container mx-auto px-4 max-w-7xl h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2.5 group">
+          <LogoMark
+            size={28}
+            className="text-text-primary transition-transform duration-200 group-hover:scale-105"
+          />
           <span className="text-md font-bold tracking-tight font-display text-text-primary">
             {nav.logoText}
           </span>

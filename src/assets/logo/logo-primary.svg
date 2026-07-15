@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <!-- AA Monogram: Two connected A-letterforms sharing a central leg -->
+  <!-- Main zigzag structure: left foot → left peak → center foot → right peak → right foot -->
+  <path d="M 3,42 L 15,6 L 24,42 L 33,6 L 45,42"/>
+  <!-- Left A crossbar -->
+  <path d="M 8,28 L 20.5,28"/>
+  <!-- Right A crossbar -->
+  <path d="M 27.5,28 L 40,28"/>
+</svg>
