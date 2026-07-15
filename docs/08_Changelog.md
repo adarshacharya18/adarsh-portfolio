@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.8.0-showcase] - 2026-07-15
+
+### Added
+- Upgraded **Project Case Study Showcase system** with advanced fields:
+  - **Dynamic Video Player**: Supports HTML5 `<video>` segments for project demonstrations.
+  - **Screenshots Gallery**: Displays dynamic grids of interface layouts.
+  - **System Architecture**: Added dedicated architecture blueprints text blocks.
+  - **Roles & Durations**: Renders employment timelines and roles (e.g. *Lead Systems Architect*).
+- Refactored **[ProjectsPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/ProjectsPresenter.tsx)** to show clean, desaturated summary cards on the main landing listing, drilling down into deep detailed reports.
+- Refactored **[CaseStudyPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/CaseStudyPresenter.tsx)** to mount and lay out all technical case study sections.
+- Verified TypeScript interface schema definitions in **[project.ts](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/types/project.ts)** and updated **[projects.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/projects.json)** database assets.
+
+---
+
 ## [0.7.0-blog] - 2026-07-15
 
 ### Added

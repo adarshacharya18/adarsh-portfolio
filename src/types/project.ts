@@ -9,13 +9,17 @@ export interface ProjectItem {
   slug: string;
   title: string;
   personas: PersonaType[];
+  role: string;
+  timeline: string;
+  architecture: string;
   problem: string;
   solution: string;
   challenges: string;
   techStack: string[];
   lessonsLearned: string;
-  timeline: string;
+  video?: string;
   images: string[];
+  screenshots: string[];
   links: ProjectLinks;
   futureImprovements: string;
 }

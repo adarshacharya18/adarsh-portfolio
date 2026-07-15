@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Section from '../atoms/Section';
-import { FiClock } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
-import ProjectLinksGroup from '../molecules/ProjectLinksGroup';
+import { FiClock, FiArrowRight, FiUser } from 'react-icons/fi';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import TagBadgeList from '../molecules/TagBadgeList';
 import type { ProjectItem } from '../../types/project';
 import type { PersonaType } from '../../types/persona';
@@ -13,6 +13,9 @@ interface ProjectsPresenterProps {
 }
 
 const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({ projects, activePersona }) => {
+  const shouldReduceMotion = useReducedMotion();
+  const yVal = shouldReduceMotion ? 0 : 8;
+
   const listVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -24,7 +27,7 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({ projects, activeP
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 8 },
+    hidden: { opacity: 0, y: yVal },
     show: { opacity: 1, y: 0, transition: { duration: 0.25, ease: 'easeOut' as const } },
   };
 
@@ -36,65 +39,49 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({ projects, activeP
           variants={listVariants}
           initial="hidden"
           animate="show"
-          className="space-y-12 max-w-4xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
         >
           {projects.map((project) => (
             <motion.article
               key={project.slug}
               variants={itemVariants}
-              className="border border-border-primary bg-bg-secondary p-6 md:p-8 rounded-xl space-y-6 shadow-soft hover:border-border-focus transition-colors text-left"
+              className="border border-border-primary bg-bg-secondary p-6 rounded-xl flex flex-col justify-between space-y-4 shadow-soft hover:border-border-focus transition-colors text-left"
             >
-              <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border-primary pb-4">
-                <div className="space-y-1">
-                  <h2 className="text-xl font-bold tracking-tight text-text-primary">
+              <div className="space-y-3">
+                <header className="space-y-1.5">
+                  <h2 className="text-base font-bold tracking-tight text-text-primary">
                     {project.title}
                   </h2>
-                  <div className="flex items-center space-x-2 text-2xs text-text-muted">
-                    <FiClock className="w-3.5 h-3.5" />
-                    <span>{project.timeline}</span>
+                  <div className="flex flex-wrap items-center gap-3 text-3xs text-text-muted font-mono">
+                    <div className="flex items-center space-x-1">
+                      <FiUser className="w-3.5 h-3.5" />
+                      <span>{project.role}</span>
+                    </div>
+                    <span>&bull;</span>
+                    <div className="flex items-center space-x-1">
+                      <FiClock className="w-3.5 h-3.5" />
+                      <span>{project.timeline}</span>
+                    </div>
                   </div>
-                </div>
-                <ProjectLinksGroup githubUrl={project.links.github} demoUrl={project.links.demo} />
-              </header>
+                </header>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-text-secondary">
-                <div className="space-y-1">
-                  <h3 className="font-bold text-text-primary uppercase tracking-wide text-2xs">
-                    The Problem
-                  </h3>
-                  <p className="leading-relaxed">{project.problem}</p>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-text-primary uppercase tracking-wide text-2xs">
-                    The Solution
-                  </h3>
-                  <p className="leading-relaxed">{project.solution}</p>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-text-primary uppercase tracking-wide text-2xs">
-                    Technical Challenges
-                  </h3>
-                  <p className="leading-relaxed">{project.challenges}</p>
-                </div>
-                <div className="space-y-1">
-                  <h3 className="font-bold text-text-primary uppercase tracking-wide text-2xs">
-                    Lessons Learned
-                  </h3>
-                  <p className="leading-relaxed">{project.lessonsLearned}</p>
-                </div>
+                <p className="text-xs text-text-muted leading-relaxed line-clamp-3">
+                  {project.solution}
+                </p>
               </div>
 
               <div className="space-y-4 pt-4 border-t border-border-primary">
-                <div className="space-y-2">
-                  <h3 className="font-bold text-text-primary uppercase tracking-wide text-2xs">
-                    Future Improvements
-                  </h3>
-                  <p className="text-xs text-text-muted leading-relaxed">
-                    {project.futureImprovements}
-                  </p>
-                </div>
-
                 <TagBadgeList tags={project.techStack} />
+
+                <div className="flex justify-end pt-1">
+                  <Link
+                    to={`/case-studies/${project.slug}`}
+                    className="inline-flex items-center space-x-1.5 text-xs text-text-muted font-semibold hover:text-text-primary transition cursor-pointer"
+                  >
+                    <span>View Case Study</span>
+                    <FiArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             </motion.article>
           ))}
