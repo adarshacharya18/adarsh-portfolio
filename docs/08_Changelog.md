@@ -33,6 +33,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Navbar Links Sequence Optimization**:
   - Reordered core page links inside **[navigation.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/navigation.json)** to sequence main elements as requested.
   - Refactored **[Navbar.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/Navbar.tsx)** link partition arrays to render **Experience, Projects, Certifications, Contact** on the main navigation panel, grouping Dashboard, Articles, and Timeline inside the "More" dropdown.
+- **Medium Blog Article Integration**:
+  - Imported markdown blog post detailed analysis on overcoming Event Espresso SPCO database deadlock race conditions into **[concurrency-safe-checkouts.md](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/articles/concurrency-safe-checkouts.md)**.
+  - Registered the slug and configured cross-linked related article mappings in the index database **[articles.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/articles.json)**.
 
 ---
 
