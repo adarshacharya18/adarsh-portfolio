@@ -1,0 +1,31 @@
+{
+  "default": {
+    "title": "Adarsh | Software Engineer Portfolio",
+    "description": "Premium software engineering portfolio with tailored recruiter views.",
+    "keywords": "Software Engineer, Backend Developer, Full Stack Developer, WordPress Engineer"
+  },
+  "projects": {
+    "title": "Projects Showcase | Developer Portfolio",
+    "description": "Case studies representing technical engineering solutions matching the active profile."
+  },
+  "experience": {
+    "title": "Work Experience | Developer Portfolio",
+    "description": "Detailed professional history tailored to the selected persona."
+  },
+  "articles": {
+    "title": "Technical Articles & Developer Logs | Portfolio",
+    "description": "Technical essays, architectural reviews, and tutorials on systems design."
+  },
+  "timeline": {
+    "title": "Interactive Milestone Timeline | Portfolio",
+    "description": "A chronological outline of technical releases, achievements, and open source contributions."
+  },
+  "certificates": {
+    "title": "Verified Professional Credentials & Certifications | Portfolio",
+    "description": "Verified courses, certifications, and technical licenses held for the active track."
+  },
+  "contact": {
+    "title": "Get In Touch | Developer Portfolio",
+    "description": "Send a message to initiate collaboration or inquire about hiring availability."
+  }
+}

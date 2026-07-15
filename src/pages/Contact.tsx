@@ -2,16 +2,19 @@ import React from 'react';
 import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import contactData from '../data/contact.json';
+import seoData from '../data/seo.json';
 import ContactPresenter from '../components/organisms/ContactPresenter';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { ContactData } from '../types/contact';
+import type { SeoConfig } from '../types/seo';
 
 const Contact: React.FC = () => {
   const contact = contactData as unknown as ContactData;
+  const seo = seoData as unknown as SeoConfig;
 
   useDocumentMetadata({
-    title: `${contact.title} | Developer Portfolio`,
-    description: contact.description,
+    title: seo.contact.title,
+    description: seo.contact.description || contact.description,
   });
 
   const handleSubmit = async (formData: { name: string; email: string; message: string }) => {

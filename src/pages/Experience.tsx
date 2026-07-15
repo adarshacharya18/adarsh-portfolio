@@ -3,20 +3,23 @@ import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
 import experienceData from '../data/experience.json';
+import seoData from '../data/seo.json';
 import ExperiencePresenter from '../components/organisms/ExperiencePresenter';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { ExperienceItem } from '../types/experience';
+import type { SeoConfig } from '../types/seo';
 
 const Experience: React.FC = () => {
   const { activePersona } = usePersona();
+  const seo = seoData as unknown as SeoConfig;
 
   const filteredExperience = (experienceData as unknown as ExperienceItem[]).filter((exp) =>
     exp.personas.includes(activePersona),
   );
 
   useDocumentMetadata({
-    title: 'Work Experience | Developer Portfolio',
-    description: 'Detailed professional history tailored to the selected persona.',
+    title: seo.experience.title,
+    description: seo.experience.description,
   });
 
   return (

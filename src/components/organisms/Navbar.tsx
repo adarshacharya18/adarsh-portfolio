@@ -4,31 +4,25 @@ import ThemeSwitcher from '../molecules/ThemeSwitcher';
 import PersonaSelector from '../molecules/PersonaSelector';
 import { FiMenu, FiX } from 'react-icons/fi';
 
+import type { NavigationConfig } from '../../types/navigation';
+import navigationData from '../../data/navigation.json';
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { path: '/', label: 'Dashboard' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/experience', label: 'Experience' },
-    { path: '/articles', label: 'Articles' },
-    { path: '/timeline', label: 'Timeline' },
-    { path: '/certificates', label: 'Certificates' },
-    { path: '/contact', label: 'Contact' },
-  ];
+  const nav = navigationData as unknown as NavigationConfig;
 
   return (
     <header className="border-b border-border-primary bg-bg-secondary sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
       <div className="container mx-auto px-4 max-w-7xl h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <span className="text-md font-bold tracking-tight font-display text-text-primary">
-            DevPortfolio
+            {nav.logoText}
           </span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden xl:flex items-center space-x-6">
-          {navLinks.map((link) => (
+          {nav.links.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
@@ -60,7 +54,7 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="xl:hidden border-b border-border-primary bg-bg-secondary p-4 space-y-4">
           <nav className="flex flex-col space-y-3">
-            {navLinks.map((link) => (
+            {nav.links.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}

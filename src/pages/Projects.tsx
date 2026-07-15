@@ -3,12 +3,15 @@ import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
 import projectsData from '../data/projects.json';
+import seoData from '../data/seo.json';
 import ProjectsPresenter from '../components/organisms/ProjectsPresenter';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { ProjectItem } from '../types/project';
+import type { SeoConfig } from '../types/seo';
 
 const Projects: React.FC = () => {
   const { activePersona } = usePersona();
+  const seo = seoData as unknown as SeoConfig;
 
   // Filter projects by active recruiter track
   const filteredProjects = (projectsData as unknown as ProjectItem[]).filter((p) =>
@@ -16,9 +19,8 @@ const Projects: React.FC = () => {
   );
 
   useDocumentMetadata({
-    title: 'Projects Showcase | Developer Portfolio',
-    description:
-      'Detailed professional case studies representing engineering solutions for the selected persona.',
+    title: seo.projects.title,
+    description: seo.projects.description,
   });
 
   return (

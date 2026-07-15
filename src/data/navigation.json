@@ -1,0 +1,12 @@
+{
+  "logoText": "DevPortfolio",
+  "links": [
+    { "path": "/", "label": "Dashboard" },
+    { "path": "/projects", "label": "Projects" },
+    { "path": "/experience", "label": "Experience" },
+    { "path": "/articles", "label": "Articles" },
+    { "path": "/timeline", "label": "Timeline" },
+    { "path": "/certificates", "label": "Certificates" },
+    { "path": "/contact", "label": "Contact" }
+  ]
+}

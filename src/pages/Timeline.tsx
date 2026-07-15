@@ -3,21 +3,23 @@ import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
 import timelineData from '../data/timeline.json';
+import seoData from '../data/seo.json';
 import TimelinePresenter from '../components/organisms/TimelinePresenter';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { TimelineItem } from '../types/timeline';
+import type { SeoConfig } from '../types/seo';
 
 const Timeline: React.FC = () => {
   const { activePersona } = usePersona();
+  const seo = seoData as unknown as SeoConfig;
 
   const filteredTimeline = (timelineData as unknown as TimelineItem[]).filter((t) =>
     t.personas.includes(activePersona),
   );
 
   useDocumentMetadata({
-    title: 'Interactive Milestone Timeline | Portfolio',
-    description:
-      'A chronological outline of technical releases, achievements, and open source contributions.',
+    title: seo.timeline.title,
+    description: seo.timeline.description,
   });
 
   return (

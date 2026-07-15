@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.0-cms] - 2026-07-15
+
+### Added
+- Completed **CMS-like database architecture** by decoupling all layout parameters, metadata, and reviews into structured JSON files:
+  - **[navigation.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/navigation.json)**: Stores dynamic route paths, labels, and header logo title.
+  - **[socials.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/socials.json)**: Indexes social link profiles dynamically queried by the footer.
+  - **[testimonials.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/testimonials.json)**: Registers professional recommendations and reviews filtered by persona tracks.
+  - **[seo.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/seo.json)**: Stores metadata fallback configurations for all page indexes.
+- Created **[TestimonialsPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/TestimonialsPresenter.tsx)** presentation component to render recommendations.
+- Refactored **[Navbar.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/Navbar.tsx)** and **[Footer.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/Footer.tsx)** to consume their links and copyrights from `navigation.json` and `socials.json` respectively.
+- Refactored all page containers to load titles and descriptions from `seo.json`.
+
+---
+
 ## [0.4.0-seo-accessibility] - 2026-07-15
 
 ### Added

@@ -2,16 +2,19 @@ import React from 'react';
 import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import articlesData from '../data/articles.json';
+import seoData from '../data/seo.json';
 import ArticlesPresenter from '../components/organisms/ArticlesPresenter';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { ArticleMeta } from '../types/article';
+import type { SeoConfig } from '../types/seo';
 
 const Articles: React.FC = () => {
   const articles = articlesData as unknown as ArticleMeta[];
+  const seo = seoData as unknown as SeoConfig;
 
   useDocumentMetadata({
-    title: 'Technical Articles & Developer Logs | Portfolio',
-    description: 'Essays, architectural posts, and lessons in software design.',
+    title: seo.articles.title,
+    description: seo.articles.description,
   });
 
   return (
