@@ -31,12 +31,14 @@ const HeroPresenter: React.FC<HeroPresenterProps> = ({
       className="flex flex-col items-start justify-center py-16 md:py-24 space-y-8"
     >
       <div className="space-y-4 max-w-3xl">
-        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-border-primary bg-bg-secondary">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse" />
-          <span className="font-mono text-3xs uppercase tracking-wider text-text-muted">
-            {currentPersonaContent.title} Persona active
-          </span>
-        </div>
+        {activePersona !== 'overall' && (
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-border-primary bg-bg-secondary">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse" />
+            <span className="font-mono text-3xs uppercase tracking-wider text-text-muted">
+              {currentPersonaContent.title} Persona active
+            </span>
+          </div>
+        )}
 
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-text-primary">
           {profile.name}
