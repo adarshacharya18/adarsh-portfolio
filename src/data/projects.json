@@ -119,26 +119,5 @@
       "github": "https://github.com/universaltech/msa-platform"
     },
     "futureImprovements": "Refactor custom shortcode forms into Gutenberg block modules and port dashboard screens to React."
-  },
-  {
-    "slug": "custom-wp-headless-engine",
-    "title": "Headless WordPress Rendering Core",
-    "personas": ["swe", "fullstack", "wordpress"],
-    "role": "Senior Full Stack Engineer",
-    "timeline": "Apr 2026 - June 2026",
-    "architecture": "Static-first decoupled rendering client querying a Dockerized WordPress instance via optimized GraphQL schemas, cached at edge CDN worker routes.",
-    "problem": "Slow page loading speeds and high security exposure on shared hosting WordPress servers.",
-    "solution": "Designed a Next.js static rendering pipeline querying GraphQL APIs, decreasing load times by 75% and removing public server access interfaces.",
-    "challenges": "Synchronizing page rebuild triggers instantly when editors publish post changes in the WordPress dashboard.",
-    "techStack": ["React", "GraphQL", "WordPress", "Next.js", "TailwindCSS", "Edge Workers"],
-    "lessonsLearned": "Discovered patterns for mapping standard Gutenberg block layouts into highly semantic dynamic React wrappers.",
-    "video": "/assets/videos/wp-demo.mp4",
-    "images": ["/assets/images/wp-arch.png"],
-    "screenshots": ["/assets/images/wp-editor.png", "/assets/images/wp-analytics.png"],
-    "links": {
-      "github": "https://github.com/username/headless-wp",
-      "demo": "https://headless-wp-demo.adarsh.dev"
-    },
-    "futureImprovements": "Plan to build a custom Gutenberg block plugin that auto-compiles blocks into headless schema queries."
   }
 ]
