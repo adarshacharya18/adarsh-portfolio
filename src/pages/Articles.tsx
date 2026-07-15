@@ -4,8 +4,11 @@ import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import articlesData from '../data/articles.json';
 import { FiCalendar, FiArrowRight } from 'react-icons/fi';
+import type { ArticleMeta } from '../types/article';
 
 const Articles: React.FC = () => {
+  const articles = articlesData as unknown as ArticleMeta[];
+
   return (
     <PageWrapper>
       <Section id="articles-header" className="text-center space-y-4">
@@ -17,7 +20,7 @@ const Articles: React.FC = () => {
 
       <Section id="articles-list" className="max-w-3xl mx-auto w-full">
         <div className="space-y-6">
-          {articlesData.map((article) => (
+          {articles.map((article) => (
             <article
               key={article.slug}
               className="border border-border-primary bg-bg-secondary p-6 rounded-lg space-y-3 shadow-soft hover:border-border-focus transition"

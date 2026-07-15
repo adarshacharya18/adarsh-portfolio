@@ -4,11 +4,14 @@ import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
 import experienceData from '../data/experience.json';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { ExperienceItem } from '../types/experience';
 
 const Experience: React.FC = () => {
   const { activePersona } = usePersona();
 
-  const filteredExperience = experienceData.filter((exp) => exp.personas.includes(activePersona));
+  const filteredExperience = (experienceData as unknown as ExperienceItem[]).filter((exp) =>
+    exp.personas.includes(activePersona),
+  );
 
   return (
     <PageWrapper>

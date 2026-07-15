@@ -4,11 +4,14 @@ import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
 import timelineData from '../data/timeline.json';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { TimelineItem } from '../types/timeline';
 
 const Timeline: React.FC = () => {
   const { activePersona } = usePersona();
 
-  const filteredTimeline = timelineData.filter((t) => t.personas.includes(activePersona));
+  const filteredTimeline = (timelineData as unknown as TimelineItem[]).filter((t) =>
+    t.personas.includes(activePersona),
+  );
 
   return (
     <PageWrapper>

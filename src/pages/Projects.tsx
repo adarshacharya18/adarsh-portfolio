@@ -5,31 +5,13 @@ import { usePersona } from '../hooks/usePersona';
 import projectsData from '../data/projects.json';
 import { FiGithub, FiExternalLink, FiClock } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { PersonaType } from '../types/persona';
-
-interface ProjectType {
-  slug: string;
-  title: string;
-  personas: PersonaType[];
-  problem: string;
-  solution: string;
-  challenges: string;
-  techStack: string[];
-  lessonsLearned: string;
-  timeline: string;
-  images: string[];
-  links: {
-    github: string;
-    demo: string;
-  };
-  futureImprovements: string;
-}
+import type { ProjectItem } from '../types/project';
 
 const Projects: React.FC = () => {
   const { activePersona } = usePersona();
 
   // Filter projects by active recruiter track
-  const filteredProjects = (projectsData as unknown as ProjectType[]).filter((p) =>
+  const filteredProjects = (projectsData as unknown as ProjectItem[]).filter((p) =>
     p.personas.includes(activePersona),
   );
 

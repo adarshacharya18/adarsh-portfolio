@@ -5,11 +5,12 @@ import { usePersona } from '../hooks/usePersona';
 import certificatesData from '../data/certificates.json';
 import { FiAward, FiExternalLink } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { CertificateItem } from '../types/certificate';
 
 const Certificates: React.FC = () => {
   const { activePersona } = usePersona();
 
-  const filteredCertificates = certificatesData.filter((cert) =>
+  const filteredCertificates = (certificatesData as unknown as CertificateItem[]).filter((cert) =>
     cert.personas.includes(activePersona),
   );
 

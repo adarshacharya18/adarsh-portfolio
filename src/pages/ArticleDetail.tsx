@@ -5,6 +5,7 @@ import Section from '../components/atoms/Section';
 import articlesData from '../data/articles.json';
 import { parseMarkdown } from '../utils/markdown';
 import { FiCalendar, FiArrowLeft } from 'react-icons/fi';
+import type { ArticleMeta } from '../types/article';
 
 // Import raw markdown contents statically using Vite ?raw query parameter
 import rawCmsSetup from '../data/articles/headless-cms-setup.md?raw';
@@ -17,8 +18,9 @@ const articleContentMap: Record<string, string> = {
 
 const ArticleDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const articles = articlesData as unknown as ArticleMeta[];
 
-  const articleMeta = articlesData.find((art) => art.slug === slug);
+  const articleMeta = articles.find((art) => art.slug === slug);
   const rawContent = slug ? articleContentMap[slug] : null;
 
   if (!articleMeta || !rawContent) {

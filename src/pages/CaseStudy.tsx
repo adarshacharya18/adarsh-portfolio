@@ -4,11 +4,13 @@ import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import projectsData from '../data/projects.json';
 import { FiGithub, FiExternalLink, FiClock, FiArrowLeft } from 'react-icons/fi';
+import type { ProjectItem } from '../types/project';
 
 const CaseStudy: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const projects = projectsData as unknown as ProjectItem[];
 
-  const project = projectsData.find((p) => p.slug === slug);
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     return (

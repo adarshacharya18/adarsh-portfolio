@@ -10,40 +10,17 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiLeetcode, SiCodeforces } from 'react-icons/si';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { PersonaType } from '../types/persona';
-
-interface SkillItem {
-  name: string;
-  level: string;
-}
-
-interface SkillGroup {
-  category: string;
-  skills: SkillItem[];
-}
-
-interface ExperienceItem {
-  period: string;
-  role: string;
-  company: string;
-  description: string;
-  personas: string[];
-}
-
-interface PersonaContentItem {
-  title: string;
-  subTitle: string;
-  description: string;
-  featuredHeading: string;
-  featuredDescription: string;
-}
+import type { Profile, PersonaContent } from '../types/profile';
+import type { SkillGroup } from '../types/skill';
+import type { ExperienceItem } from '../types/experience';
 
 const Home: React.FC = () => {
   const { activePersona } = usePersona();
-  const profile = profileData;
+  const profile = profileData as unknown as Profile;
 
-  const currentPersonaContent = (
-    profileData.personaContent as Record<PersonaType, PersonaContentItem>
-  )[activePersona];
+  const currentPersonaContent = (profile.personaContent as Record<PersonaType, PersonaContent>)[
+    activePersona
+  ];
   const currentSkills = (skillsData as unknown as Record<PersonaType, SkillGroup[]>)[activePersona];
   const currentExperience = (experienceData as unknown as ExperienceItem[]).filter((exp) =>
     exp.personas.includes(activePersona),
