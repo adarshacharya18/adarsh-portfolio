@@ -29,6 +29,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://adarsh.dev/articles/database-performance-caching</loc>
+    <lastmod>July 15, 2026</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://adarsh.dev/articles/concurrency-safe-checkouts</loc>
     <lastmod>July 15, 2026</lastmod>
     <priority>0.6</priority>

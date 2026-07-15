@@ -5,8 +5,16 @@
   <link>https://adarsh.dev/articles</link>
   <description>Technical essays, architectural reviews, and tutorials on systems design.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 15 Jul 2026 18:22:46 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 15 Jul 2026 18:25:13 GMT</lastBuildDate>
   <atom:link href="https://adarsh.dev/rss.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title>Scaling Database Operations in WordPress: Optimizing Bulk Imports and Flat Query Caching</title>
+    <link>https://adarsh.dev/articles/database-performance-caching</link>
+    <guid>https://adarsh.dev/articles/database-performance-caching</guid>
+    <pubDate>Tue, 14 Jul 2026 18:30:00 GMT</pubDate>
+    <description>An exploration of relational normalization bottlenecks under heavy indexing, custom denormalized database caching, and SQL relevance-weighted candidate scoring.</description>
+    <category>Backend Engineering</category>
+  </item>
   <item>
     <title>Architecting Concurrency-Safe WordPress Checkouts: Overcoming Event Espresso SPCO Race Conditions</title>
     <link>https://adarsh.dev/articles/concurrency-safe-checkouts</link>

@@ -12,11 +12,13 @@ import type { ArticleMeta } from '../types/article';
 import rawCmsSetup from '../data/articles/headless-cms-setup.md?raw';
 import rawApiDesign from '../data/articles/api-design-patterns.md?raw';
 import rawConcurrencyCheckouts from '../data/articles/concurrency-safe-checkouts.md?raw';
+import rawDatabasePerformanceCaching from '../data/articles/database-performance-caching.md?raw';
 
 const articleContentMap: Record<string, string> = {
   'headless-cms-setup': rawCmsSetup,
   'api-design-patterns': rawApiDesign,
   'concurrency-safe-checkouts': rawConcurrencyCheckouts,
+  'database-performance-caching': rawDatabasePerformanceCaching,
 };
 
 const ArticleDetail: React.FC = () => {
