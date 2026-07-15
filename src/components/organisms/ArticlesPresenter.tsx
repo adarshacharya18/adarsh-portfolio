@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Section from '../atoms/Section';
-import { FiCalendar, FiArrowRight, FiSearch } from 'react-icons/fi';
+import { FiCalendar, FiArrowRight, FiSearch, FiBookOpen, FiGithub } from 'react-icons/fi';
 import TagBadgeList from '../molecules/TagBadgeList';
 import type { ArticleMeta } from '../../types/article';
 
@@ -90,10 +90,34 @@ const ArticlesPresenter: React.FC<ArticlesPresenterProps> = ({
                   {article.excerpt}
                 </p>
                 <TagBadgeList tags={article.tags} />
-                <div className="pt-4 border-t border-border-primary flex justify-end">
+                <div className="pt-4 border-t border-border-primary flex justify-between items-center text-xs text-text-muted font-semibold">
+                  <div className="flex items-center space-x-4">
+                    {article.mediumUrl && (
+                      <a
+                        href={article.mediumUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-1.5 hover:text-text-primary transition"
+                      >
+                        <FiBookOpen className="w-3.5 h-3.5" />
+                        <span>Read Medium</span>
+                      </a>
+                    )}
+                    {article.gistUrl && (
+                      <a
+                        href={article.gistUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-1.5 hover:text-text-primary transition"
+                      >
+                        <FiGithub className="w-3.5 h-3.5" />
+                        <span>Read Gist</span>
+                      </a>
+                    )}
+                  </div>
                   <Link
                     to={`/articles/${article.slug}`}
-                    className="inline-flex items-center space-x-1.5 text-xs text-text-muted font-semibold hover:text-text-primary transition cursor-pointer"
+                    className="inline-flex items-center space-x-1.5 hover:text-text-primary transition cursor-pointer"
                   >
                     <span>Read Article</span>
                     <FiArrowRight className="w-3.5 h-3.5" />

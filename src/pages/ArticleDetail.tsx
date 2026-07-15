@@ -11,10 +11,12 @@ import type { ArticleMeta } from '../types/article';
 // Import raw markdown contents statically using Vite ?raw query parameter
 import rawCmsSetup from '../data/articles/headless-cms-setup.md?raw';
 import rawApiDesign from '../data/articles/api-design-patterns.md?raw';
+import rawConcurrencyCheckouts from '../data/articles/concurrency-safe-checkouts.md?raw';
 
 const articleContentMap: Record<string, string> = {
   'headless-cms-setup': rawCmsSetup,
   'api-design-patterns': rawApiDesign,
+  'concurrency-safe-checkouts': rawConcurrencyCheckouts,
 };
 
 const ArticleDetail: React.FC = () => {

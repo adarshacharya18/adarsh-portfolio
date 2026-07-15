@@ -7,7 +7,9 @@
     "tags": ["WordPress", "PHP", "Concurrency", "SQL", "APIs"],
     "category": "Backend Engineering",
     "readingTime": "10 min read",
-    "relatedSlugs": ["headless-cms-setup", "api-design-patterns"]
+    "relatedSlugs": ["headless-cms-setup", "api-design-patterns"],
+    "mediumUrl": "https://medium.com/@adarshacharya7830/architecting-concurrency-safe-wordpress-checkouts-overcoming-event-espresso-spco-race-conditions-10c0f60f0415",
+    "gistUrl": "https://gist.github.com/adarshacharya"
   },
   {
     "slug": "headless-cms-setup",

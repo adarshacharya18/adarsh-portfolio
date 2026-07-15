@@ -7,4 +7,6 @@ export interface ArticleMeta {
   category: string;
   readingTime: string;
   relatedSlugs: string[];
+  mediumUrl?: string;
+  gistUrl?: string;
 }
