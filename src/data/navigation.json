@@ -1,11 +1,11 @@
 {
   "logoText": "Mriga",
   "links": [
+    { "path": "/", "label": "Home" },
     { "path": "/experience", "label": "Experience" },
     { "path": "/projects", "label": "Projects" },
     { "path": "/certificates", "label": "Certifications" },
     { "path": "/contact", "label": "Contact" },
-    { "path": "/", "label": "Dashboard" },
     { "path": "/articles", "label": "Articles" },
     { "path": "/timeline", "label": "Timeline" }
   ]
