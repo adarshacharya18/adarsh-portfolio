@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.11.0-navbar] - 2026-07-15
+
+### Added
+- Completed **Header UX Refinement & Navbar Redesign**:
+  - **Persona Selector Dropdown**: Refactored **[PersonaSelector.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/molecules/PersonaSelector.tsx)** from a wide segmented control panel into a compact, elegant floating dropdown selector displaying track-specific dot indicators.
+  - **Secondary Links Grouping**: Updated **[Navbar.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/Navbar.tsx)** to filter core pages (Projects, Experience, Articles, Contact) on the main bar, grouping minor pages (Timeline, Certificates) inside a clean "More" dropdown.
+  - **Responsive Visibility**: Shifted the desktop navigation threshold down from `xl` (1280px) to `md` (768px) to provide a rich tablet and laptop header layout.
+  - **Click-Outside Listeners**: Deployed hooks on all header dropdown menus to automatically close elements when clicking outside.
+
+---
+
 ## [0.10.0-deploy] - 2026-07-15
 
 ### Added
