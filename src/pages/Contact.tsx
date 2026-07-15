@@ -18,10 +18,29 @@ const Contact: React.FC = () => {
   });
 
   const handleSubmit = async (formData: { name: string; email: string; message: string }) => {
-    // Simulate API request delay
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    console.log('Form message received:', formData);
-    return true;
+    const endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || contact.formAction || '';
+
+    // If no production endpoint is set, run simulated post fallback to prevent crashings in local dev
+    if (!endpoint || endpoint.includes('placeholder_id')) {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log('Local dev fallback form submission:', formData);
+      return true;
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      return response.ok;
+    } catch (error) {
+      console.error('Failed to submit form:', error);
+      return false;
+    }
   };
 
   return (

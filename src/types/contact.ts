@@ -14,5 +14,6 @@ export interface ContactLabels {
 export interface ContactData {
   title: string;
   description: string;
+  formAction?: string;
   labels: ContactLabels;
 }
