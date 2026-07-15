@@ -66,7 +66,9 @@ const MainLayout: React.FC = () => {
       </div>
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8 max-w-7xl">
-        <Outlet />
+        <React.Suspense fallback={<LoadingScreen />}>
+          <Outlet />
+        </React.Suspense>
       </main>
       <Footer />
     </div>

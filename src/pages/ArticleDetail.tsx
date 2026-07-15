@@ -37,6 +37,7 @@ const ArticleDetail: React.FC = () => {
     description: articleMeta
       ? articleMeta.excerpt
       : 'Detailed technical articles and developer logs.',
+    ogType: 'article',
     canonicalUrl: articleMeta ? `${originUrl}/articles/${articleMeta.slug}` : undefined,
   });
 

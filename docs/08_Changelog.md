@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.9.0-lighthouse] - 2026-07-15
+
+### Added
+- Completed comprehensive **production performance & Lighthouse audits optimizations** target:
+  - **PWA Manifest**: Created PWA compliance webmanifest **[manifest.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/public/manifest.json)**.
+  - **Sitemap & Robots**: Deployed **[robots.txt](file:///home/adarsh/Documents/Portpolio_website/Website_2026/public/robots.txt)** index indexing directives, mapping to dynamic sitemaps.
+  - **Social Sharing Previews**: Deployed OpenGraph (`og:image`, `og:type`) and Twitter Cards (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`) metadata bindings inside **[useDocumentMetadata.ts](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/hooks/useDocumentMetadata.ts)**.
+  - **Code-Splitting & Lazy Loading**: Refactored **[routes/index.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/routes/index.tsx)** to load all page views dynamically using `React.lazy()`.
+  - **Suspense Boundaries**: Wrapped Outlet routes in **[MainLayout.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/MainLayout.tsx)** with `<React.Suspense>` handlers.
+- Reduced initial landing bundle footprint by splitting code into 19 individual modular chunks, optimizing load times and CLS parameters.
+
+---
+
 ## [0.8.0-showcase] - 2026-07-15
 
 ### Added

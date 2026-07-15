@@ -1,15 +1,18 @@
+/* eslint-disable react-refresh/only-export-components */
+import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Home from '../pages/Home';
-import Projects from '../pages/Projects';
-import Experience from '../pages/Experience';
-import Articles from '../pages/Articles';
-import ArticleDetail from '../pages/ArticleDetail';
-import Timeline from '../pages/Timeline';
-import Certificates from '../pages/Certificates';
-import Contact from '../pages/Contact';
-import NotFound from '../pages/NotFound';
-import CaseStudy from '../pages/CaseStudy';
 import MainLayout from '../components/organisms/MainLayout';
+
+const Home = lazy(() => import('../pages/Home'));
+const Projects = lazy(() => import('../pages/Projects'));
+const Experience = lazy(() => import('../pages/Experience'));
+const Articles = lazy(() => import('../pages/Articles'));
+const ArticleDetail = lazy(() => import('../pages/ArticleDetail'));
+const Timeline = lazy(() => import('../pages/Timeline'));
+const Certificates = lazy(() => import('../pages/Certificates'));
+const Contact = lazy(() => import('../pages/Contact'));
+const NotFound = lazy(() => import('../pages/NotFound'));
+const CaseStudy = lazy(() => import('../pages/CaseStudy'));
 
 export const router = createBrowserRouter([
   {
