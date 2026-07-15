@@ -1,5 +1,15 @@
 [
   {
+    "slug": "concurrency-safe-checkouts",
+    "title": "Architecting Concurrency-Safe WordPress Checkouts: Overcoming Event Espresso SPCO Race Conditions",
+    "date": "July 15, 2026",
+    "excerpt": "A deep dive into concurrency bottlenecks within the Event Espresso 4 Single-Page Checkout (SPCO) flow, implementing forced entity map cache invalidation, raw request self-healing, and direct database bypasses.",
+    "tags": ["WordPress", "PHP", "Concurrency", "SQL", "APIs"],
+    "category": "Backend Engineering",
+    "readingTime": "10 min read",
+    "relatedSlugs": ["headless-cms-setup", "api-design-patterns"]
+  },
+  {
     "slug": "headless-cms-setup",
     "title": "Configuring Headless WordPress via WP GraphQL",
     "date": "July 15, 2026",
@@ -7,7 +17,7 @@
     "tags": ["WordPress", "GraphQL", "APIs", "React"],
     "category": "WordPress Architecture",
     "readingTime": "5 min read",
-    "relatedSlugs": ["api-design-patterns"]
+    "relatedSlugs": ["api-design-patterns", "concurrency-safe-checkouts"]
   },
   {
     "slug": "api-design-patterns",
@@ -17,6 +27,6 @@
     "tags": ["Backend", "API Design", "gRPC", "Go"],
     "category": "Systems Design",
     "readingTime": "8 min read",
-    "relatedSlugs": ["headless-cms-setup"]
+    "relatedSlugs": ["headless-cms-setup", "concurrency-safe-checkouts"]
   }
 ]
