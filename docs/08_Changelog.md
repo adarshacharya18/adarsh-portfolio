@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.10.0-deploy] - 2026-07-15
+
+### Added
+- Prepared portfolio codebase for production deployment on **Cloudflare Pages**:
+  - **Redirects Fallback**: Created **[_redirects](file:///home/adarsh/Documents/Portpolio_website/Website_2026/public/_redirects)** file containing `/* /index.html 200` to support dynamic client routing refreshes.
+  - **Caching and Caching strategies**: Added **[_headers](file:///home/adarsh/Documents/Portpolio_website/Website_2026/public/_headers)** to implement dynamic headers caching control (`max-age=0, must-revalidate` on html/json/xml) and permanent caching (`max-age=31536000, immutable` on hashed assets).
+  - **Security Headers**: Integrated XSS Protection, nosniff content tags, and Content-Security-Policy (CSP) headers in `_headers`.
+- Generated a production-grade deployment checklist, Wrangler deploy workflows, and dashboard rollback instructions inside **[deployment_playbook.md](file:///home/adarsh/.gemini/antigravity-cli/brain/bcd41c6b-ec39-47a9-88ff-bcd1a7d453af/deployment_playbook.md)**.
+
+---
+
 ## [0.9.0-lighthouse] - 2026-07-15
 
 ### Added
