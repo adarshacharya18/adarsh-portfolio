@@ -1,5 +1,5 @@
 {
-  "logoText": "DevPortfolio",
+  "logoText": "Mriga",
   "links": [
     { "path": "/", "label": "Dashboard" },
     { "path": "/projects", "label": "Projects" },
