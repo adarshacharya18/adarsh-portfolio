@@ -39,6 +39,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Linked the raw markdown asset in the static content mapping of **[ArticleDetail.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/pages/ArticleDetail.tsx)** to fix the "article not found" router resolution bug.
   - Extended the `ArticleMeta` type mapping inside **[article.ts](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/types/article.ts)** to support optional Medium and Gist repository links.
   - Refactored **[ArticlesPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/ArticlesPresenter.tsx)** footer card actions to conditionally render "Read Medium" and "Read Gist" buttons next to the default article link.
+- **Sequential Markdown State-Machine Compiler**:
+  - Replaced the simple double-newline splitting in **[markdown.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/utils/markdown.tsx)** with a custom sequential line compiler. This resolves broken/fragmented code block displays by accumulating multi-line structures correctly and ignoring internal blank lines.
+  - Implemented custom React mapping for inline elements like bold (`**text**`), inline code (`` `code` ``), and external links (`[text](url)`).
+  - Integrated PHP keyterm and comment syntax highlighting.
 
 ---
 
