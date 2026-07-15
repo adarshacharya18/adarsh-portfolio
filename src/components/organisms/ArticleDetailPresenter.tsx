@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiCalendar, FiArrowLeft } from 'react-icons/fi';
 import { parseMarkdown } from '../../utils/markdown';
+import TagBadgeList from '../molecules/TagBadgeList';
 import type { ArticleMeta } from '../../types/article';
 
 interface ArticleDetailPresenterProps {
@@ -32,16 +33,7 @@ const ArticleDetailPresenter: React.FC<ArticleDetailPresenterProps> = ({
           <h1 className="text-xl md:text-2xl font-bold tracking-tight text-text-primary">
             {articleMeta.title}
           </h1>
-          <div className="flex flex-wrap gap-1.5 pt-2">
-            {articleMeta.tags.map((tag) => (
-              <span
-                key={tag}
-                className="font-mono text-3xs px-2 py-0.5 rounded bg-bg-primary border border-border-primary text-text-secondary"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+          <TagBadgeList tags={articleMeta.tags} />
         </header>
 
         <div className="space-y-1">{parseMarkdown(rawContent)}</div>

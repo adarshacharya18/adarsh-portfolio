@@ -4,6 +4,7 @@ import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
 import experienceData from '../data/experience.json';
 import ExperiencePresenter from '../components/organisms/ExperiencePresenter';
+import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { ExperienceItem } from '../types/experience';
 
 const Experience: React.FC = () => {
@@ -12,6 +13,11 @@ const Experience: React.FC = () => {
   const filteredExperience = (experienceData as unknown as ExperienceItem[]).filter((exp) =>
     exp.personas.includes(activePersona),
   );
+
+  useDocumentMetadata({
+    title: 'Work Experience | Developer Portfolio',
+    description: 'Detailed professional history tailored to the selected persona.',
+  });
 
   return (
     <PageWrapper>

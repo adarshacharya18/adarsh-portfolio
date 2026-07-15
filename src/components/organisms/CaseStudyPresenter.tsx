@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiGithub, FiExternalLink, FiClock, FiArrowLeft } from 'react-icons/fi';
+import { FiClock, FiArrowLeft } from 'react-icons/fi';
+import ProjectLinksGroup from '../molecules/ProjectLinksGroup';
+import TagBadgeList from '../molecules/TagBadgeList';
 import type { ProjectItem } from '../../types/project';
 
 interface CaseStudyPresenterProps {
@@ -24,26 +26,7 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
             <h1 className="text-xl md:text-2xl font-bold tracking-tight text-text-primary">
               {project.title}
             </h1>
-            <div className="flex items-center space-x-3 text-text-secondary">
-              <a
-                href={project.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-text-primary transition"
-                aria-label="GitHub Repository"
-              >
-                <FiGithub className="w-5 h-5" />
-              </a>
-              <a
-                href={project.links.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-text-primary transition"
-                aria-label="Live Demo"
-              >
-                <FiExternalLink className="w-5 h-5" />
-              </a>
-            </div>
+            <ProjectLinksGroup githubUrl={project.links.github} demoUrl={project.links.demo} />
           </div>
 
           <div className="flex items-center space-x-2 text-2xs text-text-muted">
@@ -90,16 +73,7 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
         </div>
 
         <div className="pt-6 border-t border-border-primary">
-          <div className="flex flex-wrap gap-1.5">
-            {project.techStack.map((tech) => (
-              <span
-                key={tech}
-                className="font-mono text-3xs px-2 py-0.5 rounded bg-bg-primary border border-border-primary text-text-secondary"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          <TagBadgeList tags={project.techStack} />
         </div>
       </article>
     </div>

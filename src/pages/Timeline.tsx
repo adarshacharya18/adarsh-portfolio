@@ -4,6 +4,7 @@ import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
 import timelineData from '../data/timeline.json';
 import TimelinePresenter from '../components/organisms/TimelinePresenter';
+import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { TimelineItem } from '../types/timeline';
 
 const Timeline: React.FC = () => {
@@ -12,6 +13,12 @@ const Timeline: React.FC = () => {
   const filteredTimeline = (timelineData as unknown as TimelineItem[]).filter((t) =>
     t.personas.includes(activePersona),
   );
+
+  useDocumentMetadata({
+    title: 'Interactive Milestone Timeline | Portfolio',
+    description:
+      'A chronological outline of technical releases, achievements, and open source contributions.',
+  });
 
   return (
     <PageWrapper>

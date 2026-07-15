@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0-seo-accessibility] - 2026-07-15
+
+### Added
+- Integrated dynamic meta tag indexing using **[useDocumentMetadata.ts](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/hooks/useDocumentMetadata.ts)** custom hook. Sets browser titles, descriptions, keywords, canonical URLs, and OpenGraph targets on page changes.
+- Set up **[JsonLd.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/atoms/JsonLd.tsx)** component for JSON-LD structured schema injects:
+  - Injected `Person` and `ProfilePage` schemas on the Home route.
+  - Injected `CreativeWork` schemas on individual project case study routes.
+  - Injected `BlogPosting` schemas on technical blog post detail routes.
+- Created reusable presenter molecules to eliminate code duplication:
+  - **[TagBadge.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/atoms/TagBadge.tsx)** presentational atom.
+  - **[TagBadgeList.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/molecules/TagBadgeList.tsx)** tag arrays mapper.
+  - **[ProjectLinksGroup.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/molecules/ProjectLinksGroup.tsx)** standardized code and demo link anchors.
+- Added visually hidden screen reader announce wrapper `aria-live="polite"` inside **[MainLayout.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/MainLayout.tsx)** to report active persona changes.
+- Implemented **[ContactPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/ContactPresenter.tsx)** and updated **[Contact.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/pages/Contact.tsx)** to act as a container loading labels and input validators from **[contact.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/contact.json)**.
+
+---
+
 ## [0.3.0-architecture] - 2026-07-15
 
 ### Added

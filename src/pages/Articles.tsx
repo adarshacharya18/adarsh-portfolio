@@ -3,10 +3,16 @@ import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import articlesData from '../data/articles.json';
 import ArticlesPresenter from '../components/organisms/ArticlesPresenter';
+import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { ArticleMeta } from '../types/article';
 
 const Articles: React.FC = () => {
   const articles = articlesData as unknown as ArticleMeta[];
+
+  useDocumentMetadata({
+    title: 'Technical Articles & Developer Logs | Portfolio',
+    description: 'Essays, architectural posts, and lessons in software design.',
+  });
 
   return (
     <PageWrapper>

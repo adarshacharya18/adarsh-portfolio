@@ -1,7 +1,9 @@
 import React from 'react';
 import Section from '../atoms/Section';
-import { FiGithub, FiExternalLink, FiClock } from 'react-icons/fi';
+import { FiClock } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
+import ProjectLinksGroup from '../molecules/ProjectLinksGroup';
+import TagBadgeList from '../molecules/TagBadgeList';
 import type { ProjectItem } from '../../types/project';
 import type { PersonaType } from '../../types/persona';
 
@@ -52,26 +54,7 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({ projects, activeP
                     <span>{project.timeline}</span>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3 text-text-secondary">
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-text-primary transition"
-                    aria-label="View Code"
-                  >
-                    <FiGithub className="w-5 h-5" />
-                  </a>
-                  <a
-                    href={project.links.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-text-primary transition"
-                    aria-label="View Live Demo"
-                  >
-                    <FiExternalLink className="w-5 h-5" />
-                  </a>
-                </div>
+                <ProjectLinksGroup githubUrl={project.links.github} demoUrl={project.links.demo} />
               </header>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs text-text-secondary">
@@ -111,16 +94,7 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({ projects, activeP
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 pt-2">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="font-mono text-3xs px-2 py-0.5 rounded bg-bg-primary border border-border-primary text-text-secondary"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                <TagBadgeList tags={project.techStack} />
               </div>
             </motion.article>
           ))}

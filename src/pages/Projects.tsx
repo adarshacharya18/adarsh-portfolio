@@ -4,6 +4,7 @@ import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
 import projectsData from '../data/projects.json';
 import ProjectsPresenter from '../components/organisms/ProjectsPresenter';
+import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { ProjectItem } from '../types/project';
 
 const Projects: React.FC = () => {
@@ -13,6 +14,12 @@ const Projects: React.FC = () => {
   const filteredProjects = (projectsData as unknown as ProjectItem[]).filter((p) =>
     p.personas.includes(activePersona),
   );
+
+  useDocumentMetadata({
+    title: 'Projects Showcase | Developer Portfolio',
+    description:
+      'Detailed professional case studies representing engineering solutions for the selected persona.',
+  });
 
   return (
     <PageWrapper>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Section from '../atoms/Section';
 import { FiCalendar, FiArrowRight } from 'react-icons/fi';
+import TagBadgeList from '../molecules/TagBadgeList';
 import type { ArticleMeta } from '../../types/article';
 
 interface ArticlesPresenterProps {
@@ -23,16 +24,7 @@ const ArticlesPresenter: React.FC<ArticlesPresenterProps> = ({ articles }) => {
             </div>
             <h2 className="text-lg font-semibold text-text-primary">{article.title}</h2>
             <p className="text-xs md:text-sm text-text-muted leading-relaxed">{article.excerpt}</p>
-            <div className="pt-2 flex flex-wrap gap-1.5">
-              {article.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="font-mono text-3xs px-2 py-0.5 rounded bg-bg-primary border border-border-primary text-text-secondary"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <TagBadgeList tags={article.tags} />
             <div className="pt-4 border-t border-border-primary flex justify-end">
               <Link
                 to={`/articles/${article.slug}`}

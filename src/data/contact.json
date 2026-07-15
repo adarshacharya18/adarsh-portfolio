@@ -1,0 +1,16 @@
+{
+  "title": "Get In Touch",
+  "description": "Send a message to initiate collaboration or inquire about hiring availability.",
+  "labels": {
+    "name": "Full Name",
+    "namePlaceholder": "Jane Doe",
+    "email": "Email Address",
+    "emailPlaceholder": "jane@example.com",
+    "message": "Message",
+    "messagePlaceholder": "Project details, timeline, and requirements...",
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "success": "Thank you! Your message has been sent successfully.",
+    "error": "Failed to send message. Please try again."
+  }
+}
