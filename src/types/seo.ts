@@ -12,4 +12,5 @@ export interface SeoConfig {
   timeline: SeoPageConfig;
   certificates: SeoPageConfig;
   contact: SeoPageConfig;
+  notFound: SeoPageConfig & { buttonText: string };
 }
