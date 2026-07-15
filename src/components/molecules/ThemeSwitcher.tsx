@@ -6,7 +6,7 @@ const ThemeSwitcher: React.FC = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex items-center space-x-1 bg-bg-tertiary border border-border-primary p-1 rounded-full">
+    <div className="inline-flex items-center space-x-1 bg-bg-tertiary border border-border-primary p-1 rounded-full w-fit">
       <button
         onClick={() => setTheme('light')}
         className={`p-2 rounded-full transition-all duration-150 ${
