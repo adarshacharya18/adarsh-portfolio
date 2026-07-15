@@ -35,7 +35,7 @@ const CaseStudy: React.FC = () => {
     );
   }
 
-  const creativeWorkSchema = {
+  const creativeWorkSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
     name: project.title,
@@ -43,9 +43,14 @@ const CaseStudy: React.FC = () => {
     genre: 'Software Development Case Study',
     temporalCoverage: project.timeline,
     programmingLanguage: project.techStack,
-    codeRepository: project.links.github,
-    url: project.links.demo,
   };
+
+  if (project.links.github) {
+    creativeWorkSchema.codeRepository = project.links.github;
+  }
+  if (project.links.demo) {
+    creativeWorkSchema.url = project.links.demo;
+  }
 
   return (
     <PageWrapper>

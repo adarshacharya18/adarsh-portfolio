@@ -1,8 +1,8 @@
 import type { PersonaType } from './persona';
 
 export interface ProjectLinks {
-  github: string;
-  demo: string;
+  github?: string;
+  demo?: string;
 }
 
 export interface ProjectItem {
