@@ -5,7 +5,7 @@
   <link>https://adarsh.dev/articles</link>
   <description>Technical essays, architectural reviews, and tutorials on systems design.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 15 Jul 2026 18:29:53 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 15 Jul 2026 18:31:13 GMT</lastBuildDate>
   <atom:link href="https://adarsh.dev/rss.xml" rel="self" type="application/rss+xml" />
   <item>
     <title>Melodic Sequence Generation: Deep LSTMs vs. Probabilistic Markov Chains in Generative Music AI</title>
@@ -30,22 +30,6 @@
     <pubDate>Tue, 14 Jul 2026 18:30:00 GMT</pubDate>
     <description>A deep dive into concurrency bottlenecks within the Event Espresso 4 Single-Page Checkout (SPCO) flow, implementing forced entity map cache invalidation, raw request self-healing, and direct database bypasses.</description>
     <category>Backend Engineering</category>
-  </item>
-  <item>
-    <title>Configuring Headless WordPress via WP GraphQL</title>
-    <link>https://adarsh.dev/articles/headless-cms-setup</link>
-    <guid>https://adarsh.dev/articles/headless-cms-setup</guid>
-    <pubDate>Tue, 14 Jul 2026 18:30:00 GMT</pubDate>
-    <description>A deep dive into setting up a secure, query-optimized headless WordPress database connected to a React Vite client using GraphQL resolvers.</description>
-    <category>WordPress Architecture</category>
-  </item>
-  <item>
-    <title>REST and gRPC Design Patterns for High Throughput Apps</title>
-    <link>https://adarsh.dev/articles/api-design-patterns</link>
-    <guid>https://adarsh.dev/articles/api-design-patterns</guid>
-    <pubDate>Tue, 09 Jun 2026 18:30:00 GMT</pubDate>
-    <description>An architectural review of API protocols, schema validation libraries, and rate-limiting structures to maintain 99.9% platform availability.</description>
-    <category>Systems Design</category>
   </item>
 </channel>
 </rss>

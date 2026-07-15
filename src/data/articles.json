@@ -7,7 +7,7 @@
     "tags": ["Machine Learning", "Python", "Music AI", "LSTMs", "Data Science"],
     "category": "Systems Design",
     "readingTime": "8 min read",
-    "relatedSlugs": ["concurrency-safe-checkouts", "api-design-patterns", "database-performance-caching"],
+    "relatedSlugs": ["concurrency-safe-checkouts", "database-performance-caching"],
     "mediumUrl": "https://medium.com/@adarshacharya7830/scaling-database-operations-in-wordpress-optimizing-bulk-imports-and-flat-query-caching-3eb5668bd34f",
     "gistUrl": "https://gist.github.com/Adarsh1842/2e23dcd3316d86b30737b57406ad2dfb"
   },
@@ -19,7 +19,7 @@
     "tags": ["WordPress", "SQL", "Database", "Performance", "PHP"],
     "category": "Backend Engineering",
     "readingTime": "8 min read",
-    "relatedSlugs": ["concurrency-safe-checkouts", "api-design-patterns", "sequence-modeling-creative-ai"],
+    "relatedSlugs": ["concurrency-safe-checkouts", "sequence-modeling-creative-ai"],
     "mediumUrl": "https://medium.com/@adarshacharya7830/scaling-database-operations-in-wordpress-optimizing-bulk-imports-and-flat-query-caching-3eb5668bd34f",
     "gistUrl": "https://gist.github.com/Adarsh1842/3135ff2fe896c3f94dd7a2652895dc90"
   },
@@ -31,28 +31,8 @@
     "tags": ["WordPress", "PHP", "Concurrency", "SQL", "APIs"],
     "category": "Backend Engineering",
     "readingTime": "10 min read",
-    "relatedSlugs": ["headless-cms-setup", "api-design-patterns", "database-performance-caching", "sequence-modeling-creative-ai"],
+    "relatedSlugs": ["database-performance-caching", "sequence-modeling-creative-ai"],
     "mediumUrl": "https://medium.com/@adarshacharya7830/architecting-concurrency-safe-wordpress-checkouts-overcoming-event-espresso-spco-race-conditions-10c0f60f0415",
     "gistUrl": "https://gist.github.com/adarshacharya"
-  },
-  {
-    "slug": "headless-cms-setup",
-    "title": "Configuring Headless WordPress via WP GraphQL",
-    "date": "July 15, 2026",
-    "excerpt": "A deep dive into setting up a secure, query-optimized headless WordPress database connected to a React Vite client using GraphQL resolvers.",
-    "tags": ["WordPress", "GraphQL", "APIs", "React"],
-    "category": "WordPress Architecture",
-    "readingTime": "5 min read",
-    "relatedSlugs": ["api-design-patterns", "concurrency-safe-checkouts", "database-performance-caching", "sequence-modeling-creative-ai"]
-  },
-  {
-    "slug": "api-design-patterns",
-    "title": "REST and gRPC Design Patterns for High Throughput Apps",
-    "date": "June 10, 2026",
-    "excerpt": "An architectural review of API protocols, schema validation libraries, and rate-limiting structures to maintain 99.9% platform availability.",
-    "tags": ["Backend", "API Design", "gRPC", "Go"],
-    "category": "Systems Design",
-    "readingTime": "8 min read",
-    "relatedSlugs": ["headless-cms-setup", "concurrency-safe-checkouts", "database-performance-caching", "sequence-modeling-creative-ai"]
   }
 ]
