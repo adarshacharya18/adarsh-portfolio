@@ -3,7 +3,7 @@ import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
 import experienceData from '../data/experience.json';
-import { motion, AnimatePresence } from 'framer-motion';
+import ExperiencePresenter from '../components/organisms/ExperiencePresenter';
 import type { ExperienceItem } from '../types/experience';
 
 const Experience: React.FC = () => {
@@ -22,36 +22,11 @@ const Experience: React.FC = () => {
         </p>
       </Section>
 
-      <Section id="experience-list" className="max-w-3xl mx-auto w-full">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activePersona}
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.2 }}
-            className="space-y-8"
-          >
-            {filteredExperience.map((exp) => (
-              <div
-                key={`${exp.role}-${exp.company}`}
-                className="flex flex-col md:flex-row gap-4 md:gap-8 pb-8 border-b border-border-primary last:border-0 last:pb-0"
-              >
-                <div className="md:w-1/4">
-                  <span className="font-mono text-xs text-text-muted">{exp.period}</span>
-                </div>
-                <div className="md:w-3/4 space-y-2">
-                  <h2 className="text-xl font-semibold text-text-primary">{exp.role}</h2>
-                  <h3 className="text-sm text-text-secondary">{exp.company}</h3>
-                  <p className="text-xs md:text-sm text-text-muted leading-relaxed">
-                    {exp.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </Section>
+      <ExperiencePresenter
+        experience={filteredExperience}
+        activePersona={activePersona}
+        compact={false}
+      />
     </PageWrapper>
   );
 };

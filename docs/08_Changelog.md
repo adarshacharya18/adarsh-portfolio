@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0-architecture] - 2026-07-15
+
+### Added
+- Implemented **Container-Presenter design pattern** across all page components to enforce separation of concerns:
+  - Container pages (`Home`, `Projects`, `Experience`, `Articles`, `Timeline`, `Certificates`, `ArticleDetail`, `CaseStudy`) manage active state hooks, load raw JSON datasets, and run context filters.
+  - Presenter organisms (`HeroPresenter`, `SkillsPresenter`, `ExperiencePresenter`, `ProjectsPresenter`, `TimelinePresenter`, `CertificatesPresenter`, `ArticlesPresenter`, `ArticleDetailPresenter`, `CaseStudyPresenter`) operate as pure layout elements rendering interfaces from strictly typed props.
+- Integrated the shared component `ExperiencePresenter` to serve both the Home page summary view and the detailed Experience timeline view via a `compact` prop toggle.
+
+---
+
 ## [0.2.0-dynamic] - 2026-07-15
 
 ### Added
