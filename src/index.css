@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+
+/* Tailwind CSS v4 Theme Configurations */
+@theme {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border-primary: var(--border-primary);
+
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-alert: var(--accent-alert);
+
+  /* Persona Colors */
+  --color-persona-swe: var(--persona-swe);
+  --color-persona-backend: var(--persona-backend);
+  --color-persona-fullstack: var(--persona-fullstack);
+  --color-persona-wordpress: var(--persona-wordpress);
+
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+/* Enable class-based dark mode in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* HSL Color Definitions - Dark Theme (Default) */
+  --bg-primary: oklch(0.18 0.02 240);
+  --bg-secondary: oklch(0.22 0.02 240);
+  --bg-tertiary: oklch(0.26 0.02 240);
+
+  --text-primary: oklch(0.97 0.01 240);
+  --text-secondary: oklch(0.8 0.01 240);
+  --text-muted: oklch(0.6 0.01 240);
+
+  --border-primary: oklch(0.28 0.02 240);
+
+  --accent-primary: oklch(0.65 0.25 290); /* Electric Violet */
+  --accent-secondary: oklch(0.75 0.18 190); /* Neon Teal */
+  --accent-alert: oklch(0.65 0.22 20); /* Coral Red */
+
+  /* Persona HSL mappings */
+  --persona-swe: oklch(0.65 0.25 290); /* Violet */
+  --persona-backend: oklch(0.65 0.2 230); /* Blue */
+  --persona-fullstack: oklch(0.7 0.2 160); /* Green */
+  --persona-wordpress: oklch(0.65 0.23 35); /* WordPress Orange */
+}
+
+/* Light Theme Variables overriding Root defaults when .light class is active */
+html.light {
+  --bg-primary: oklch(0.98 0.01 240);
+  --bg-secondary: oklch(1 0 0);
+  --bg-tertiary: oklch(0.94 0.01 240);
+
+  --text-primary: oklch(0.2 0.02 240);
+  --text-secondary: oklch(0.35 0.02 240);
+  --text-muted: oklch(0.5 0.02 240);
+
+  --border-primary: oklch(0.9 0.01 240);
+}
+
+/* Global Reset overrides */
+@layer base {
+  html,
+  body {
+    @apply bg-bg-primary text-text-primary font-sans transition-colors duration-200 ease-in-out;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-bold text-text-primary;
+  }
+}
