@@ -119,5 +119,25 @@
       "github": "https://github.com/universaltech/msa-platform"
     },
     "futureImprovements": "Refactor custom shortcode forms into Gutenberg block modules and port dashboard screens to React."
+  },
+  {
+    "slug": "music-melody-generation-lstm-markov",
+    "title": "AI Music Melody Generation System",
+    "personas": ["swe", "backend", "fullstack"],
+    "role": "Research Developer & Co-Author",
+    "timeline": "Oct 2022 - Apr 2023",
+    "architecture": "Deep learning sequence model comparing Recurrent Neural Networks (LSTM) for long-term structures against a first-order Markov Chain model for scale transition probability matrices.",
+    "problem": "Automated composition of expressive musical sequences across Western Classical and Indian Hindustani Ragas without physical instruments.",
+    "solution": "Trained deep LSTM networks on classical German piano MIDI datasets and created transition frequency grids for classical Indian Ragas. Converted generated mathematical arrays into playable MIDI outputs.",
+    "challenges": "Mitigating structural monotony in LSTMs and thematic drift in Markov models, resolved by introducing temperature-based note selection and emotional boundaries.",
+    "techStack": ["Python", "TensorFlow", "Keras", "NumPy", "Music21", "Markov Chains"],
+    "lessonsLearned": "Developed deep competency in recurrent neural networks, sequence-to-sequence modeling, and statistical music analysis.",
+    "video": "",
+    "images": [],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/adarshacharya/music-generation-lstm"
+    },
+    "futureImprovements": "Integrate sentiment analysis for mood-matching melodies and scale to multi-instrument orchestrations."
   }
 ]

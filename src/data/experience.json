@@ -1,12 +1,5 @@
 [
   {
-    "period": "2025 - Present",
-    "role": "Senior Platform Engineer",
-    "company": "LogixTech Solutions",
-    "description": "Architecting low-latency microservices, relational schemas, and headless block systems.",
-    "personas": ["swe", "backend", "fullstack"]
-  },
-  {
     "period": "June 2025 - May 2026",
     "role": "Junior Software Developer",
     "company": "UniversalTech (universaltech.com)",
@@ -19,19 +12,5 @@
     "company": "UniversalTech (universaltech.com)",
     "description": "Completed training in Git/GitHub, Agile frameworks, and WordPress core. Built the UFC plugin engineering 33 Gutenberg React blocks, dynamic video sliders with YouTube/Vimeo iframe bindings, and an AJAX notification system with custom SQL caching tables.",
     "personas": ["swe", "backend", "fullstack", "wordpress"]
-  },
-  {
-    "period": "2024 - 2025",
-    "role": "WordPress Technical Lead",
-    "company": "WebSphere CMS Solutions",
-    "description": "Engineered custom payment plugins, Gutenberg block matrices, and configured headless React interfaces.",
-    "personas": ["wordpress", "fullstack"]
-  },
-  {
-    "period": "2023 - 2024",
-    "role": "Software Engineer",
-    "company": "CodeFlow Systems",
-    "description": "Developed REST API endpoints, automated unit test coverages, and built modular frontend UI views.",
-    "personas": ["swe", "backend", "fullstack"]
   }
 ]

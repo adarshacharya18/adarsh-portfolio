@@ -48,6 +48,14 @@
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
+    "id": "vit-pune-graduation",
+    "quarter": "2025 Q2",
+    "title": "B.Tech Computer Science Graduation",
+    "description": "Graduated with a Bachelor of Technology in Computer Science from Vishwakarma Institute of Technology, Pune (8.2 CGPA).",
+    "category": "Education Milestone",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
+  },
+  {
     "id": "ufc-block-engine",
     "quarter": "2025 Q2",
     "title": "UFC Custom Block Engine Launch",
@@ -78,5 +86,13 @@
     "description": "Designed continuous integration scripts using GitHub Actions, executing ESLint, Prettier, and TypeScript compilations.",
     "category": "DevOps",
     "personas": ["swe", "backend", "fullstack", "wordpress"]
+  },
+  {
+    "id": "ictis-2023-publication",
+    "quarter": "2023 Q2",
+    "title": "Published Music Generation Research Paper",
+    "description": "Co-authored and published the research paper 'Automatic Music Melody Generation using LSTM and Markov Chain Model' at the ICTIS 2023 conference.",
+    "category": "Research & Academics",
+    "personas": ["swe", "backend", "fullstack"]
   }
 ]

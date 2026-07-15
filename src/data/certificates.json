@@ -1,5 +1,14 @@
 [
   {
+    "id": "vit-pune-btech-cse",
+    "title": "B.Tech in Computer Science (8.2 CGPA)",
+    "issuer": "Vishwakarma Institute of Technology, Pune",
+    "date": "2025-06-15",
+    "credentialId": "VIT-BTECH-2025-CSE",
+    "url": "https://www.vit.edu",
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+  },
+  {
     "id": "aws-certified-solutions-architect",
     "title": "AWS Certified Solutions Architect – Associate",
     "issuer": "Amazon Web Services (AWS)",
