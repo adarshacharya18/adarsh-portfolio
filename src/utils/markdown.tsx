@@ -13,7 +13,8 @@ const highlightCode = (code: string, language: string): string => {
     lang === 'typescript' ||
     lang === 'js' ||
     lang === 'ts' ||
-    lang === 'json'
+    lang === 'json' ||
+    lang === 'php'
   ) {
     // 1. Highlight Strings
     escaped = escaped.replace(
@@ -50,6 +51,11 @@ const highlightCode = (code: string, language: string): string => {
       'as',
       'public',
       'private',
+      'namespace',
+      'use',
+      'global',
+      'throw',
+      'Exception',
     ];
     const keywordRegex = new RegExp(`\\b(${keywords.join('|')})\\b`, 'g');
     escaped = escaped.replace(
@@ -62,116 +68,229 @@ const highlightCode = (code: string, language: string): string => {
 };
 
 /**
- * A lightweight, safe parser that compiles basic markdown blocks (headers, lists, pre/code blocks, paragraphs)
- * directly into native React elements with anchor IDs and syntax highlighting.
+ * Parses inline formatting like `code`, **bold**, and [text](url) into React elements.
+ */
+const renderInlineFormatting = (text: string): React.ReactNode[] => {
+  const regex = /(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
+  const splitParts = text.split(regex);
+
+  return splitParts.map((part, i) => {
+    if (part.startsWith('`') && part.endsWith('`')) {
+      return (
+        <code
+          key={i}
+          className="px-1.5 py-0.5 rounded bg-bg-primary border border-border-primary font-mono text-2xs text-text-secondary"
+        >
+          {part.slice(1, -1)}
+        </code>
+      );
+    }
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return (
+        <strong key={i} className="font-bold text-text-primary">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
+      const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/);
+      if (match) {
+        const [, linkText, linkUrl] = match;
+        return (
+          <a
+            key={i}
+            href={linkUrl}
+            target={linkUrl.startsWith('http') ? '_blank' : undefined}
+            rel={linkUrl.startsWith('http') ? 'noopener noreferrer' : undefined}
+            className="text-accent-primary hover:underline font-semibold"
+          >
+            {linkText}
+          </a>
+        );
+      }
+    }
+    return part;
+  });
+};
+
+/**
+ * A robust compiler that parses markdown lines sequentially using a state machine,
+ * assembling consecutive paragraphs, tables, lists, and preserving multi-line code block structure.
  */
 export const parseMarkdown = (markdown: string): React.ReactNode[] => {
   if (!markdown) return [];
 
-  const blocks = markdown.split(/\n\s*\n/);
+  const lines = markdown.split('\n');
+  const elements: React.ReactNode[] = [];
 
-  return blocks.map((block, index) => {
-    const trimmed = block.trim();
-    if (!trimmed) return null;
+  let inCodeBlock = false;
+  let codeLanguage = '';
+  let codeBuffer: string[] = [];
 
-    // 1. Preformatted Code Blocks
-    if (trimmed.startsWith('```')) {
-      const lines = trimmed.split('\n');
-      const language = lines[0].replace('```', '').trim() || 'text';
-      const code = lines
-        .slice(1, lines[lines.length - 1].startsWith('```') ? -1 : undefined)
-        .join('\n');
-      return (
-        <pre
-          key={index}
-          className="bg-bg-primary border border-border-primary p-4 rounded-lg my-4 overflow-x-auto font-mono text-2xs md:text-xs text-text-secondary"
-        >
-          <code
-            className={`language-${language}`}
-            dangerouslySetInnerHTML={{ __html: highlightCode(code, language) }}
-          />
-        </pre>
+  let currentParagraph: string[] = [];
+  let currentListType: 'ul' | 'ol' | null = null;
+  let listBuffer: string[] = [];
+
+  const flushParagraph = (key: number) => {
+    if (currentParagraph.length > 0) {
+      const text = currentParagraph.join(' ');
+      elements.push(
+        <p key={`p-${key}`} className="text-xs md:text-sm text-text-muted leading-relaxed my-3">
+          {renderInlineFormatting(text)}
+        </p>,
       );
+      currentParagraph = [];
+    }
+  };
+
+  const flushList = (key: number) => {
+    if (currentListType && listBuffer.length > 0) {
+      const ListTag = currentListType === 'ul' ? 'ul' : 'ol';
+      const className =
+        currentListType === 'ul'
+          ? 'list-disc pl-5 my-3 space-y-1 text-xs md:text-sm text-text-secondary'
+          : 'list-decimal pl-5 my-3 space-y-1 text-xs md:text-sm text-text-secondary';
+
+      elements.push(
+        <ListTag key={`list-${key}`} className={className}>
+          {listBuffer.map((item, idx) => (
+            <li key={idx}>{renderInlineFormatting(item)}</li>
+          ))}
+        </ListTag>,
+      );
+      listBuffer = [];
+      currentListType = null;
+    }
+  };
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    if (inCodeBlock) {
+      if (trimmed === '```') {
+        const code = codeBuffer.join('\n');
+        const currentLang = codeLanguage;
+        elements.push(
+          <pre
+            key={`code-${i}`}
+            className="bg-bg-primary border border-border-primary p-4 rounded-lg my-4 overflow-x-auto font-mono text-2xs md:text-xs text-text-secondary"
+          >
+            <code
+              className={`language-${currentLang}`}
+              dangerouslySetInnerHTML={{ __html: highlightCode(code, currentLang) }}
+            />
+          </pre>,
+        );
+        codeBuffer = [];
+        codeLanguage = '';
+        inCodeBlock = false;
+      } else {
+        codeBuffer.push(line);
+      }
+      continue;
     }
 
-    // 2. Headings with dynamic anchor IDs
+    if (trimmed.startsWith('```')) {
+      flushParagraph(i);
+      flushList(i);
+      inCodeBlock = true;
+      codeLanguage = trimmed.replace('```', '').trim() || 'text';
+      continue;
+    }
+
     if (trimmed.startsWith('# ')) {
-      return (
-        <h1 key={index} className="text-xl md:text-2xl font-bold mt-8 mb-4 text-text-primary">
+      flushParagraph(i);
+      flushList(i);
+      elements.push(
+        <h1 key={`h1-${i}`} className="text-xl md:text-2xl font-bold mt-8 mb-4 text-text-primary">
           {trimmed.slice(2)}
-        </h1>
+        </h1>,
       );
+      continue;
     }
     if (trimmed.startsWith('## ')) {
+      flushParagraph(i);
+      flushList(i);
       const text = trimmed.slice(3);
       const id = text
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '');
-      return (
+      elements.push(
         <h2
           id={id}
-          key={index}
+          key={`h2-${i}`}
           className="text-lg md:text-xl font-semibold mt-6 mb-3 text-text-primary scroll-mt-20"
         >
           {text}
-        </h2>
+        </h2>,
       );
+      continue;
     }
     if (trimmed.startsWith('### ')) {
+      flushParagraph(i);
+      flushList(i);
       const text = trimmed.slice(4);
       const id = text
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '');
-      return (
+      elements.push(
         <h3
           id={id}
-          key={index}
+          key={`h3-${i}`}
           className="text-base md:text-lg font-medium mt-4 mb-2 text-text-primary scroll-mt-20"
         >
           {text}
-        </h3>
+        </h3>,
       );
+      continue;
     }
 
-    // 3. Bullet Lists
     if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
-      const items = trimmed.split(/\n[*-]\s+/).map((item) => item.replace(/^[*-]\s+/, ''));
-      return (
-        <ul
-          key={index}
-          className="list-disc pl-5 my-3 space-y-1 text-xs md:text-sm text-text-secondary"
-        >
-          {items.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
-      );
+      flushParagraph(i);
+      if (currentListType !== 'ul') {
+        flushList(i);
+        currentListType = 'ul';
+      }
+      listBuffer.push(trimmed.slice(2));
+      continue;
     }
-
-    // 4. Numbered Lists
     if (/^\d+\.\s+/.test(trimmed)) {
-      const items = trimmed.split(/\n\d+\.\s+/).map((item) => item.replace(/^\d+\.\s+/, ''));
-      return (
-        <ol
-          key={index}
-          className="list-decimal pl-5 my-3 space-y-1 text-xs md:text-sm text-text-secondary"
-        >
-          {items.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ol>
-      );
+      flushParagraph(i);
+      if (currentListType !== 'ol') {
+        flushList(i);
+        currentListType = 'ol';
+      }
+      const match = trimmed.match(/^\d+\.\s+(.*)/);
+      if (match) {
+        listBuffer.push(match[1]);
+      }
+      continue;
     }
 
-    // 5. Standard Paragraphs
-    return (
-      <p key={index} className="text-xs md:text-sm text-text-muted leading-relaxed my-3">
-        {trimmed}
-      </p>
-    );
-  });
+    if (trimmed === '---') {
+      flushParagraph(i);
+      flushList(i);
+      elements.push(<hr key={`hr-${i}`} className="my-6 border-border-primary" />);
+      continue;
+    }
+
+    if (!trimmed) {
+      flushParagraph(i);
+      flushList(i);
+      continue;
+    }
+
+    flushList(i);
+    currentParagraph.push(line);
+  }
+
+  flushParagraph(lines.length);
+  flushList(lines.length);
+
+  return elements;
 };
 
 export default parseMarkdown;
