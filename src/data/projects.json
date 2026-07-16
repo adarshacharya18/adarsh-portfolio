@@ -1,25 +1,5 @@
 [
-  {
-    "slug": "distributed-cache-service",
-    "title": "Distributed In-Memory Cache Service",
-    "personas": ["swe", "backend", "fullstack"],
-    "role": "Lead Systems Architect",
-    "timeline": "Jan 2026 - Mar 2026",
-    "architecture": "Decentralized consensus cluster using Raft Protocol, peer-to-peer gossip discovery, and an LRU cache engine with TTL eviction.",
-    "problem": "High-latency page renders and database CPU bottlenecks during flash sale write-spikes.",
-    "solution": "Built a Golang-based distributed cache service supporting sub-millisecond lookups, cluster auto-discovery, and eventual consistency sync.",
-    "challenges": "Handling split-brain consensus failures and re-balancing key hashes upon dynamic node terminations.",
-    "techStack": ["Go", "gRPC", "Protobuf", "Raft", "Redis", "Docker"],
-    "lessonsLearned": "Learned the trade-offs between linearizability and availability in high-throughput network programming.",
-    "video": "/assets/videos/cache-demo.mp4",
-    "images": ["/assets/images/cache-arch.png"],
-    "screenshots": ["/assets/images/cache-dashboard.png", "/assets/images/cache-metrics.png"],
-    "links": {
-      "github": "https://github.com/username/dist-cache",
-      "demo": "https://cache-demo.adarsh.dev"
-    },
-    "futureImprovements": "Plan to add a WebAssembly admin dashboard and support hot-swapping consistency profiles."
-  },
+
   {
     "slug": "global-spaces-platform",
     "title": "GlobalSpaces Platform",
