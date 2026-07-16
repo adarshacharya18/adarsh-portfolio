@@ -7,8 +7,7 @@
         { "name": "JavaScript", "level": "Core" },
         { "name": "SQL", "level": "Core" },
         { "name": "Algorithms & OOP", "level": "Core" },
-        { "name": "TypeScript", "level": "Staging" },
-        { "name": "Go", "level": "Intermediate" }
+        { "name": "C++", "level": "Intermediate" }
       ]
     },
     {
@@ -39,7 +38,7 @@
       "category": "Languages & Core",
       "skills": [
         { "name": "JavaScript & PHP", "level": "Core" },
-        { "name": "C++ & Go", "level": "Intermediate" },
+        { "name": "C++", "level": "Intermediate" },
         { "name": "TypeScript", "level": "Staging" }
       ]
     },
@@ -59,7 +58,6 @@
       "skills": [
         { "name": "PHP & WordPress", "level": "Core" },
         { "name": "REST & GraphQL", "level": "Core" },
-        { "name": "Go (Goroutines)", "level": "Intermediate" },
         { "name": "Node.js & Express", "level": "Staging" }
       ]
     },
