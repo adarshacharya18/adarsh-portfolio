@@ -35,37 +35,37 @@
     "gallery": [
       {
         "description": "Developed an administrative interface to upload, reorder (via drag-and-drop), and manage homepage media gallery configurations (gaps, columns, border radii) dynamically.",
-        "images": ["/static/images/admin-gallery-upload.png"],
+        "images": ["/static/images/admin-gallery-upload.webp"],
         "caption": "Media Gallery Administration Interface"
       },
       {
         "description": "Implemented a backend template-mapping utility to align development and production page IDs, resolving template loading discrepancies during environment migrations.",
         "images": [
-          "/static/images/page-mapping1.png",
-          "/static/images/page-mapping2.png"
+          "/static/images/page-mapping1.webp",
+          "/static/images/page-mapping2.webp"
         ],
         "caption": "Database Migration Template ID Mapper"
       },
       {
         "description": "Created administrative input settings to customize homepage layout parameters dynamically without direct codebase modifications.",
         "images": [
-          "/static/images/cards.png",
-          "/static/images/timeline-admin1.png"
+          "/static/images/cards.webp",
+          "/static/images/timeline-admin1.webp"
         ],
         "caption": "Dynamic Section Option Panels"
       },
       {
         "description": "Engineered a custom SEO metadata settings tab to inject metadata tags dynamically on specific pages, posts, and courses.",
-        "images": ["/static/images/seo-admin.png"],
+        "images": ["/static/images/seo-admin.webp"],
         "caption": "SEO Meta Tags Configurations"
       },
       {
         "description": "Built global settings options referenced by template rendering logic to fetch configuration values dynamically.",
         "images": [
-          "/static/images/admin-settings1.png",
-          "/static/images/admin-settings2.png",
-          "/static/images/admin-settings3.png",
-          "/static/images/admin-settings4.png"
+          "/static/images/admin-settings1.webp",
+          "/static/images/admin-settings2.webp",
+          "/static/images/admin-settings3.webp",
+          "/static/images/admin-settings4.webp"
         ],
         "caption": "Global Application Parameter Dashboard"
       }
@@ -93,17 +93,17 @@
     "gallery": [
       {
         "description": "Developed administrative settings to upload, manage, and render brand assets (custom logo and favicon images) dynamically across the system instead of using static theme files, using Cursor AI.",
-        "images": ["/static/images/esign-logo-favicon-upload.png"],
+        "images": ["/static/images/esign-logo-favicon-upload.webp"],
         "caption": "Brand Assets Administration Settings"
       },
       {
         "description": "Engineered a system-wide Maintenance Mode feature using Cursor AI, allowing administrators to lock template drafting screens and display tentative recovery time countdowns.",
-        "images": ["/static/images/esign-maintainence-mode.png"],
+        "images": ["/static/images/esign-maintainence-mode.webp"],
         "caption": "Administrative Maintenance Dashboard"
       },
       {
         "description": "Designed a centralized administrator dashboard displaying aggregated system metrics, recent document signing activities, and overall contract status overview feeds.",
-        "images": ["/static/images/esign-dahboard.png"],
+        "images": ["/static/images/esign-dahboard.webp"],
         "caption": "System Metrics & Document Dashboard"
       }
     ],
@@ -128,18 +128,18 @@
     "gallery": [
       {
         "description": "Developed a CSV upload parser that extracts scheduled training event data, filters out duplicate dates, and programmatically instantiates courses using Event Espresso core object-relational mapping APIs.",
-        "images": ["/static/images/msa-csv-event-import.png"],
+        "images": ["/static/images/msa-csv-event-import.webp"],
         "caption": "CSV Training Event Importer"
       },
       {
         "description": "Engineered a fuzzy scoring matching utility to reconcile student registrations against physical MSF records. Analyzes database fields (Email: 70%, Phone: 50%, Names: 40%). Auto-approves pairings scoring >= 90% and queues ambiguous matches (>= 60%) in an interactive validation panel for manual review.",
         "images": [
-          "/static/images/student-ecourse-data-import-masked.png",
-          "/static/images/student-ecourse-data-import1-masked.png",
-          "/static/images/student-ecourse-data-import2-masked.png",
-          "/static/images/student-ecourse-data-import3-masked.png",
-          "/static/images/student-ecourse-data-import4-masked.png",
-          "/static/images/student-ecourse-data-import5-masked.png"
+          "/static/images/student-ecourse-data-import-masked.webp",
+          "/static/images/student-ecourse-data-import1-masked.webp",
+          "/static/images/student-ecourse-data-import2-masked.webp",
+          "/static/images/student-ecourse-data-import3-masked.webp",
+          "/static/images/student-ecourse-data-import4-masked.webp",
+          "/static/images/student-ecourse-data-import5-masked.webp"
         ],
         "caption": "Fuzzy Matching Data Sync Modules"
       }
@@ -165,12 +165,12 @@
     "gallery": [
       {
         "description": "Leveraged WordPress's native Gutenberg block editor to build dynamic, fully-editable homepage grid sections using React component templates.",
-        "images": ["/static/images/guitenberg-editor.png"],
+        "images": ["/static/images/guitenberg-editor.webp"],
         "caption": "Gutenberg Layout Builder Interface"
       },
       {
         "description": "Developed a custom responsive testimonial carousel module styled with JavaScript/jQuery, integrated cleanly with Gutenberg block settings.",
-        "images": ["/static/images/ufc-testimonial.png"],
+        "images": ["/static/images/ufc-testimonial.webp"],
         "caption": "Interactive Testimonial Carousel Block"
       }
     ],

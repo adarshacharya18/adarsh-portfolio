@@ -70,7 +70,7 @@ const LeetCodeHighlight: React.FC = () => {
               </div>
               {/* Screenshot Image */}
               <img
-                src="/static/images/leetcode-profile-july.png"
+                src="/static/images/leetcode-profile-july.webp"
                 alt="LeetCode Profile Screenshot"
                 className="w-full h-auto block transition duration-300 filter group-hover:brightness-95"
                 loading="lazy"
