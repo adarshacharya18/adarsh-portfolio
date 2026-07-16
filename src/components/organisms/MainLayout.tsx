@@ -6,6 +6,7 @@ import { usePersona } from '../../hooks/usePersona';
 import { useScroll } from '../../hooks/useScroll';
 import { motion, AnimatePresence } from 'framer-motion';
 import LoadingScreen from '../molecules/LoadingScreen';
+import ScrollToTop from '../molecules/ScrollToTop';
 
 const MainLayout: React.FC = () => {
   const { activePersona } = usePersona();
@@ -36,6 +37,7 @@ const MainLayout: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-bg-primary text-text-primary">
+      <ScrollToTop />
       <AnimatePresence>
         {isLoading && (
           <motion.div
