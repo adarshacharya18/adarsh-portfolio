@@ -42,48 +42,50 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({ projects, activeP
           className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
         >
           {projects.map((project) => (
-            <motion.article
+            <Link
               key={project.slug}
-              variants={itemVariants}
-              className="border border-border-primary bg-bg-secondary p-6 rounded-xl flex flex-col justify-between space-y-4 shadow-soft hover:border-border-focus transition-colors text-left"
+              to={`/case-studies/${project.slug}`}
+              className="block group cursor-pointer"
             >
-              <div className="space-y-3">
-                <header className="space-y-1.5">
-                  <h2 className="text-base font-bold tracking-tight text-text-primary">
-                    {project.title}
-                  </h2>
-                  <div className="flex flex-wrap items-center gap-3 text-3xs text-text-muted font-mono">
-                    <div className="flex items-center space-x-1">
-                      <FiUser className="w-3.5 h-3.5" />
-                      <span>{project.role}</span>
+              <motion.article
+                variants={itemVariants}
+                className="border border-border-primary bg-bg-secondary p-6 rounded-xl flex flex-col justify-between space-y-4 h-full shadow-soft hover:border-border-focus transition-colors text-left"
+              >
+                <div className="space-y-3">
+                  <header className="space-y-1.5">
+                    <h2 className="text-base font-bold tracking-tight text-text-primary">
+                      {project.title}
+                    </h2>
+                    <div className="flex flex-wrap items-center gap-3 text-3xs text-text-muted font-mono">
+                      <div className="flex items-center space-x-1">
+                        <FiUser className="w-3.5 h-3.5" />
+                        <span>{project.role}</span>
+                      </div>
+                      <span>&bull;</span>
+                      <div className="flex items-center space-x-1">
+                        <FiClock className="w-3.5 h-3.5" />
+                        <span>{project.timeline}</span>
+                      </div>
                     </div>
-                    <span>&bull;</span>
-                    <div className="flex items-center space-x-1">
-                      <FiClock className="w-3.5 h-3.5" />
-                      <span>{project.timeline}</span>
+                  </header>
+
+                  <p className="text-xs text-text-muted leading-relaxed line-clamp-3">
+                    {project.solution}
+                  </p>
+                </div>
+
+                <div className="space-y-4 pt-4 border-t border-border-primary">
+                  <TagBadgeList tags={project.techStack} />
+
+                  <div className="flex justify-end pt-1">
+                    <div className="inline-flex items-center space-x-1.5 text-xs text-text-muted font-semibold group-hover:text-text-primary transition">
+                      <span>View Case Study</span>
+                      <FiArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                     </div>
                   </div>
-                </header>
-
-                <p className="text-xs text-text-muted leading-relaxed line-clamp-3">
-                  {project.solution}
-                </p>
-              </div>
-
-              <div className="space-y-4 pt-4 border-t border-border-primary">
-                <TagBadgeList tags={project.techStack} />
-
-                <div className="flex justify-end pt-1">
-                  <Link
-                    to={`/case-studies/${project.slug}`}
-                    className="inline-flex items-center space-x-1.5 text-xs text-text-muted font-semibold hover:text-text-primary transition cursor-pointer"
-                  >
-                    <span>View Case Study</span>
-                    <FiArrowRight className="w-3.5 h-3.5" />
-                  </Link>
                 </div>
-              </div>
-            </motion.article>
+              </motion.article>
+            </Link>
           ))}
         </motion.div>
       </AnimatePresence>
