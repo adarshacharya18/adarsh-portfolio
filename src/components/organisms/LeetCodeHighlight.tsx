@@ -57,7 +57,7 @@ const LeetCodeHighlight: React.FC = () => {
             <motion.div
               whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
               transition={{ duration: 0.2, ease: 'easeOut' }}
-              className="relative overflow-hidden rounded-lg border border-border-primary shadow-soft bg-bg-primary aspect-[16/10] w-full"
+              className="relative overflow-hidden rounded-lg border border-border-primary shadow-soft bg-bg-primary w-full"
             >
               {/* Mock Browser Header */}
               <div className="bg-bg-tertiary px-3 py-2 border-b border-border-primary flex items-center space-x-1.5 text-4xs">
@@ -72,7 +72,7 @@ const LeetCodeHighlight: React.FC = () => {
               <img
                 src="/static/images/leetcode-profile-july.png"
                 alt="LeetCode Profile Screenshot"
-                className="w-full h-full object-cover object-top transition duration-300 filter group-hover:brightness-95"
+                className="w-full h-auto block transition duration-300 filter group-hover:brightness-95"
                 loading="lazy"
               />
             </motion.div>
