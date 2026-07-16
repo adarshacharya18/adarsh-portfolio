@@ -1,5 +1,4 @@
 [
-
   {
     "slug": "global-spaces-platform",
     "title": "GlobalSpaces Platform",
@@ -9,9 +8,9 @@
     "architecture": "Full-stack monorepo featuring a React 18 client and Node.js Express server using Drizzle ORM and PostgreSQL 15+.",
     "problem": "Real estate transactions suffer from complex user permissions, fragmented tools, and compliance issues with industry data models.",
     "solution": "Created a monorepo platform supporting 6 user roles (Buyers, Tenants, Agents, Admins, etc.) fully aligned with RESO (Real Estate Standards Organization) v1.7. Designed round-based immutable snapshot tables for lease negotiations.",
-    "challenges": "Configuring secure role-switching auth scopes and implementing client-side validation logic to prevent cross-account transaction violations.",
-    "techStack": ["React", "TypeScript", "TailwindCSS", "Express", "Drizzle ORM", "PostgreSQL", "RESO Standard"],
-    "lessonsLearned": "Acquired skills in spec-first application layouts, database normalizations, and real estate data dictionaries standards.",
+    "challenges": "Handling high-volume relational mapping of diverse listing fields under strict v1.7 compliance. Resolved by building dynamic schema encoders and validation middleware layers.",
+    "techStack": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Drizzle ORM", "Docker"],
+    "lessonsLearned": "Acquired key insights into RESO schemas, relational normalization boundaries, and immutable state transaction histories.",
     "video": "",
     "images": [],
     "screenshots": [],
@@ -19,6 +18,26 @@
       "github": "https://github.com/universaltech/globalspaces"
     },
     "futureImprovements": "Build automatic Playwright integration suites and support payment gateway mappings."
+  },
+  {
+    "slug": "motorcycle-safety-academy-platform",
+    "title": "Motorcycle Safety Academy Custom Platform",
+    "personas": ["wordpress", "fullstack"],
+    "role": "Junior Software Developer",
+    "timeline": "Jul 2025 - May 2026",
+    "architecture": "Object-oriented custom WordPress plugin combined with a child theme override layer, custom shortcodes, and Map geolocation APIs.",
+    "problem": "Default course checkouts and registration forms lacked custom styling, timezone counters, geolocation searches, and role-based redirects.",
+    "solution": "Built 32 shortcode handlers, secure asynchronous authentication pages, Google Maps distance filters, and optimized checkout pages to minimize drop-off rates.",
+    "challenges": "Fixing layout delays and user experience drops on mobile viewports due to heavy scroll animations, resolved by disabling mobile animations and refining theme stylesheets.",
+    "techStack": ["PHP", "WordPress", "Event Espresso", "JavaScript", "Vanilla CSS", "Google Maps API"],
+    "lessonsLearned": "Gained expert familiarity with the WordPress event loop, actions/filters hooks lifecycle, and mobile UI rendering optimization.",
+    "video": "",
+    "images": [],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/universaltech/msa-platform"
+    },
+    "futureImprovements": "Refactor custom shortcode forms into Gutenberg block modules and port dashboard screens to React."
   },
   {
     "slug": "enterprise-esign-platform",
@@ -79,26 +98,6 @@
       "github": "https://github.com/universaltech/ufc-plugin"
     },
     "futureImprovements": "Convert custom React block structures to support full site editing layouts and register render hooks server-side."
-  },
-  {
-    "slug": "motorcycle-safety-academy-platform",
-    "title": "Motorcycle Safety Academy Custom Platform",
-    "personas": ["wordpress", "fullstack"],
-    "role": "Junior Software Developer",
-    "timeline": "Jul 2025 - May 2026",
-    "architecture": "Object-oriented custom WordPress plugin combined with a child theme override layer, custom shortcodes, and Map geolocation APIs.",
-    "problem": "Default course checkouts and registration forms lacked custom styling, timezone counters, geolocation searches, and role-based redirects.",
-    "solution": "Built 32 shortcode handlers, secure asynchronous authentication pages, Google Maps distance filters, and optimized checkout pages to minimize drop-off rates.",
-    "challenges": "Fixing layout delays and user experience drops on mobile viewports due to heavy scroll animations, resolved by disabling mobile animations and refining theme stylesheets.",
-    "techStack": ["PHP", "WordPress", "Event Espresso", "JavaScript", "Vanilla CSS", "Google Maps API"],
-    "lessonsLearned": "Gained expert familiarity with the WordPress event loop, actions/filters hooks lifecycle, and mobile UI rendering optimization.",
-    "video": "",
-    "images": [],
-    "screenshots": [],
-    "links": {
-      "github": "https://github.com/universaltech/msa-platform"
-    },
-    "futureImprovements": "Refactor custom shortcode forms into Gutenberg block modules and port dashboard screens to React."
   },
   {
     "slug": "music-melody-generation-lstm-markov",
