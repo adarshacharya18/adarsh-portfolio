@@ -14,9 +14,7 @@
     "video": "",
     "images": [],
     "screenshots": [],
-    "links": {
-      "github": "https://github.com/universaltech/globalspaces"
-    },
+    "links": {},
     "futureImprovements": "Build automatic Playwright integration suites and support payment gateway mappings."
   },
   {
@@ -109,9 +107,7 @@
         "caption": "System Metrics & Document Dashboard"
       }
     ],
-    "links": {
-      "github": "https://github.com/universaltech/esign-core"
-    },
+    "links": {},
     "futureImprovements": "Add support for multi-recipient workflow stages and implement hardware security modules (HSM) for signing keys."
   },
   {
@@ -129,9 +125,7 @@
     "video": "",
     "images": [],
     "screenshots": [],
-    "links": {
-      "github": "https://github.com/universaltech/event-sync"
-    },
+    "links": {},
     "futureImprovements": "Introduce a centralized status dashboard and transition background cron processes to Node.js workers."
   },
   {
@@ -149,9 +143,7 @@
     "video": "",
     "images": [],
     "screenshots": [],
-    "links": {
-      "github": "https://github.com/universaltech/ufc-plugin"
-    },
+    "links": {},
     "futureImprovements": "Convert custom React block structures to support full site editing layouts and register render hooks server-side."
   },
   {
@@ -169,9 +161,7 @@
     "video": "",
     "images": [],
     "screenshots": [],
-    "links": {
-      "github": "https://github.com/adarshacharya/music-generation-lstm"
-    },
+    "links": {},
     "futureImprovements": "Integrate sentiment analysis for mood-matching melodies and scale to multi-instrument orchestrations."
   }
 ]

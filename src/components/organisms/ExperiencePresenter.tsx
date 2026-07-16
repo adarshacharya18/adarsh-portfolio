@@ -50,7 +50,7 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
             animate="animate"
             exit="exit"
             variants={fadeVariants}
-            className="space-y-4 max-w-3xl"
+            className="flex flex-col gap-6 max-w-3xl"
           >
             {experience.map((exp) => (
               <motion.div
