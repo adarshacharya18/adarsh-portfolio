@@ -35,6 +35,9 @@ const ContactPresenter: React.FC<ContactPresenterProps> = ({ labels, onSubmit })
     }
   };
 
+  const isFormValid = name.trim() !== '' && email.trim() !== '' && message.trim() !== '';
+  const isDisabled = isSubmitting || !isFormValid;
+
   return (
     <Section id="contact-form" className="max-w-xl mx-auto w-full text-left">
       <form
@@ -91,8 +94,8 @@ const ContactPresenter: React.FC<ContactPresenterProps> = ({ labels, onSubmit })
 
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="w-full py-3 bg-text-primary text-bg-primary font-semibold text-xs rounded-lg hover:opacity-90 active:scale-[0.99] transition disabled:opacity-50 shadow-soft cursor-pointer"
+          disabled={isDisabled}
+          className="w-full py-3 bg-text-primary text-bg-primary font-semibold text-xs rounded-lg hover:opacity-90 active:scale-[0.99] transition disabled:opacity-50 disabled:cursor-not-allowed shadow-soft cursor-pointer"
         >
           {isSubmitting ? labels.submitting : labels.submit}
         </button>
