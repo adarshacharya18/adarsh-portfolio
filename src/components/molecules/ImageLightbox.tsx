@@ -60,24 +60,28 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({ isOpen, images, initialIn
       >
         {/* Controls Panel */}
         <div
-          className="absolute top-4 right-4 flex items-center space-x-3 z-50"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center space-x-2 sm:space-x-3 z-50"
           onClick={(e) => e.stopPropagation()}
         >
           <button
             onClick={toggleZoom}
-            className="text-white hover:text-zinc-300 transition p-2 bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800 rounded-full cursor-pointer flex items-center justify-center"
+            className="text-white hover:text-zinc-300 transition p-1.5 sm:p-2 bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800 rounded-full cursor-pointer flex items-center justify-center"
             title={isZoomed ? 'Zoom Out' : 'Zoom In'}
             aria-label="Toggle Zoom"
           >
-            {isZoomed ? <FiZoomOut className="w-5 h-5" /> : <FiZoomIn className="w-5 h-5" />}
+            {isZoomed ? (
+              <FiZoomOut className="w-4 h-4 sm:w-5 sm:h-5" />
+            ) : (
+              <FiZoomIn className="w-4 h-4 sm:w-5 sm:h-5" />
+            )}
           </button>
           <button
             onClick={onClose}
-            className="text-white hover:text-zinc-300 transition p-2 bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800 rounded-full cursor-pointer flex items-center justify-center"
+            className="text-white hover:text-zinc-300 transition p-1.5 sm:p-2 bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800 rounded-full cursor-pointer flex items-center justify-center"
             title="Close"
             aria-label="Close Lightbox"
           >
-            <FiX className="w-5 h-5" />
+            <FiX className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
 
@@ -88,10 +92,10 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({ isOpen, images, initialIn
               e.stopPropagation();
               handlePrev();
             }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition p-3 bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800 rounded-full cursor-pointer z-50 flex items-center justify-center"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition p-2 sm:p-3 bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800 rounded-full cursor-pointer z-50 flex items-center justify-center"
             aria-label="Previous image"
           >
-            <FiChevronLeft className="w-6 h-6" />
+            <FiChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         )}
 
@@ -102,10 +106,10 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({ isOpen, images, initialIn
               e.stopPropagation();
               handleNext();
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition p-3 bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800 rounded-full cursor-pointer z-50 flex items-center justify-center"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition p-2 sm:p-3 bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800 rounded-full cursor-pointer z-50 flex items-center justify-center"
             aria-label="Next image"
           >
-            <FiChevronRight className="w-6 h-6" />
+            <FiChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         )}
 
