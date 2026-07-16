@@ -125,6 +125,25 @@
     "video": "",
     "images": [],
     "screenshots": [],
+    "gallery": [
+      {
+        "description": "Developed a CSV upload parser that extracts scheduled training event data, filters out duplicate dates, and programmatically instantiates courses using Event Espresso core object-relational mapping APIs.",
+        "images": ["/static/images/msa-csv-event-import.png"],
+        "caption": "CSV Training Event Importer"
+      },
+      {
+        "description": "Engineered a fuzzy scoring matching utility to reconcile student registrations against physical MSF records. Analyzes database fields (Email: 70%, Phone: 50%, Names: 40%). Auto-approves pairings scoring >= 90% and queues ambiguous matches (>= 60%) in an interactive validation panel for manual review.",
+        "images": [
+          "/static/images/student-ecourse-data-import-masked.png",
+          "/static/images/student-ecourse-data-import1-masked.png",
+          "/static/images/student-ecourse-data-import2-masked.png",
+          "/static/images/student-ecourse-data-import3-masked.png",
+          "/static/images/student-ecourse-data-import4-masked.png",
+          "/static/images/student-ecourse-data-import5-masked.png"
+        ],
+        "caption": "Fuzzy Matching Data Sync Modules"
+      }
+    ],
     "links": {},
     "futureImprovements": "Introduce a centralized status dashboard and transition background cron processes to Node.js workers."
   },
