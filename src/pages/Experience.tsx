@@ -9,13 +9,15 @@ import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { ExperienceItem } from '../types/experience';
 import type { SeoConfig } from '../types/seo';
 
+import { comparePeriods } from '../utils/sorting';
+
 const Experience: React.FC = () => {
   const { activePersona } = usePersona();
   const seo = seoData as unknown as SeoConfig;
 
-  const filteredExperience = (experienceData as unknown as ExperienceItem[]).filter(
-    (exp) => activePersona === 'overall' || exp.personas.includes(activePersona),
-  );
+  const filteredExperience = (experienceData as unknown as ExperienceItem[])
+    .filter((exp) => activePersona === 'overall' || exp.personas.includes(activePersona))
+    .sort((a, b) => comparePeriods(a.period, b.period));
 
   useDocumentMetadata({
     title: seo.experience.title,

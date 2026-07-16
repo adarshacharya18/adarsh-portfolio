@@ -19,6 +19,8 @@ import type { ExperienceItem } from '../types/experience';
 import type { TestimonialItem } from '../types/testimonials';
 import type { SeoConfig } from '../types/seo';
 
+import { comparePeriods } from '../utils/sorting';
+
 const Home: React.FC = () => {
   const { activePersona } = usePersona();
   const profile = profileData as unknown as Profile;
@@ -28,9 +30,9 @@ const Home: React.FC = () => {
     activePersona
   ];
   const currentSkills = (skillsData as unknown as Record<PersonaType, SkillGroup[]>)[activePersona];
-  const currentExperience = (experienceData as unknown as ExperienceItem[]).filter(
-    (exp) => activePersona === 'overall' || exp.personas.includes(activePersona),
-  );
+  const currentExperience = (experienceData as unknown as ExperienceItem[])
+    .filter((exp) => activePersona === 'overall' || exp.personas.includes(activePersona))
+    .sort((a, b) => comparePeriods(a.period, b.period));
   const currentTestimonials = (testimonialsData as unknown as TestimonialItem[]).filter(
     (t) => activePersona === 'overall' || t.personas.includes(activePersona),
   );

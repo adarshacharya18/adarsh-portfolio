@@ -9,14 +9,16 @@ import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { ProjectItem } from '../types/project';
 import type { SeoConfig } from '../types/seo';
 
+import { comparePeriods } from '../utils/sorting';
+
 const Projects: React.FC = () => {
   const { activePersona } = usePersona();
   const seo = seoData as unknown as SeoConfig;
 
-  // Filter projects by active recruiter track
-  const filteredProjects = (projectsData as unknown as ProjectItem[]).filter(
-    (p) => activePersona === 'overall' || p.personas.includes(activePersona),
-  );
+  // Filter and sort projects by active recruiter track (latest end date first)
+  const filteredProjects = (projectsData as unknown as ProjectItem[])
+    .filter((p) => activePersona === 'overall' || p.personas.includes(activePersona))
+    .sort((a, b) => comparePeriods(a.timeline, b.timeline));
 
   useDocumentMetadata({
     title: seo.projects.title,

@@ -9,13 +9,15 @@ import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { TimelineItem } from '../types/timeline';
 import type { SeoConfig } from '../types/seo';
 
+import { compareQuarters } from '../utils/sorting';
+
 const Timeline: React.FC = () => {
   const { activePersona } = usePersona();
   const seo = seoData as unknown as SeoConfig;
 
-  const filteredTimeline = (timelineData as unknown as TimelineItem[]).filter(
-    (t) => activePersona === 'overall' || t.personas.includes(activePersona),
-  );
+  const filteredTimeline = (timelineData as unknown as TimelineItem[])
+    .filter((t) => activePersona === 'overall' || t.personas.includes(activePersona))
+    .sort((a, b) => compareQuarters(a.quarter, b.quarter));
 
   useDocumentMetadata({
     title: seo.timeline.title,
