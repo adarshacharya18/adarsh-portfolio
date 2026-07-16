@@ -1,15 +1,15 @@
 [
   {
     "id": "1",
-    "name": "Jane Smith",
-    "role": "VP of Engineering at TechCorp",
+    "name": "Amit Kumar Singh",
+    "role": "Product Manager & Senior Software developer at Universaltech",
     "text": "Adarsh is a highly methodical and adaptive engineer. He designed our microservices scaling plan with zero downtime.",
     "personas": ["swe", "backend", "fullstack"]
   },
   {
     "id": "2",
-    "name": "John Doe",
-    "role": "Product Director at DesignAgency",
+    "name": "Gourav Govande",
+    "role": "Team Lead & Senior Software Developer at Universaltech",
     "text": "Adarsh built a highly performant WordPress architecture that boosted our load speed by 250% and kept core layouts completely clean.",
     "personas": ["swe", "fullstack", "wordpress"]
   }

@@ -45,7 +45,7 @@ const TestimonialsPresenter: React.FC<TestimonialsPresenterProps> = ({
               <p className="text-xs md:text-sm italic text-text-secondary leading-relaxed">
                 "{item.text}"
               </p>
-              <div className="pt-2 border-t border-border-primary">
+              <div className="pt-2 border-t border-border-primary space-y-1">
                 <h4 className="text-xs font-bold text-text-primary">{item.name}</h4>
                 <p className="text-3xs text-text-muted font-mono">{item.role}</p>
               </div>
