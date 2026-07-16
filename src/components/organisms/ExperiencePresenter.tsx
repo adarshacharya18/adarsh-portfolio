@@ -73,7 +73,7 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
                   <p className="text-sm text-text-muted leading-relaxed pt-1">{exp.description}</p>
                 </div>
                 <Link
-                  to={`/projects?role=${encodeURIComponent(exp.role)}`}
+                  to={`/projects?role=${encodeURIComponent(exp.role)}&company=${encodeURIComponent(exp.company)}`}
                   className="inline-flex items-center space-x-1 text-xs text-text-muted font-semibold hover:text-text-primary cursor-pointer shrink-0 transition"
                 >
                   <span>View Details</span>

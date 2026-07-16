@@ -19,6 +19,7 @@ const Projects: React.FC = () => {
   const seo = seoData as unknown as SeoConfig;
 
   const filterRole = searchParams.get('role');
+  const filterCompany = searchParams.get('company');
 
   // Filter and sort projects by active recruiter track (latest end date first) and query parameters
   const filteredProjects = (projectsData as unknown as ProjectItem[])
@@ -41,20 +42,21 @@ const Projects: React.FC = () => {
         <p className="text-text-secondary max-w-2xl mx-auto text-sm">
           Case studies representing technical engineering solutions matching the active profile.
         </p>
-        {filterRole && (
-          <div className="flex justify-center pt-2">
-            <button
-              onClick={() => setSearchParams({})}
-              className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-border-primary bg-bg-secondary hover:border-red-500/20 hover:bg-red-500/5 hover:text-red-400 text-3xs font-mono text-text-secondary transition duration-150 cursor-pointer group"
-              title="Clear active filter"
-            >
-              <span>Role: {filterRole}</span>
-              <span className="w-px h-2.5 bg-border-primary group-hover:bg-red-500/20 transition" />
-              <FiX className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition" />
-            </button>
-          </div>
-        )}
       </Section>
+
+      {filterRole && (
+        <div className="sticky top-20 z-40 flex justify-center -mt-2 pb-6 pointer-events-none">
+          <button
+            onClick={() => setSearchParams({})}
+            className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-border-primary bg-bg-secondary/90 backdrop-blur-md hover:border-red-500/20 hover:bg-red-500/5 hover:text-red-400 text-3xs font-mono text-text-secondary transition duration-150 cursor-pointer group pointer-events-auto shadow-soft"
+            title="Clear active filter"
+          >
+            <span>Company: {filterCompany || filterRole}</span>
+            <span className="w-px h-2.5 bg-border-primary group-hover:bg-red-500/20 transition" />
+            <FiX className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition" />
+          </button>
+        </div>
+      )}
 
       <ProjectsPresenter projects={filteredProjects} activePersona={activePersona} />
     </PageWrapper>
