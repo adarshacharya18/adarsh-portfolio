@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { FiX } from 'react-icons/fi';
 import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
@@ -41,15 +42,15 @@ const Projects: React.FC = () => {
           Case studies representing technical engineering solutions matching the active profile.
         </p>
         {filterRole && (
-          <div className="flex items-center justify-center space-x-2 pt-2">
-            <span className="text-3xs font-mono uppercase bg-bg-secondary px-2.5 py-1 rounded-full border border-border-primary text-text-secondary">
-              Role: {filterRole}
-            </span>
+          <div className="flex justify-center pt-2">
             <button
               onClick={() => setSearchParams({})}
-              className="text-3xs font-mono uppercase text-accent-primary hover:underline cursor-pointer font-semibold"
+              className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-border-primary bg-bg-secondary hover:border-red-500/20 hover:bg-red-500/5 hover:text-red-400 text-3xs font-mono text-text-secondary transition duration-150 cursor-pointer group"
+              title="Clear active filter"
             >
-              Clear Filter
+              <span>Role: {filterRole}</span>
+              <span className="w-px h-2.5 bg-border-primary group-hover:bg-red-500/20 transition" />
+              <FiX className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition" />
             </button>
           </div>
         )}
