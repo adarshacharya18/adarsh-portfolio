@@ -35,7 +35,7 @@
     "images": [],
     "screenshots": [],
     "links": {
-      "github": "https://github.com/universaltech/msa-platform"
+      "demo": "https://motorcyclesafetyacademy.com/"
     },
     "futureImprovements": "Refactor custom shortcode forms into Gutenberg block modules and port dashboard screens to React."
   },
