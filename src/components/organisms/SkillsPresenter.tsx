@@ -57,7 +57,7 @@ const SkillsPresenter: React.FC<SkillsPresenterProps> = ({ skills, activePersona
               <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted border-b border-border-primary pb-2">
                 {group.category}
               </h3>
-              <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {group.skills.map((skill) => (
                   <div
                     key={skill.name}
