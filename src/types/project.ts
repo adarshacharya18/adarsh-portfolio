@@ -5,6 +5,12 @@ export interface ProjectLinks {
   demo?: string;
 }
 
+export interface GalleryItem {
+  description: string;
+  images: string[];
+  caption: string;
+}
+
 export interface ProjectItem {
   slug: string;
   title: string;
@@ -20,6 +26,7 @@ export interface ProjectItem {
   video?: string;
   images: string[];
   screenshots: string[];
+  gallery?: GalleryItem[];
   links: ProjectLinks;
   futureImprovements: string;
 }

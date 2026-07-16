@@ -138,6 +138,74 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
           </div>
         )}
 
+        {/* Dynamic Gallery Showcase */}
+        {project.gallery && project.gallery.length > 0 && (
+          <div className="space-y-8 pt-8 border-t border-border-primary">
+            <div className="space-y-1">
+              <h2 className="font-bold text-text-primary uppercase tracking-wide text-2xs">
+                Administrative Feature Showcase
+              </h2>
+              <p className="text-3xs text-text-muted">
+                Visual walkthrough of custom CMS modules, settings dashboards, and environment
+                template mappers built for this platform.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              {project.gallery.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="space-y-3 border-b border-border-primary/50 pb-6 last:border-b-0 last:pb-0"
+                >
+                  <div className="space-y-1 text-left">
+                    <h3 className="text-xs font-semibold text-text-primary">
+                      {idx + 1}. {item.caption}
+                    </h3>
+                    <p className="text-xs text-text-secondary leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div
+                    className={`grid gap-4 ${
+                      item.images.length === 1
+                        ? 'grid-cols-1 max-w-lg'
+                        : item.images.length === 2
+                          ? 'grid-cols-1 sm:grid-cols-2'
+                          : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4'
+                    }`}
+                  >
+                    {item.images.map((imgSrc, imgIdx) => (
+                      <div
+                        key={imgSrc}
+                        className="relative rounded-lg border border-border-primary overflow-hidden bg-bg-primary shadow-soft aspect-[16/10] w-full"
+                      >
+                        {/* Mock Browser Header */}
+                        <div className="bg-bg-tertiary px-3 py-1.5 border-b border-border-primary flex items-center space-x-1.5 text-4xs">
+                          <span className="w-1.5 h-1.5 rounded-full bg-red-500/80 block"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/80 block"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-500/80 block"></span>
+                          <span className="text-text-muted font-mono pl-1.5 truncate select-none">
+                            {imgSrc.split('/').pop()}
+                          </span>
+                        </div>
+                        {/* Actual Image */}
+                        <img
+                          src={imgSrc}
+                          alt={`${item.caption} - Screen ${imgIdx + 1}`}
+                          className="w-full h-full object-cover object-top hover:scale-[1.02] transition duration-300 cursor-zoom-in"
+                          onClick={() => window.open(imgSrc, '_blank')}
+                          loading="lazy"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="pt-6 border-t border-border-primary">
           <TagBadgeList tags={project.techStack} />
         </div>

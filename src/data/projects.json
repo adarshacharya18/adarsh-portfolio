@@ -34,6 +34,44 @@
     "video": "",
     "images": [],
     "screenshots": [],
+    "gallery": [
+      {
+        "description": "Developed an administrative interface to upload, reorder (via drag-and-drop), and manage homepage media gallery configurations (gaps, columns, border radii) dynamically.",
+        "images": ["/static/images/admin-gallery-upload.png"],
+        "caption": "Media Gallery Administration Interface"
+      },
+      {
+        "description": "Implemented a backend template-mapping utility to align development and production page IDs, resolving template loading discrepancies during environment migrations.",
+        "images": [
+          "/static/images/page-mapping1.png",
+          "/static/images/page-mapping2.png"
+        ],
+        "caption": "Database Migration Template ID Mapper"
+      },
+      {
+        "description": "Created administrative input settings to customize homepage layout parameters dynamically without direct codebase modifications.",
+        "images": [
+          "/static/images/cards.png",
+          "/static/images/timeline-admin1.png"
+        ],
+        "caption": "Dynamic Section Option Panels"
+      },
+      {
+        "description": "Engineered a custom SEO metadata settings tab to inject metadata tags dynamically on specific pages, posts, and courses.",
+        "images": ["/static/images/seo-admin.png"],
+        "caption": "SEO Meta Tags Configurations"
+      },
+      {
+        "description": "Built global settings options referenced by template rendering logic to fetch configuration values dynamically.",
+        "images": [
+          "/static/images/admin-settings1.png",
+          "/static/images/admin-settings2.png",
+          "/static/images/admin-settings3.png",
+          "/static/images/admin-settings4.png"
+        ],
+        "caption": "Global Application Parameter Dashboard"
+      }
+    ],
     "links": {
       "demo": "https://motorcyclesafetyacademy.com/"
     },
