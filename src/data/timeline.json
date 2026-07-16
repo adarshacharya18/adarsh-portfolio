@@ -72,19 +72,11 @@
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
-    "id": "headless-wordpress-gutenberg",
+    "id": "interview-prep-2024",
     "quarter": "2024 Q3",
-    "title": "Released Headless Block Integration Engine",
-    "description": "Authored custom React blocks that render CMS contents seamlessly in decoupled Next.js environments.",
-    "category": "CMS & Frontend",
-    "personas": ["wordpress", "fullstack"]
-  },
-  {
-    "id": "github-actions-automation",
-    "quarter": "2023 Q4",
-    "title": "Automated Testing Pipeline Release",
-    "description": "Designed continuous integration scripts using GitHub Actions, executing ESLint, Prettier, and TypeScript compilations.",
-    "category": "DevOps",
+    "title": "LeetCode Preparation & Technical Interviews",
+    "description": "Focused on computer science fundamentals, data structures, algorithms (solving 800+ LeetCode questions), and competitive programming across LeetCode & Codeforces while actively giving technical interviews.",
+    "category": "Skill Growth",
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
