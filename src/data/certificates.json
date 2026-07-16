@@ -7,5 +7,41 @@
     "credentialId": "VIT-BTECH-2025-CSE",
     "url": "https://vit.truecopy.in/fe/v2/files/submitdocverify.tc",
     "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+  },
+  {
+    "id": "anthropic-claude-platform-101",
+    "title": "Claude Platform 101",
+    "issuer": "Anthropic",
+    "date": "2026-06-24",
+    "credentialId": "yjjna5rim8zc",
+    "url": "https://verify.skilljar.com/c/yjjna5rim8zc",
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+  },
+  {
+    "id": "anthropic-claude-101",
+    "title": "Claude 101",
+    "issuer": "Anthropic",
+    "date": "2026-06-15",
+    "credentialId": "n5dic4x7st2e",
+    "url": "https://verify.skilljar.com/c/n5dic4x7st2e",
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+  },
+  {
+    "id": "anthropic-claude-code-101",
+    "title": "Claude Code 101",
+    "issuer": "Anthropic",
+    "date": "2026-06-15",
+    "credentialId": "f6afcdxjhboz",
+    "url": "https://verify.skilljar.com/c/f6afcdxjhboz",
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+  },
+  {
+    "id": "anthropic-ai-fluency",
+    "title": "AI Fluency: Framework & Foundations",
+    "issuer": "Anthropic",
+    "date": "2026-06-15",
+    "credentialId": "qea4obhxj8zc",
+    "url": "https://verify.skilljar.com/c/qea4obhxj8zc",
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
   }
 ]
