@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Section from '../atoms/Section';
 import { FiArrowRight } from 'react-icons/fi';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
@@ -71,10 +72,13 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
                   </div>
                   <p className="text-sm text-text-muted leading-relaxed pt-1">{exp.description}</p>
                 </div>
-                <div className="inline-flex items-center space-x-1 text-xs text-text-muted font-semibold hover:text-text-primary cursor-pointer shrink-0 transition">
+                <Link
+                  to={`/projects?role=${encodeURIComponent(exp.role)}`}
+                  className="inline-flex items-center space-x-1 text-xs text-text-muted font-semibold hover:text-text-primary cursor-pointer shrink-0 transition"
+                >
                   <span>View Details</span>
                   <FiArrowRight className="w-3.5 h-3.5" />
-                </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>

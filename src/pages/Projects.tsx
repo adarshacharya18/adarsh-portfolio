@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
 import { usePersona } from '../hooks/usePersona';
@@ -13,11 +14,18 @@ import { comparePeriods } from '../utils/sorting';
 
 const Projects: React.FC = () => {
   const { activePersona } = usePersona();
+  const [searchParams, setSearchParams] = useSearchParams();
   const seo = seoData as unknown as SeoConfig;
 
-  // Filter and sort projects by active recruiter track (latest end date first)
+  const filterRole = searchParams.get('role');
+
+  // Filter and sort projects by active recruiter track (latest end date first) and query parameters
   const filteredProjects = (projectsData as unknown as ProjectItem[])
-    .filter((p) => activePersona === 'overall' || p.personas.includes(activePersona))
+    .filter((p) => {
+      const matchesPersona = activePersona === 'overall' || p.personas.includes(activePersona);
+      const matchesRole = !filterRole || p.role.toLowerCase() === filterRole.toLowerCase();
+      return matchesPersona && matchesRole;
+    })
     .sort((a, b) => comparePeriods(a.timeline, b.timeline));
 
   useDocumentMetadata({
@@ -32,6 +40,19 @@ const Projects: React.FC = () => {
         <p className="text-text-secondary max-w-2xl mx-auto text-sm">
           Case studies representing technical engineering solutions matching the active profile.
         </p>
+        {filterRole && (
+          <div className="flex items-center justify-center space-x-2 pt-2">
+            <span className="text-3xs font-mono uppercase bg-bg-secondary px-2.5 py-1 rounded-full border border-border-primary text-text-secondary">
+              Role: {filterRole}
+            </span>
+            <button
+              onClick={() => setSearchParams({})}
+              className="text-3xs font-mono uppercase text-accent-primary hover:underline cursor-pointer font-semibold"
+            >
+              Clear Filter
+            </button>
+          </div>
+        )}
       </Section>
 
       <ProjectsPresenter projects={filteredProjects} activePersona={activePersona} />
