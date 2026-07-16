@@ -3,71 +3,73 @@
     {
       "category": "Languages & Core",
       "skills": [
-        { "name": "TypeScript & JS", "level": "Core" },
         { "name": "PHP", "level": "Core" },
-        { "name": "Go", "level": "Intermediate" },
+        { "name": "JavaScript", "level": "Core" },
         { "name": "SQL", "level": "Core" },
-        { "name": "Algorithms & OOP", "level": "Core" }
+        { "name": "Algorithms & OOP", "level": "Core" },
+        { "name": "TypeScript", "level": "Staging" },
+        { "name": "Go", "level": "Intermediate" }
       ]
     },
     {
-      "category": "Frontend & CMS",
+      "category": "Frontend & CMS Architecture",
       "skills": [
-        { "name": "React & Next.js", "level": "Core" },
-        { "name": "Tailwind CSS", "level": "Core" },
         { "name": "WordPress Plugins", "level": "Core" },
         { "name": "Gutenberg Blocks", "level": "Core" },
-        { "name": "REST & GraphQL", "level": "Core" }
+        { "name": "Tailwind CSS", "level": "Core" },
+        { "name": "React & Next.js", "level": "Staging" },
+        { "name": "Redux Toolkit", "level": "Staging" },
+        { "name": "Axios Interceptors", "level": "Staging" }
       ]
     },
     {
-      "category": "Backend & Database",
+      "category": "Backend & Tooling",
       "skills": [
-        { "name": "Node.js & Express", "level": "Core" },
         { "name": "PostgreSQL & MySQL", "level": "Core" },
         { "name": "Redis Caching", "level": "Core" },
-        { "name": "Docker Containers", "level": "Intermediate" },
-        { "name": "CI/CD Pipelines", "level": "Intermediate" }
+        { "name": "Node.js & Express", "level": "Staging" },
+        { "name": "PDF Services", "level": "Staging" },
+        { "name": "Cursor AI", "level": "Staging" },
+        { "name": "Docker & Pipelines", "level": "Intermediate" }
       ]
     }
   ],
   "swe": [
     {
-      "category": "Languages",
+      "category": "Languages & Core",
       "skills": [
-        { "name": "TypeScript", "level": "Core" },
-        { "name": "JavaScript", "level": "Core" },
-        { "name": "Go", "level": "Intermediate" },
-        { "name": "C++", "level": "Intermediate" }
+        { "name": "JavaScript & PHP", "level": "Core" },
+        { "name": "C++ & Go", "level": "Intermediate" },
+        { "name": "TypeScript", "level": "Staging" }
       ]
     },
     {
-      "category": "Core Concepts",
+      "category": "Core Concepts & Automation",
       "skills": [
         { "name": "Data Structures", "level": "Core" },
         { "name": "Algorithms", "level": "Core" },
-        { "name": "OOP & FP Design Patterns", "level": "Core" },
-        { "name": "CI/CD Pipelines", "level": "Intermediate" }
+        { "name": "OOP & FP Patterns", "level": "Core" },
+        { "name": "Cursor AI", "level": "Staging" }
       ]
     }
   ],
   "backend": [
     {
-      "category": "Server & Languages",
+      "category": "Server & APIs",
       "skills": [
-        { "name": "Node.js", "level": "Core" },
-        { "name": "Go", "level": "Intermediate" },
-        { "name": "Express", "level": "Core" },
-        { "name": "Fastify", "level": "Intermediate" }
+        { "name": "PHP & WordPress", "level": "Core" },
+        { "name": "REST & GraphQL", "level": "Core" },
+        { "name": "Go (Goroutines)", "level": "Intermediate" },
+        { "name": "Node.js & Express", "level": "Staging" }
       ]
     },
     {
-      "category": "Databases & Infrastructure",
+      "category": "Database & Storage",
       "skills": [
-        { "name": "PostgreSQL", "level": "Core" },
-        { "name": "MySQL", "level": "Core" },
-        { "name": "Redis Caching", "level": "Core" },
-        { "name": "Docker Containers", "level": "Intermediate" }
+        { "name": "PostgreSQL & MySQL", "level": "Core" },
+        { "name": "Redis Cache & Sync", "level": "Core" },
+        { "name": "PDF Services", "level": "Staging" },
+        { "name": "Docker & Pipelines", "level": "Intermediate" }
       ]
     }
   ],
@@ -75,19 +77,20 @@
     {
       "category": "Frontend & UI",
       "skills": [
-        { "name": "React", "level": "Core" },
-        { "name": "Vite & Next.js", "level": "Core" },
         { "name": "Tailwind CSS", "level": "Core" },
-        { "name": "Framer Motion", "level": "Intermediate" }
+        { "name": "Gutenberg Blocks", "level": "Core" },
+        { "name": "React & Next.js", "level": "Staging" },
+        { "name": "Redux Toolkit", "level": "Staging" },
+        { "name": "Axios Interceptors", "level": "Staging" }
       ]
     },
     {
-      "category": "Backend & Routing",
+      "category": "Backend & Database",
       "skills": [
-        { "name": "Node.js & APIs", "level": "Core" },
-        { "name": "PostgreSQL", "level": "Core" },
-        { "name": "REST & GraphQL", "level": "Core" },
-        { "name": "Serverless Functions", "level": "Intermediate" }
+        { "name": "PostgreSQL & MySQL", "level": "Core" },
+        { "name": "Redis Cache & Sync", "level": "Core" },
+        { "name": "Node.js & Express", "level": "Staging" },
+        { "name": "Cursor AI", "level": "Staging" }
       ]
     }
   ],
