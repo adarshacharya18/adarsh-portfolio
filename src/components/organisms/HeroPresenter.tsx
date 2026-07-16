@@ -73,6 +73,7 @@ const HeroPresenter: React.FC<HeroPresenterProps> = ({
       <div className="flex flex-wrap gap-4 pt-2">
         <a
           href={profile.resumeUrl}
+          download="adarsh-acharya-resume-2026.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-2 px-4 py-2 border border-border-primary rounded-md text-xs font-semibold text-text-primary bg-bg-secondary hover:bg-bg-tertiary transition cursor-pointer shadow-soft"
