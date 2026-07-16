@@ -10,6 +10,7 @@ import HeroPresenter from '../components/organisms/HeroPresenter';
 import SkillsPresenter from '../components/organisms/SkillsPresenter';
 import ExperiencePresenter from '../components/organisms/ExperiencePresenter';
 import TestimonialsPresenter from '../components/organisms/TestimonialsPresenter';
+import LeetCodeHighlight from '../components/organisms/LeetCodeHighlight';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import JsonLd from '../components/atoms/JsonLd';
 import type { PersonaType } from '../types/persona';
@@ -70,6 +71,7 @@ const Home: React.FC = () => {
         activePersona={activePersona}
         compact={true}
       />
+      <LeetCodeHighlight />
       <TestimonialsPresenter testimonials={currentTestimonials} activePersona={activePersona} />
     </PageWrapper>
   );
