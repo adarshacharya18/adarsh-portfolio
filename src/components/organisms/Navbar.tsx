@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import ThemeSwitcher from '../molecules/ThemeSwitcher';
 import PersonaSelector from '../molecules/PersonaSelector';
 import LogoMark from '../atoms/LogoMark';
@@ -12,6 +13,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const moreRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
   const nav = navigationData as unknown as NavigationConfig;
 
   // Split links into core navigation and secondary dropdown routes
@@ -24,13 +26,19 @@ const Navbar: React.FC = () => {
       if (moreRef.current && !moreRef.current.contains(event.target as Node)) {
         setIsMoreOpen(false);
       }
+      if (isOpen && navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [isOpen]);
 
   return (
-    <header className="border-b border-border-primary bg-bg-secondary sticky top-0 z-50 backdrop-blur-md bg-opacity-80">
+    <header
+      ref={navRef}
+      className="border-b border-border-primary bg-bg-secondary sticky top-0 z-50 backdrop-blur-md bg-opacity-80"
+    >
       <div className="container mx-auto px-4 max-w-7xl h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2 group">
           <LogoMark
@@ -112,40 +120,48 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Drawer Overlay */}
-      {isOpen && (
-        <div className="lg:hidden border-b border-border-primary bg-bg-secondary p-4 space-y-4">
-          <nav className="flex flex-col space-y-3">
-            {nav.links.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={({ isActive }) =>
-                  `text-xs font-semibold tracking-wider uppercase transition ${
-                    isActive ? 'text-text-primary' : 'text-text-muted hover:text-text-primary'
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
-          <div className="pt-3 border-t border-border-primary flex flex-col gap-3">
-            <div>
-              <span className="text-2xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
-                Target Persona
-              </span>
-              <PersonaSelector />
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+            className="lg:hidden border-b border-border-primary bg-bg-secondary p-4 space-y-4 overflow-hidden"
+          >
+            <nav className="flex flex-col space-y-3">
+              {nav.links.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `text-xs font-semibold tracking-wider uppercase transition ${
+                      isActive ? 'text-text-primary' : 'text-text-muted hover:text-text-primary'
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+            </nav>
+            <div className="pt-3 border-t border-border-primary flex flex-col gap-3">
+              <div>
+                <span className="text-2xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
+                  Target Persona
+                </span>
+                <PersonaSelector />
+              </div>
+              <div>
+                <span className="text-2xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
+                  Color Theme
+                </span>
+                <ThemeSwitcher />
+              </div>
             </div>
-            <div>
-              <span className="text-2xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
-                Color Theme
-              </span>
-              <ThemeSwitcher />
-            </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
