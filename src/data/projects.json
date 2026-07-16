@@ -143,6 +143,18 @@
     "video": "",
     "images": [],
     "screenshots": [],
+    "gallery": [
+      {
+        "description": "Leveraged WordPress's native Gutenberg block editor to build dynamic, fully-editable homepage grid sections using React component templates.",
+        "images": ["/static/images/guitenberg-editor.png"],
+        "caption": "Gutenberg Layout Builder Interface"
+      },
+      {
+        "description": "Developed a custom responsive testimonial carousel module styled with JavaScript/jQuery, integrated cleanly with Gutenberg block settings.",
+        "images": ["/static/images/ufc-testimonial.png"],
+        "caption": "Interactive Testimonial Carousel Block"
+      }
+    ],
     "links": {},
     "futureImprovements": "Convert custom React block structures to support full site editing layouts and register render hooks server-side."
   },
