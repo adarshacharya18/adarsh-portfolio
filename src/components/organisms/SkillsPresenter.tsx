@@ -57,14 +57,19 @@ const SkillsPresenter: React.FC<SkillsPresenterProps> = ({ skills, activePersona
               <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted border-b border-border-primary pb-2">
                 {group.category}
               </h3>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-3">
                 {group.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center justify-between p-2 rounded bg-bg-primary border border-border-primary"
+                    className="flex items-center justify-between p-2 rounded bg-bg-primary border border-border-primary gap-2 min-w-0"
                   >
-                    <span className="text-xs font-medium text-text-primary">{skill.name}</span>
-                    <span className="text-3xs font-mono px-1.5 py-0.5 rounded bg-bg-tertiary border border-border-primary text-text-secondary">
+                    <span
+                      className="text-xs font-medium text-text-primary truncate"
+                      title={skill.name}
+                    >
+                      {skill.name}
+                    </span>
+                    <span className="text-3xs font-mono px-1.5 py-0.5 rounded bg-bg-tertiary border border-border-primary text-text-secondary shrink-0">
                       {skill.level}
                     </span>
                   </div>
