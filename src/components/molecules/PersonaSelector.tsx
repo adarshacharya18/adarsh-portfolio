@@ -66,7 +66,7 @@ const PersonaSelector: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 rounded-lg border border-border-primary bg-bg-secondary shadow-medium z-50 p-1 space-y-0.5">
+        <div className="absolute left-0 lg:left-auto lg:right-0 mt-2 w-48 rounded-lg border border-border-primary bg-bg-secondary shadow-medium z-50 p-1 space-y-0.5">
           {personas.map((p) => (
             <button
               key={p.id}
