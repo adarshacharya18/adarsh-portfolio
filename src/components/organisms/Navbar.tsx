@@ -127,7 +127,7 @@ const Navbar: React.FC = () => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="lg:hidden border-b border-border-primary bg-bg-secondary p-4 space-y-4 overflow-hidden"
+            className="lg:hidden border-b border-border-primary bg-bg-secondary p-4 space-y-4 overflow-visible"
           >
             <nav className="flex flex-col space-y-3">
               {nav.links.map((link) => (
