@@ -150,10 +150,10 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
                   className="space-y-3 border-b border-border-primary/50 pb-6 last:border-b-0 last:pb-0"
                 >
                   <div className="space-y-2 text-left">
-                    <h3 className="text-xs font-semibold text-text-primary">
+                    <h3 className="text-sm font-semibold text-text-primary">
                       {idx + 1}. {item.caption}
                     </h3>
-                    <p className="text-xs text-text-secondary leading-relaxed">
+                    <p className="text-sm text-text-secondary leading-relaxed">
                       {item.description}
                     </p>
                   </div>

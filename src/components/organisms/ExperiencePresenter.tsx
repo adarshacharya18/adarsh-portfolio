@@ -62,16 +62,16 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
                 className="border border-border-primary bg-bg-secondary p-5 rounded-lg flex flex-col sm:flex-row sm:items-start justify-between gap-3 shadow-soft hover:border-border-focus transition"
               >
                 <div className="space-y-2 text-left">
-                  <span className="font-mono text-3xs text-text-muted tracking-wider uppercase block mb-1">
+                  <span className="font-mono text-2xs text-text-muted tracking-wider uppercase block mb-1">
                     {exp.period}
                   </span>
                   <div className="space-y-0.5">
-                    <h3 className="text-sm font-semibold text-text-primary">{exp.role}</h3>
-                    <p className="text-xs text-text-secondary">{exp.company}</p>
+                    <h3 className="text-base font-semibold text-text-primary">{exp.role}</h3>
+                    <p className="text-sm text-text-secondary">{exp.company}</p>
                   </div>
-                  <p className="text-xs text-text-muted leading-relaxed pt-1">{exp.description}</p>
+                  <p className="text-sm text-text-muted leading-relaxed pt-1">{exp.description}</p>
                 </div>
-                <div className="inline-flex items-center space-x-1 text-2xs text-text-muted font-semibold hover:text-text-primary cursor-pointer shrink-0 transition">
+                <div className="inline-flex items-center space-x-1 text-xs text-text-muted font-semibold hover:text-text-primary cursor-pointer shrink-0 transition">
                   <span>View Details</span>
                   <FiArrowRight className="w-3.5 h-3.5" />
                 </div>

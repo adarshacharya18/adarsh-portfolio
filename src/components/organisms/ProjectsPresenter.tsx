@@ -69,7 +69,7 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({ projects, activeP
                     </div>
                   </header>
 
-                  <p className="text-xs text-text-muted leading-relaxed line-clamp-3">
+                  <p className="text-sm text-text-muted leading-relaxed line-clamp-3">
                     {project.solution}
                   </p>
                 </div>
