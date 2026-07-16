@@ -86,5 +86,13 @@
     "description": "Co-authored and published the research paper 'Automatic Music Melody Generation using LSTM and Markov Chain Model' at the ICTIS 2023 conference.",
     "category": "Research & Academics",
     "personas": ["swe", "backend", "fullstack"]
+  },
+  {
+    "id": "st-xaviers-hsc",
+    "quarter": "2020 Q2",
+    "title": "10+2 (HSC) Graduation",
+    "description": "Completed 10+2 higher secondary education from St. Xavier's Junior College, Shrirampur.",
+    "category": "Education Milestone",
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
   }
 ]
