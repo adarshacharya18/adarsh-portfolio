@@ -92,6 +92,23 @@
     "video": "",
     "images": [],
     "screenshots": [],
+    "gallery": [
+      {
+        "description": "Developed administrative settings to upload, manage, and render brand assets (custom logo and favicon images) dynamically across the system instead of using static theme files, using Cursor AI.",
+        "images": ["/static/images/esign-logo-favicon-upload.png"],
+        "caption": "Brand Assets Administration Settings"
+      },
+      {
+        "description": "Engineered a system-wide Maintenance Mode feature using Cursor AI, allowing administrators to lock template drafting screens and display tentative recovery time countdowns.",
+        "images": ["/static/images/esign-maintainence-mode.png"],
+        "caption": "Administrative Maintenance Dashboard"
+      },
+      {
+        "description": "Designed a centralized administrator dashboard displaying aggregated system metrics, recent document signing activities, and overall contract status overview feeds.",
+        "images": ["/static/images/esign-dahboard.png"],
+        "caption": "System Metrics & Document Dashboard"
+      }
+    ],
     "links": {
       "github": "https://github.com/universaltech/esign-core"
     },
