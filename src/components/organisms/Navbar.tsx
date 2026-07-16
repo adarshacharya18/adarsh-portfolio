@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   const nav = navigationData as unknown as NavigationConfig;
 
   // Split links into core navigation and secondary dropdown routes
-  const primaryPaths = ['/', '/experience', '/projects', '/certificates', '/contact'];
+  const primaryPaths = ['/', '/experience', '/projects', '/certificates', '/timeline'];
   const primaryLinks = nav.links.filter((link) => primaryPaths.includes(link.path));
   const secondaryLinks = nav.links.filter((link) => !primaryPaths.includes(link.path));
 

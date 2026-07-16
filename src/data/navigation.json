@@ -5,8 +5,8 @@
     { "path": "/experience", "label": "Experience" },
     { "path": "/projects", "label": "Projects" },
     { "path": "/certificates", "label": "Certifications" },
-    { "path": "/contact", "label": "Contact" },
+    { "path": "/timeline", "label": "Timeline" },
     { "path": "/articles", "label": "Articles" },
-    { "path": "/timeline", "label": "Timeline" }
+    { "path": "/contact", "label": "Contact" }
   ]
 }

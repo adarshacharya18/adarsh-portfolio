@@ -48,14 +48,6 @@
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
-    "id": "vit-pune-graduation",
-    "quarter": "2025 Q2",
-    "title": "B.Tech Computer Science Graduation",
-    "description": "Graduated with a Bachelor of Technology in Computer Science from Vishwakarma Institute of Technology, Pune (8.2 CGPA).",
-    "category": "Education Milestone",
-    "personas": ["swe", "backend", "fullstack", "wordpress"]
-  },
-  {
     "id": "ufc-block-engine",
     "quarter": "2025 Q2",
     "title": "UFC Custom Block Engine Launch",
@@ -69,6 +61,14 @@
     "title": "Joined UniversalTech as Developer Intern",
     "description": "Started a 6-month software developer internship, undergoing intensive training in HTML/CSS/JS, Git/GitHub, Agile workflows, and Redmine.",
     "category": "Career Milestone",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
+  },
+  {
+    "id": "vit-pune-graduation",
+    "quarter": "2024 Q2",
+    "title": "B.Tech Computer Science Graduation",
+    "description": "Graduated with a Bachelor of Technology in Computer Science from Vishwakarma Institute of Technology, Pune (8.2 CGPA).",
+    "category": "Education Milestone",
     "personas": ["swe", "backend", "fullstack", "wordpress"]
   },
   {
