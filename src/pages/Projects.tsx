@@ -45,7 +45,7 @@ const Projects: React.FC = () => {
       </Section>
 
       {filterRole && (
-        <div className="sticky top-20 z-40 flex justify-center pt-4 pb-6 pointer-events-none">
+        <div className="sticky top-20 z-40 flex justify-center py-6 pointer-events-none">
           <button
             onClick={() => setSearchParams({})}
             className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-border-primary bg-bg-secondary/90 backdrop-blur-md hover:border-red-500/20 hover:bg-red-500/5 hover:text-red-400 text-3xs font-mono text-text-secondary transition duration-150 cursor-pointer group pointer-events-auto shadow-soft"
@@ -58,7 +58,11 @@ const Projects: React.FC = () => {
         </div>
       )}
 
-      <ProjectsPresenter projects={filteredProjects} activePersona={activePersona} />
+      <ProjectsPresenter
+        projects={filteredProjects}
+        activePersona={activePersona}
+        className={filterRole ? '!pt-0' : ''}
+      />
     </PageWrapper>
   );
 };

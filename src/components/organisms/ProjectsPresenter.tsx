@@ -10,9 +10,14 @@ import type { PersonaType } from '../../types/persona';
 interface ProjectsPresenterProps {
   projects: ProjectItem[];
   activePersona: PersonaType;
+  className?: string;
 }
 
-const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({ projects, activePersona }) => {
+const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({
+  projects,
+  activePersona,
+  className = '',
+}) => {
   const shouldReduceMotion = useReducedMotion();
   const yVal = shouldReduceMotion ? 0 : 8;
 
@@ -32,7 +37,7 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({ projects, activeP
   };
 
   return (
-    <Section id="projects-grid">
+    <Section id="projects-grid" className={className}>
       <AnimatePresence mode="wait">
         <motion.div
           key={activePersona}
