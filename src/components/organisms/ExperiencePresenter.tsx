@@ -61,13 +61,15 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
                 transition={{ duration: shouldReduceMotion ? 0.05 : 0.3 }}
                 className="border border-border-primary bg-bg-secondary p-5 rounded-lg flex flex-col sm:flex-row sm:items-start justify-between gap-3 shadow-soft hover:border-border-focus transition"
               >
-                <div className="space-y-1 text-left">
-                  <span className="font-mono text-3xs text-text-muted tracking-wider uppercase">
+                <div className="space-y-2 text-left">
+                  <span className="font-mono text-3xs text-text-muted tracking-wider uppercase block mb-1">
                     {exp.period}
                   </span>
-                  <h3 className="text-sm font-semibold text-text-primary">{exp.role}</h3>
-                  <p className="text-xs text-text-secondary">{exp.company}</p>
-                  <p className="text-xs text-text-muted leading-relaxed pt-2">{exp.description}</p>
+                  <div className="space-y-0.5">
+                    <h3 className="text-sm font-semibold text-text-primary">{exp.role}</h3>
+                    <p className="text-xs text-text-secondary">{exp.company}</p>
+                  </div>
+                  <p className="text-xs text-text-muted leading-relaxed pt-1">{exp.description}</p>
                 </div>
                 <div className="inline-flex items-center space-x-1 text-2xs text-text-muted font-semibold hover:text-text-primary cursor-pointer shrink-0 transition">
                   <span>View Details</span>
