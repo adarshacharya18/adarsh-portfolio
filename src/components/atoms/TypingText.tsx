@@ -19,8 +19,7 @@ const TypingText: React.FC<TypingTextProps> = ({ text, speed = 15, delay = 0 }) 
 
     const startTyping = () => {
       timeoutId = setTimeout(() => {
-        const char = text.charAt(index);
-        setDisplayedText((prev) => prev + char);
+        setDisplayedText(text.slice(0, index + 1));
         index++;
         if (index < text.length) {
           startTyping();
