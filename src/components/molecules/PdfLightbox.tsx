@@ -51,7 +51,7 @@ const PdfLightbox: React.FC<PdfLightboxProps> = ({ isOpen, pdfUrl, title, onClos
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.98, opacity: 0 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="relative w-full max-w-5xl h-[85vh] bg-bg-secondary border border-border-primary rounded-xl overflow-hidden flex flex-col shadow-large"
+            className="relative w-full max-w-3xl h-[70vh] bg-bg-secondary border border-border-primary rounded-xl overflow-hidden flex flex-col shadow-large"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header / Toolbar */}
