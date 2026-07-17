@@ -3,7 +3,11 @@ import { usePersona } from '../../hooks/usePersona';
 import type { PersonaType } from '../../types/persona';
 import { FiChevronDown } from 'react-icons/fi';
 
-const PersonaSelector: React.FC = () => {
+interface PersonaSelectorProps {
+  onSelect?: () => void;
+}
+
+const PersonaSelector: React.FC<PersonaSelectorProps> = ({ onSelect }) => {
   const { activePersona, setPersona } = usePersona();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -73,6 +77,7 @@ const PersonaSelector: React.FC = () => {
               onClick={() => {
                 setPersona(p.id);
                 setIsOpen(false);
+                if (onSelect) onSelect();
               }}
               className={`w-full text-left px-3 py-2 text-2xs font-semibold rounded transition flex items-center space-x-2 cursor-pointer ${
                 activePersona === p.id

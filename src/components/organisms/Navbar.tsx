@@ -150,7 +150,7 @@ const Navbar: React.FC = () => {
                 <span className="text-2xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
                   Target Persona
                 </span>
-                <PersonaSelector />
+                <PersonaSelector onSelect={() => setIsOpen(false)} />
               </div>
               <div>
                 <span className="text-2xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
