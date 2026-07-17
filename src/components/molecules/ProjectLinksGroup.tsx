@@ -5,12 +5,14 @@ interface ProjectLinksGroupProps {
   githubUrl?: string;
   demoUrl?: string;
   certificateUrl?: string;
+  onCertificateClick?: (e: React.MouseEvent) => void;
 }
 
 const ProjectLinksGroup: React.FC<ProjectLinksGroupProps> = ({
   githubUrl,
   demoUrl,
   certificateUrl,
+  onCertificateClick,
 }) => {
   if (!githubUrl && !demoUrl && !certificateUrl) return null;
 
@@ -39,16 +41,14 @@ const ProjectLinksGroup: React.FC<ProjectLinksGroupProps> = ({
         </a>
       )}
       {certificateUrl && (
-        <a
-          href={certificateUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-text-primary transition"
+        <button
+          onClick={onCertificateClick}
+          className="hover:text-text-primary transition cursor-pointer flex items-center justify-center p-0.5"
           aria-label="View Publication Certificate"
           title="View Publication Certificate"
         >
           <FiFileText className="w-5 h-5" />
-        </a>
+        </button>
       )}
     </div>
   );

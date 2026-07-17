@@ -4,6 +4,7 @@ import { FiClock, FiArrowLeft, FiUser, FiLayers } from 'react-icons/fi';
 import ProjectLinksGroup from '../molecules/ProjectLinksGroup';
 import TagBadgeList from '../molecules/TagBadgeList';
 import ImageLightbox from '../molecules/ImageLightbox';
+import PdfLightbox from '../molecules/PdfLightbox';
 import type { ProjectItem } from '../../types/project';
 
 interface CaseStudyPresenterProps {
@@ -14,6 +15,7 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [pdfOpen, setPdfOpen] = useState(false);
 
   const openLightbox = (images: string[], index: number) => {
     setLightboxImages(images);
@@ -56,6 +58,7 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
                 githubUrl={project.links.github}
                 demoUrl={project.links.demo}
                 certificateUrl={project.links.certificate}
+                onCertificateClick={() => setPdfOpen(true)}
               />
             </div>
           </div>
@@ -214,6 +217,17 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
         images={lightboxImages}
         initialIndex={lightboxIndex}
         onClose={() => setLightboxOpen(false)}
+      />
+
+      <PdfLightbox
+        isOpen={pdfOpen}
+        pdfUrl={project.links.certificate || ''}
+        title={
+          project.links.certificate
+            ? project.links.certificate.split('/').pop() || 'certificate.pdf'
+            : 'certificate.pdf'
+        }
+        onClose={() => setPdfOpen(false)}
       />
     </div>
   );
