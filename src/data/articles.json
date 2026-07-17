@@ -9,7 +9,7 @@
     "readingTime": "8 min read",
     "relatedSlugs": ["concurrency-safe-checkouts", "database-performance-caching"],
     "mediumUrl": "https://medium.com/@adarshacharya7830/melodic-sequence-generation-deep-lstms-vs-probabilistic-markov-chains-in-generative-music-ai-168b36ed07ea",
-    "gistUrl": "https://gist.github.com/Adarsh1842/2e23dcd3316d86b30737b57406ad2dfb"
+    "gistUrl": "https://gist.github.com/adarshacharya18/2e23dcd3316d86b30737b57406ad2dfb"
   },
   {
     "slug": "database-performance-caching",
@@ -21,7 +21,7 @@
     "readingTime": "8 min read",
     "relatedSlugs": ["concurrency-safe-checkouts", "sequence-modeling-creative-ai"],
     "mediumUrl": "https://medium.com/@adarshacharya7830/scaling-database-operations-in-wordpress-optimizing-bulk-imports-and-flat-query-caching-3eb5668bd34f",
-    "gistUrl": "https://gist.github.com/Adarsh1842/3135ff2fe896c3f94dd7a2652895dc90"
+    "gistUrl": "https://gist.github.com/adarshacharya18/3135ff2fe896c3f94dd7a2652895dc90"
   },
   {
     "slug": "concurrency-safe-checkouts",
@@ -33,6 +33,6 @@
     "readingTime": "10 min read",
     "relatedSlugs": ["database-performance-caching", "sequence-modeling-creative-ai"],
     "mediumUrl": "https://medium.com/@adarshacharya7830/architecting-concurrency-safe-wordpress-checkouts-overcoming-event-espresso-spco-race-conditions-10c0f60f0415",
-    "gistUrl": "https://gist.github.com/adarshacharya"
+    "gistUrl": "https://gist.github.com/adarshacharya18"
   }
 ]
