@@ -72,7 +72,11 @@ const Home: React.FC = () => {
         compact={true}
       />
       <LeetCodeHighlight />
-      <TestimonialsPresenter testimonials={currentTestimonials} activePersona={activePersona} />
+      <TestimonialsPresenter
+        testimonials={currentTestimonials}
+        activePersona={activePersona}
+        key={activePersona}
+      />
     </PageWrapper>
   );
 };
