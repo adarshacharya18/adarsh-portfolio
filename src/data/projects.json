@@ -193,7 +193,7 @@
     "images": [],
     "screenshots": [],
     "links": {
-      "certificate": "/ictis-paper-publication-2023.pdf"
+      "certificate": "/static/images/ictis-paper-publication-2023.webp"
     },
     "futureImprovements": "Integrate sentiment analysis for mood-matching melodies and scale to multi-instrument orchestrations."
   }
