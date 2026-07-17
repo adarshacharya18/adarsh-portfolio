@@ -3,6 +3,7 @@ import type { PersonaType } from './persona';
 export interface ProjectLinks {
   github?: string;
   demo?: string;
+  certificate?: string;
 }
 
 export interface GalleryItem {

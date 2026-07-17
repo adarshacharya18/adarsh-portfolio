@@ -52,7 +52,11 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
               </div>
             </div>
             <div className="flex items-center shrink-0">
-              <ProjectLinksGroup githubUrl={project.links.github} demoUrl={project.links.demo} />
+              <ProjectLinksGroup
+                githubUrl={project.links.github}
+                demoUrl={project.links.demo}
+                certificateUrl={project.links.certificate}
+              />
             </div>
           </div>
         </header>
