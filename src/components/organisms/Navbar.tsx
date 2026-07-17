@@ -127,16 +127,16 @@ const Navbar: React.FC = () => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="lg:hidden border-b border-border-primary bg-bg-secondary p-4 space-y-4 overflow-visible"
+            className="lg:hidden border-b border-border-primary bg-bg-secondary p-5 space-y-5 overflow-visible"
           >
-            <nav className="flex flex-col space-y-3">
+            <nav className="flex flex-col space-y-4">
               {nav.links.map((link) => (
                 <NavLink
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
-                    `text-xs font-semibold tracking-wider uppercase transition ${
+                    `text-sm font-semibold tracking-wider uppercase transition ${
                       isActive ? 'text-text-primary' : 'text-text-muted hover:text-text-primary'
                     }`
                   }
@@ -145,15 +145,15 @@ const Navbar: React.FC = () => {
                 </NavLink>
               ))}
             </nav>
-            <div className="pt-3 border-t border-border-primary flex flex-col gap-3">
+            <div className="pt-4 border-t border-border-primary flex flex-col gap-4">
               <div>
-                <span className="text-2xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
+                <span className="text-xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
                   Target Persona
                 </span>
                 <PersonaSelector onSelect={() => setIsOpen(false)} />
               </div>
               <div>
-                <span className="text-2xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
+                <span className="text-xs text-text-muted font-bold block mb-1 uppercase tracking-wider">
                   Color Theme
                 </span>
                 <ThemeSwitcher />
