@@ -9,39 +9,38 @@ interface TypingTextProps {
 
 const TypingText: React.FC<TypingTextProps> = ({ text, speed = 15, delay = 0 }) => {
   const shouldReduceMotion = useReducedMotion();
-  const [displayedText, setDisplayedText] = useState(shouldReduceMotion ? text : '');
+  const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
-    if (shouldReduceMotion) {
-      const timer = setTimeout(() => {
-        setDisplayedText(text);
-      }, 0);
-      return () => clearTimeout(timer);
-    }
+    if (shouldReduceMotion) return;
 
-    let intervalTimer: ReturnType<typeof setInterval>;
+    let index = 0;
+    let timeoutId: ReturnType<typeof setTimeout>;
 
-    const delayTimer = setTimeout(() => {
-      // Set to empty string asynchronously to avoid synchronous state changes inside effect
-      setDisplayedText('');
-
-      let index = 0;
-      intervalTimer = setInterval(() => {
+    const startTyping = () => {
+      timeoutId = setTimeout(() => {
         setDisplayedText((prev) => prev + text.charAt(index));
         index++;
-        if (index >= text.length) {
-          clearInterval(intervalTimer);
+        if (index < text.length) {
+          startTyping();
         }
       }, speed);
+    };
+
+    const delayTimeout = setTimeout(() => {
+      setDisplayedText('');
+      startTyping();
     }, delay);
 
     return () => {
-      clearTimeout(delayTimer);
-      if (intervalTimer) {
-        clearInterval(intervalTimer);
-      }
+      clearTimeout(delayTimeout);
+      clearTimeout(timeoutId);
     };
   }, [text, speed, delay, shouldReduceMotion]);
+
+  if (shouldReduceMotion) {
+    return <span>{text}</span>;
+  }
 
   return <span>{displayedText}</span>;
 };
