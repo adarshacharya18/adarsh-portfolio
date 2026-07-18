@@ -62,17 +62,17 @@ const ArticleDetailPresenter: React.FC<ArticleDetailPresenterProps> = ({
         {/* Article Body Content */}
         <article className="lg:col-span-3 border border-border-primary bg-bg-secondary p-6 md:p-8 rounded-xl space-y-6 shadow-soft">
           <header className="space-y-4 border-b border-border-primary pb-6">
-            <div className="flex flex-wrap items-center gap-3 text-2xs text-text-muted font-mono">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-2xs text-text-muted font-mono">
               <div className="flex items-center space-x-1.5">
                 <FiCalendar className="w-3.5 h-3.5" />
                 <span>{articleMeta.date}</span>
               </div>
-              <span>&bull;</span>
+              <span className="hidden sm:inline text-border-focus">&bull;</span>
               <div className="flex items-center space-x-1.5">
                 <FiClock className="w-3.5 h-3.5" />
                 <span>{articleMeta.readingTime}</span>
               </div>
-              <span>&bull;</span>
+              <span className="hidden sm:inline text-border-focus">&bull;</span>
               <div className="flex items-center space-x-1.5">
                 <FiBookOpen className="w-3.5 h-3.5" />
                 <span>{articleMeta.category}</span>

@@ -74,7 +74,7 @@ const ArticlesPresenter: React.FC<ArticlesPresenterProps> = ({
                 key={article.slug}
                 className="border border-border-primary bg-bg-secondary p-6 rounded-lg space-y-3 shadow-soft hover:border-border-focus transition text-left"
               >
-                <div className="flex items-center justify-between text-2xs text-text-muted font-mono">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-2xs text-text-muted font-mono gap-2 sm:gap-0">
                   <div className="flex items-center space-x-2">
                     <FiCalendar className="w-3.5 h-3.5" />
                     <span>{article.date}</span>
@@ -90,8 +90,8 @@ const ArticlesPresenter: React.FC<ArticlesPresenterProps> = ({
                   {article.excerpt}
                 </p>
                 <TagBadgeList tags={article.tags} />
-                <div className="pt-4 border-t border-border-primary flex justify-between items-center text-xs text-text-muted font-semibold">
-                  <div className="flex items-center space-x-4">
+                <div className="pt-4 border-t border-border-primary flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 text-xs text-text-muted font-semibold">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                     {article.mediumUrl && (
                       <a
                         href={article.mediumUrl}
@@ -117,7 +117,7 @@ const ArticlesPresenter: React.FC<ArticlesPresenterProps> = ({
                   </div>
                   <Link
                     to={`/articles/${article.slug}`}
-                    className="inline-flex items-center space-x-1.5 hover:text-text-primary transition cursor-pointer"
+                    className="inline-flex items-center space-x-1.5 hover:text-text-primary transition cursor-pointer self-start sm:self-auto"
                   >
                     <span>Read Article</span>
                     <FiArrowRight className="w-3.5 h-3.5" />
