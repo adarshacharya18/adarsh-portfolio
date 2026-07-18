@@ -1,5 +1,14 @@
 [
   {
+    "id": "linkedin-prompt-engineering",
+    "title": "Prompt Engineering: How to Talk to the AIs",
+    "issuer": "LinkedIn",
+    "date": "2026-07-18",
+    "credentialId": "6d37b72d835477ce47e02283891d48378da19d1ce12ba8ed9fd795b2c8219cae",
+    "url": "https://www.linkedin.com/learning/certificates/6d37b72d835477ce47e02283891d48378da19d1ce12ba8ed9fd795b2c8219cae?trk=share_certificate",
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+  },
+  {
     "id": "anthropic-claude-platform-101",
     "title": "Claude Platform 101",
     "issuer": "Anthropic",
