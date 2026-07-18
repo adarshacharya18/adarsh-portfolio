@@ -1,5 +1,15 @@
 [
   {
+    "id": "linkedin-microservices-foundations",
+    "title": "Microservices Foundations",
+    "issuer": "LinkedIn",
+    "date": "2026-07-18",
+    "credentialId": "f1f1920783d1874fe266ec300a3807cc964ed17bdf2dccea4a7c99b2a34233f4",
+    "url": "https://www.linkedin.com/learning/certificates/f1f1920783d1874fe266ec300a3807cc964ed17bdf2dccea4a7c99b2a34233f4?trk=share_certificate",
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"],
+    "image": "/static/images/linkedin-microservices-foundations.webp"
+  },
+  {
     "id": "linkedin-prompt-engineering",
     "title": "Prompt Engineering: How to Talk to the AIs",
     "issuer": "LinkedIn",
