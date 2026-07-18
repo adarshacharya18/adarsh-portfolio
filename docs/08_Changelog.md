@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.13.0-certifications-slider] - 2026-07-18
+
+### Added
+- **Interactive Onsite Certificate Lightbox**:
+  - Extracted first page of PDF certificates (LinkedIn Prompt Engineering, Anthropic AI Fluency, Claude 101, Claude Code 101) into compressed WebP images in `public/static/images/`.
+  - Added optional `image` field to `CertificateItem` types in `certificate.ts` and synced them inside `certificates.json`.
+  - Integrated `ImageLightbox` inside `CertificatesPresenter.tsx` to allow visitors to view high-quality certificate copies directly on the site on clicking "View Certificate".
+- **Responsive Touch Slider for Recommendations**:
+  - Replaced stacked grid layout on mobile with an interactive touch-swipe card component inside `TestimonialsPresenter.tsx`.
+  - Added sliding indicator dots navigation below the active recommendation card on mobile viewports.
+  - Linked `key={activePersona}` on `TestimonialsPresenter` in `Home.tsx` to trigger clean state resets when recruiting views are swapped.
+
+### Fixed
+- **Mobile Menu UX Improvements**:
+  - Wired `onSelect` callback in `PersonaSelector.tsx` to automatically close the mobile navigation drawer menu when a recruiting view is active.
+  - Scaled up gaps and typography font-sizes inside the mobile menu drawer (`Navbar.tsx`) for balanced proportions and touch target sizing.
+  - Resolved character-skipping typing animation race condition in `TypingText.tsx` by refactoring index state updates to use absolute string slicing.
+  - Prevented long certificate credential IDs from overflowing cards on mobile devices by implementing ellipsis truncation with native title text tooltips.
+
+---
+
 ## [0.12.0-branding-content] - 2026-07-15
 
 ### Added

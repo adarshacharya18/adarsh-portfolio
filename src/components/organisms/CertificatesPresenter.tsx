@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from '../atoms/Section';
 import { FiAward, FiExternalLink } from 'react-icons/fi';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import ImageLightbox from '../molecules/ImageLightbox';
 import type { CertificateItem } from '../../types/certificate';
 import type { PersonaType } from '../../types/persona';
 
@@ -16,6 +17,16 @@ const CertificatesPresenter: React.FC<CertificatesPresenterProps> = ({
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const yVal = shouldReduceMotion ? 0 : 6;
+
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = (images: string[], index: number) => {
+    setLightboxImages(images);
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
     <Section id="certificates-grid">
@@ -52,20 +63,42 @@ const CertificatesPresenter: React.FC<CertificatesPresenterProps> = ({
                   </span>
                   <span className="shrink-0">{cert.date}</span>
                 </div>
-                <a
-                  href={cert.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-1.5 text-xs text-accent-primary hover:underline pt-2 cursor-pointer"
-                >
-                  <span>Verify Credential</span>
-                  <FiExternalLink className="w-3.5 h-3.5" />
-                </a>
+                <div className="flex items-center space-x-2.5 pt-2">
+                  <a
+                    href={cert.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-1 text-xs text-accent-primary hover:underline cursor-pointer"
+                  >
+                    <span>Verify Link</span>
+                    <FiExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  {cert.image && (
+                    <>
+                      <span className="text-border-focus text-xs select-none">|</span>
+                      <button
+                        onClick={() => openLightbox([cert.image!], 0)}
+                        className="inline-flex items-center space-x-1 text-xs text-text-secondary hover:text-text-primary hover:underline cursor-pointer bg-transparent border-0 p-0 font-semibold"
+                      >
+                        <span>View Certificate</span>
+                      </button>
+                    </>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
         </motion.div>
       </AnimatePresence>
+
+      {/* Lightbox Popover overlay */}
+      <ImageLightbox
+        key={`${lightboxImages.join(',')}-${lightboxIndex}`}
+        isOpen={lightboxOpen}
+        images={lightboxImages}
+        initialIndex={lightboxIndex}
+        onClose={() => setLightboxOpen(false)}
+      />
     </Section>
   );
 };

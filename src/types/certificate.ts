@@ -8,4 +8,5 @@ export interface CertificateItem {
   credentialId: string;
   url: string;
   personas: PersonaType[];
+  image?: string;
 }

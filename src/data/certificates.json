@@ -6,7 +6,8 @@
     "date": "2026-07-18",
     "credentialId": "6d37b72d835477ce47e02283891d48378da19d1ce12ba8ed9fd795b2c8219cae",
     "url": "https://www.linkedin.com/learning/certificates/6d37b72d835477ce47e02283891d48378da19d1ce12ba8ed9fd795b2c8219cae?trk=share_certificate",
-    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"],
+    "image": "/static/images/linkedin-prompt-engineering.webp"
   },
   {
     "id": "anthropic-claude-platform-101",
@@ -24,7 +25,8 @@
     "date": "2026-06-15",
     "credentialId": "n5dic4x7st2e",
     "url": "https://verify.skilljar.com/c/n5dic4x7st2e",
-    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"],
+    "image": "/static/images/certificate-claude-101.webp"
   },
   {
     "id": "anthropic-claude-code-101",
@@ -33,7 +35,8 @@
     "date": "2026-06-15",
     "credentialId": "f6afcdxjhboz",
     "url": "https://verify.skilljar.com/c/f6afcdxjhboz",
-    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"],
+    "image": "/static/images/certificate-claude-code-101.webp"
   },
   {
     "id": "anthropic-ai-fluency",
@@ -42,7 +45,8 @@
     "date": "2026-06-15",
     "credentialId": "qea4obhxj8zc",
     "url": "https://verify.skilljar.com/c/qea4obhxj8zc",
-    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"],
+    "image": "/static/images/certificate-AI-fluency.webp"
   },
   {
     "id": "vit-pune-btech-cse",
