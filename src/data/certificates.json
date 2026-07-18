@@ -16,7 +16,8 @@
     "date": "2026-06-24",
     "credentialId": "yjjna5rim8zc",
     "url": "https://verify.skilljar.com/c/yjjna5rim8zc",
-    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"]
+    "personas": ["overall", "swe", "backend", "fullstack", "wordpress"],
+    "image": "/static/images/certificate-claude-platform-101.webp"
   },
   {
     "id": "anthropic-claude-101",
