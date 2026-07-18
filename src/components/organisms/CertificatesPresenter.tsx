@@ -43,9 +43,14 @@ const CertificatesPresenter: React.FC<CertificatesPresenterProps> = ({
               <div className="space-y-2 flex-grow min-w-0">
                 <h2 className="text-sm font-semibold text-text-primary truncate">{cert.title}</h2>
                 <p className="text-xs text-text-secondary">{cert.issuer}</p>
-                <div className="flex justify-between items-center text-3xs text-text-muted font-mono pt-1">
-                  <span>ID: {cert.credentialId}</span>
-                  <span>{cert.date}</span>
+                <div className="flex justify-between items-center text-3xs text-text-muted font-mono pt-1 gap-2">
+                  <span
+                    className="truncate max-w-[65%] sm:max-w-[75%] block"
+                    title={`ID: ${cert.credentialId}`}
+                  >
+                    ID: {cert.credentialId}
+                  </span>
+                  <span className="shrink-0">{cert.date}</span>
                 </div>
                 <a
                   href={cert.url}
