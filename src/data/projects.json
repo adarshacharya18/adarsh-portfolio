@@ -5,6 +5,7 @@
     "personas": ["swe", "backend", "fullstack"],
     "role": "Independent Developer",
     "timeline": "Jul 2026 - Present",
+    "status": "In Progress",
     "architecture": "Automated Python-based video generation pipeline. Integrates Manim animation rendering, Chatterbox cloned voice synthesis, and LLM-based RAG script writing.",
     "problem": "Creating high-quality algorithmic explanations on platforms like YouTube is time-consuming, requiring manual script drafting, voiceover recording, visual animation syncing, and metadata generation.",
     "solution": "Built an end-to-end automated pipeline in Python. The system processes LeetCode problem IDs through six modular phases: Phase 1: Foundation (scrapes solutions/metadata and sets up configuration scripts); Phase 2: Brain (RAG-indexed script generation with JSON validation); Phase 3: Voice (Chatterbox cloning with CPU fallbacks); Phase 4: Animations (dynamic Manim algorithmic representations, Linked List merges/reversals, code-typing controls, and a scene router); Phase 5: Assembly (FFmpeg audio-video syncing and private uploads); Phase 6: End-to-End Test (execution suite verification).",

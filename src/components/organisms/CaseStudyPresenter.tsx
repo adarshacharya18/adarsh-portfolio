@@ -36,9 +36,16 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
         <header className="space-y-4 border-b border-border-primary pb-6">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="space-y-2">
-              <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-text-primary">
-                {project.title}
-              </h1>
+              <div className="flex flex-wrap items-center gap-3">
+                <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-text-primary">
+                  {project.title}
+                </h1>
+                {project.status && (
+                  <span className="text-5xs px-2.5 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary font-bold uppercase tracking-wider font-mono">
+                    {project.status}
+                  </span>
+                )}
+              </div>
               <div className="flex flex-wrap items-center gap-3 text-3xs text-text-muted font-mono">
                 <div className="flex items-center space-x-1">
                   <FiUser className="w-3.5 h-3.5" />

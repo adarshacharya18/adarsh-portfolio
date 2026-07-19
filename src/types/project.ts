@@ -30,4 +30,5 @@ export interface ProjectItem {
   gallery?: GalleryItem[];
   links: ProjectLinks;
   futureImprovements: string;
+  status?: string;
 }
