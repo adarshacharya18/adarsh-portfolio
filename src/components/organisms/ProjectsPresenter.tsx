@@ -58,12 +58,12 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({
               >
                 <div className="space-y-3">
                   <header className="space-y-1.5">
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 sm:gap-4">
                       <h2 className="text-base font-bold tracking-tight text-text-primary">
                         {project.title}
                       </h2>
                       {project.status && (
-                        <span className="shrink-0 text-5xs px-2 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary font-bold uppercase tracking-wider font-mono">
+                        <span className="self-start sm:self-auto text-5xs px-2 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary font-bold uppercase tracking-wider font-mono">
                           {project.status}
                         </span>
                       )}
