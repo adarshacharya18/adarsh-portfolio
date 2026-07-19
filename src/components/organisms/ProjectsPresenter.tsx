@@ -63,7 +63,7 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({
                         {project.title}
                       </h2>
                       {project.status && (
-                        <span className="self-start sm:self-auto text-5xs px-2 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary font-bold uppercase tracking-wider font-mono">
+                        <span className="shrink-0 whitespace-nowrap self-start sm:self-auto text-5xs px-2 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary font-bold uppercase tracking-wider font-mono">
                           {project.status}
                         </span>
                       )}
