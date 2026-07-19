@@ -1,5 +1,13 @@
 [
   {
+    "id": "leetcode-explainer-pipeline",
+    "quarter": "2026 Q3",
+    "title": "Automated LeetCode Explainer Pipeline",
+    "description": "Began engineering an automated video explanation pipeline in Python. Integrates Manim engine animation rendering, Chatterbox cloned voice synthesis, and LLM-based RAG script generation.",
+    "category": "Independent Project",
+    "personas": ["swe", "backend", "fullstack"]
+  },
+  {
     "id": "portfolio-initialization-v2",
     "quarter": "2026 Q3",
     "title": "Initialized Portfolio v2 Architecture",
