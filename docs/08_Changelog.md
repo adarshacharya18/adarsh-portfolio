@@ -7,9 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.13.1-accent-fix] - 2026-07-22
+
+### Fixed
+
+- **Dynamic Accent Color Binding**:
+  - Registered `--color-accent-primary` inside the Tailwind v4 `@theme` directive in `index.css` to enable responsive color states (e.g. opacity values `/10` and `/30`) for persona selectors, progress bars, and detail cards.
+  - Implemented dynamic `--accent-primary` CSS variable injections in `PersonaContext.tsx` when the active persona profile switches.
+
 ## [0.13.0-certifications-slider] - 2026-07-18
 
 ### Added
+
 - **Interactive Onsite Certificate Lightbox**:
   - Extracted first page of PDF certificates (LinkedIn Prompt Engineering, Anthropic AI Fluency, Claude 101, Claude Code 101) into compressed WebP images in `public/static/images/`.
   - Added optional `image` field to `CertificateItem` types in `certificate.ts` and synced them inside `certificates.json`.
@@ -20,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Linked `key={activePersona}` on `TestimonialsPresenter` in `Home.tsx` to trigger clean state resets when recruiting views are swapped.
 
 ### Fixed
+
 - **Mobile Menu UX Improvements**:
   - Wired `onSelect` callback in `PersonaSelector.tsx` to automatically close the mobile navigation drawer menu when a recruiting view is active.
   - Scaled up gaps and typography font-sizes inside the mobile menu drawer (`Navbar.tsx`) for balanced proportions and touch target sizing.
@@ -31,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.12.0-branding-content] - 2026-07-15
 
 ### Added
+
 - **Dynamic Personal Branding System**:
   - Designed and deployed a minimalist, geometric monogram logo based on the initials "AA" representing growth, precision, and engineering excellence.
   - Exported SVG vectors for all system contexts: `logo-primary.svg`, `logo-favicon.svg`, `logo-lockup.svg`, `logo-icon.svg`, `logo-light.svg`, and `logo-dark.svg`.
@@ -98,6 +109,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.11.0-navbar] - 2026-07-15
 
 ### Added
+
 - Completed **Header UX Refinement & Navbar Redesign**:
   - **Persona Selector Dropdown**: Refactored **[PersonaSelector.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/molecules/PersonaSelector.tsx)** from a wide segmented control panel into a compact, elegant floating dropdown selector displaying track-specific dot indicators.
   - **Secondary Links Grouping**: Updated **[Navbar.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/Navbar.tsx)** to filter core pages (Projects, Experience, Articles, Contact) on the main bar, grouping minor pages (Timeline, Certificates) inside a clean "More" dropdown.
@@ -109,6 +121,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.10.0-deploy] - 2026-07-15
 
 ### Added
+
 - Prepared portfolio codebase for production deployment on **Cloudflare Pages**:
   - **Redirects Fallback**: Created **[_redirects](file:///home/adarsh/Documents/Portpolio_website/Website_2026/public/_redirects)** file containing `/* /index.html 200` to support dynamic client routing refreshes.
   - **Caching and Caching strategies**: Added **[_headers](file:///home/adarsh/Documents/Portpolio_website/Website_2026/public/_headers)** to implement dynamic headers caching control (`max-age=0, must-revalidate` on html/json/xml) and permanent caching (`max-age=31536000, immutable` on hashed assets).
@@ -120,6 +133,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.9.0-lighthouse] - 2026-07-15
 
 ### Added
+
 - Completed comprehensive **production performance & Lighthouse audits optimizations** target:
   - **PWA Manifest**: Created PWA compliance webmanifest **[manifest.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/public/manifest.json)**.
   - **Sitemap & Robots**: Deployed **[robots.txt](file:///home/adarsh/Documents/Portpolio_website/Website_2026/public/robots.txt)** index indexing directives, mapping to dynamic sitemaps.
@@ -133,11 +147,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.8.0-showcase] - 2026-07-15
 
 ### Added
+
 - Upgraded **Project Case Study Showcase system** with advanced fields:
   - **Dynamic Video Player**: Supports HTML5 `<video>` segments for project demonstrations.
   - **Screenshots Gallery**: Displays dynamic grids of interface layouts.
   - **System Architecture**: Added dedicated architecture blueprints text blocks.
-  - **Roles & Durations**: Renders employment timelines and roles (e.g. *Lead Systems Architect*).
+  - **Roles & Durations**: Renders employment timelines and roles (e.g. _Lead Systems Architect_).
 - Refactored **[ProjectsPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/ProjectsPresenter.tsx)** to show clean, desaturated summary cards on the main landing listing, drilling down into deep detailed reports.
 - Refactored **[CaseStudyPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/CaseStudyPresenter.tsx)** to mount and lay out all technical case study sections.
 - Verified TypeScript interface schema definitions in **[project.ts](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/types/project.ts)** and updated **[projects.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/projects.json)** database assets.
@@ -147,6 +162,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.7.0-blog] - 2026-07-15
 
 ### Added
+
 - Completed **fully scalable Markdown-powered blog engine** integrated into the portfolio content layer:
   - **Clickable Table of Contents (ToC)**: Built a dynamic headings extractor (`extractToc`) in **[ArticleDetailPresenter.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/ArticleDetailPresenter.tsx)** that renders smooth-scrolling anchors on h2 and h3 elements.
   - **Syntax Highlighting**: Added a lightweight, desaturated regex-based parser inside **[markdown.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/utils/markdown.tsx)** to highlight code keywords, strings, and comments.
@@ -161,6 +177,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.6.0-ux] - 2026-07-15
 
 ### Added
+
 - Integrated user experience (UX) refinements, micro-animations, and viewport tools:
   - **Smooth Scrolling**: Configured `scroll-behavior: smooth` base rules inside `src/index.css`.
   - **Scroll Progress Indicator**: Injected a 2px horizontal progress bar in **[MainLayout.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/organisms/MainLayout.tsx)** linked to `useScroll` percentage values.
@@ -177,6 +194,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.5.0-cms] - 2026-07-15
 
 ### Added
+
 - Completed **CMS-like database architecture** by decoupling all layout parameters, metadata, and reviews into structured JSON files:
   - **[navigation.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/navigation.json)**: Stores dynamic route paths, labels, and header logo title.
   - **[socials.json](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/data/socials.json)**: Indexes social link profiles dynamically queried by the footer.
@@ -191,6 +209,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.0-seo-accessibility] - 2026-07-15
 
 ### Added
+
 - Integrated dynamic meta tag indexing using **[useDocumentMetadata.ts](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/hooks/useDocumentMetadata.ts)** custom hook. Sets browser titles, descriptions, keywords, canonical URLs, and OpenGraph targets on page changes.
 - Set up **[JsonLd.tsx](file:///home/adarsh/Documents/Portpolio_website/Website_2026/src/components/atoms/JsonLd.tsx)** component for JSON-LD structured schema injects:
   - Injected `Person` and `ProfilePage` schemas on the Home route.
@@ -208,6 +227,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.3.0-architecture] - 2026-07-15
 
 ### Added
+
 - Implemented **Container-Presenter design pattern** across all page components to enforce separation of concerns:
   - Container pages (`Home`, `Projects`, `Experience`, `Articles`, `Timeline`, `Certificates`, `ArticleDetail`, `CaseStudy`) manage active state hooks, load raw JSON datasets, and run context filters.
   - Presenter organisms (`HeroPresenter`, `SkillsPresenter`, `ExperiencePresenter`, `ProjectsPresenter`, `TimelinePresenter`, `CertificatesPresenter`, `ArticlesPresenter`, `ArticleDetailPresenter`, `CaseStudyPresenter`) operate as pure layout elements rendering interfaces from strictly typed props.
@@ -218,6 +238,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0-dynamic] - 2026-07-15
 
 ### Added
+
 - Decoupled content database architecture using JSON schemas for structured datasets:
   - `src/data/profile.json` (Profile metadata and persona-specific copy summaries).
   - `src/data/skills.json` (Skill highlights mapping track proficiency groups).
@@ -233,6 +254,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added dynamic dynamic article detail route `/articles/:slug` mapped inside routing configurations.
 
 ### Removed
+
 - Superseded static typescript data mapping file `src/data/portfolioData.ts`.
 
 ---
@@ -240,6 +262,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0-planning] - 2026-07-15
 
 ### Added
+
 - Root `docs/` structure initialization.
 - **Project Overview (`00_Project_Overview.md`)**: Set architecture foundations, Next.js framework selection, styling rules, folder structures, and naming conventions.
 - **Requirements Specification (`01_Requirements.md`)**: Established functional capabilities (persona selection engine, component layouts) and non-functional bounds (Performance, WCAG accessibility, technical limits).

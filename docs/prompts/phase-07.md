@@ -1,6 +1,7 @@
 # Phase 7 Prompt: Production Build & Deployment Pipeline
 
 ## Goal
+
 Validate build performance, verify environment variables, configure the Vercel project deployment target, and release the portfolio live to the web.
 
 ---
@@ -8,6 +9,7 @@ Validate build performance, verify environment variables, configure the Vercel p
 ## Action Steps
 
 ### Step 1: Execute Local Production Compile
+
 - Trigger a clean local production compile:
   ```bash
   npm run build
@@ -20,6 +22,7 @@ Validate build performance, verify environment variables, configure the Vercel p
 - Test all major functionalities (persona switcher, project routing, contact validation).
 
 ### Step 2: Set up Git CI/CD repository triggers
+
 - Initialize git locally:
   ```bash
   git init
@@ -29,6 +32,7 @@ Validate build performance, verify environment variables, configure the Vercel p
 - Instruct the user to push to their remote repository (GitHub, GitLab, etc.).
 
 ### Step 3: Deployment Configuration
+
 - Configure the project on **Vercel**:
   - Connect the remote git repository.
   - Set Build Command: `npm run build`.
@@ -39,6 +43,7 @@ Validate build performance, verify environment variables, configure the Vercel p
 ---
 
 ## Verification Tasks
+
 1. Access the deployed live URL and confirm page routes render without server errors.
 2. Submit a real email through the contact form, verifying receipt in the destination inbox.
 3. Check the page load speed and ensure Lighthouse reports match the performance criteria.

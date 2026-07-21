@@ -47,12 +47,12 @@ graph LR
 
 The following parameters must be configured in Vercel's environment variables dashboard for local development, staging, and production environments:
 
-| Variable Name | Environment | Description / Target Value |
-| :--- | :--- | :--- |
-| `NEXT_PUBLIC_SITE_URL` | All | Base canonical URL (e.g., `https://myname.dev`) |
-| `RESEND_API_KEY` | Production/Staging | Token from Resend service to dispatch contact form emails. |
-| `CONTACT_EMAIL_RECIPIENT`| Production | Destination email address to receive contact form submissions. |
-| `WORDPRESS_API_URL` | Production | REST or GraphQL endpoint of the headless WordPress database (if connected). |
+| Variable Name             | Environment        | Description / Target Value                                                  |
+| :------------------------ | :----------------- | :-------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL`    | All                | Base canonical URL (e.g., `https://myname.dev`)                             |
+| `RESEND_API_KEY`          | Production/Staging | Token from Resend service to dispatch contact form emails.                  |
+| `CONTACT_EMAIL_RECIPIENT` | Production         | Destination email address to receive contact form submissions.              |
+| `WORDPRESS_API_URL`       | Production         | REST or GraphQL endpoint of the headless WordPress database (if connected). |
 
 ---
 

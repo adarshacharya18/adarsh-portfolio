@@ -11,17 +11,17 @@ Metadata must be dynamically computed based on the page route and any active que
 ### Persona Meta Profiles
 
 - **General (Default)**:
-  - *Title*: `[Name] | Senior Software Engineer Portfolio`
-  - *Description*: `Explore [Name]'s engineering portfolio showcasing full-stack applications, scalable systems, and clean coding architectures.`
+  - _Title_: `[Name] | Senior Software Engineer Portfolio`
+  - _Description_: `Explore [Name]'s engineering portfolio showcasing full-stack applications, scalable systems, and clean coding architectures.`
 - **Backend Engineer**:
-  - *Title*: `[Name] | Senior Backend Engineer Portfolio`
-  - *Description*: `Backend engineering portfolio of [Name]. High-performance REST/GraphQL APIs, database architectures, system optimization, and DevOps.`
+  - _Title_: `[Name] | Senior Backend Engineer Portfolio`
+  - _Description_: `Backend engineering portfolio of [Name]. High-performance REST/GraphQL APIs, database architectures, system optimization, and DevOps.`
 - **Full Stack Developer**:
-  - *Title*: `[Name] | Full Stack Developer Portfolio`
-  - *Description*: `Full stack development portfolio of [Name], showcasing responsive user interfaces, custom components, and serverless architectures.`
+  - _Title_: `[Name] | Full Stack Developer Portfolio`
+  - _Description_: `Full stack development portfolio of [Name], showcasing responsive user interfaces, custom components, and serverless architectures.`
 - **WordPress Engineer**:
-  - *Title*: `[Name] | Senior WordPress Engineer & Developer`
-  - *Description*: `WordPress portfolio of [Name]. Custom plugins, performant Gutenberg blocks, custom theme architectures, and headless WP setups.`
+  - _Title_: `[Name] | Senior WordPress Engineer & Developer`
+  - _Description_: `WordPress portfolio of [Name]. Custom plugins, performant Gutenberg blocks, custom theme architectures, and headless WP setups.`
 
 ---
 
@@ -40,10 +40,7 @@ To help search engines construct rich snippets, the portfolio injects JSON-LD sc
     "name": "[Name]",
     "jobTitle": "Senior Software Engineer",
     "url": "https://[your-domain].com",
-    "sameAs": [
-      "https://github.com/[username]",
-      "https://linkedin.com/in/[username]"
-    ],
+    "sameAs": ["https://github.com/[username]", "https://linkedin.com/in/[username]"],
     "knowsAbout": [
       "Software Engineering",
       "Backend Architecture",

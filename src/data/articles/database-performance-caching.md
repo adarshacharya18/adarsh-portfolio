@@ -26,6 +26,7 @@ Furthermore, for real-time notification engines (such as responding to Twilio we
 To bypass relational complexity, we implemented a **denormalized flat cache table** approach. Instead of query-time JOINs, we store all key queryable fields in a flat, custom database table: `wp_ut_ecourse_registrations_cache` and `wp_ut_twilio_messages_cache`.
 
 Each row in these tables represents a complete registration state containing:
+
 - Attendee name, email, and phone number.
 - Registration dates and event ID.
 - Custom identifiers (driving licenses, MSF numbers).
@@ -75,6 +76,7 @@ By maintaining this cache table through Event Espresso registration hooks, we wr
 As the database grows, scanning the flat cache table can still slow down if it scales to tens of thousands of records. Adding heavy indexes on search-intensive fields transforms sequential table scans (O(N) time complexity) into highly optimized binary tree index lookups (O(log N) complexity).
 
 In our schema above, we explicitly index the fields:
+
 - `attendee_email`
 - `phone`
 - `driving_license`
@@ -114,14 +116,14 @@ function ut_get_scored_registration_matches( $email, $fname, $lname ) {
     //  60 points: First Name and Last Name match exactly.
     //   0 points: No match.
     $query = $wpdb->prepare(
-        "SELECT *, 
-        CASE 
+        "SELECT *,
+        CASE
             WHEN attendee_email = %s AND attendee_fname = %s AND attendee_lname = %s THEN 100
             WHEN attendee_email = %s THEN 80
             WHEN attendee_fname = %s AND attendee_lname = %s THEN 60
             ELSE 0
         END as match_score
-        FROM {$table_name} 
+        FROM {$table_name}
         WHERE attendee_email = %s OR (attendee_fname = %s AND attendee_lname = %s)
         ORDER BY match_score DESC
         LIMIT 5",
@@ -186,6 +188,7 @@ add_action( 'wp_ajax_ut_import_batch', 'ut_handle_paginated_import_ajax' );
 Scaling WordPress database interactions for enterprise applications requires moving away from the default WordPress/Event Espresso ORM abstractions for read-heavy operations.
 
 By taking control of database caching and query execution, we achieve significant performance improvements:
+
 1. **Flatten normalized tables** into custom, single-row cache tables.
 2. **Apply explicit indexing** to fields commonly searched during imports and webhook requests.
 3. **Write SQL-level relevance calculations** to offload processing to the database.

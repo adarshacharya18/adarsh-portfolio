@@ -30,7 +30,15 @@
     "problem": "Real estate transactions suffer from complex user permissions, fragmented tools, and compliance issues with industry data models.",
     "solution": "Created a monorepo platform supporting 6 user roles (Buyers, Tenants, Agents, Admins, etc.) fully aligned with RESO (Real Estate Standards Organization) v1.7. Designed round-based immutable snapshot tables for lease negotiations.",
     "challenges": "Handling high-volume relational mapping of diverse listing fields under strict v1.7 compliance. Resolved by building dynamic schema encoders and validation middleware layers.",
-    "techStack": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Drizzle ORM", "Docker"],
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Docker"
+    ],
     "lessonsLearned": "Acquired key insights into RESO schemas, relational normalization boundaries, and immutable state transaction histories.",
     "video": "",
     "images": [],
@@ -48,7 +56,14 @@
     "problem": "Default course checkouts and registration forms lacked custom styling, timezone counters, geolocation searches, and role-based redirects.",
     "solution": "Built 32 shortcode handlers, secure asynchronous authentication pages, Google Maps distance filters, and optimized checkout pages to minimize drop-off rates.",
     "challenges": "Fixing layout delays and user experience drops on mobile viewports due to heavy scroll animations, resolved by disabling mobile animations and refining theme stylesheets.",
-    "techStack": ["PHP", "WordPress", "Event Espresso", "JavaScript", "Vanilla CSS", "Google Maps API"],
+    "techStack": [
+      "PHP",
+      "WordPress",
+      "Event Espresso",
+      "JavaScript",
+      "Vanilla CSS",
+      "Google Maps API"
+    ],
     "lessonsLearned": "Gained expert familiarity with the WordPress event loop, actions/filters hooks lifecycle, and mobile UI rendering optimization.",
     "video": "",
     "images": [],
@@ -61,18 +76,12 @@
       },
       {
         "description": "Implemented a backend template-mapping utility to align development and production page IDs, resolving template loading discrepancies during environment migrations.",
-        "images": [
-          "/static/images/page-mapping1.webp",
-          "/static/images/page-mapping2.webp"
-        ],
+        "images": ["/static/images/page-mapping1.webp", "/static/images/page-mapping2.webp"],
         "caption": "Database Migration Template ID Mapper"
       },
       {
         "description": "Created administrative input settings to customize homepage layout parameters dynamically without direct codebase modifications.",
-        "images": [
-          "/static/images/cards.webp",
-          "/static/images/timeline-admin1.webp"
-        ],
+        "images": ["/static/images/cards.webp", "/static/images/timeline-admin1.webp"],
         "caption": "Dynamic Section Option Panels"
       },
       {
@@ -106,7 +115,17 @@
     "problem": "Need for custom e-signing capabilities with administrative system control parameters, maintenance windows to lock dynamic contract templates, and rules to suppress notification emails for specific signers.",
     "solution": "Engineered a secure in-house e-signature portal using Cursor AI. Implemented a system-wide Maintenance Mode with admin controls, an early-stage Express API filter, and dynamic React banners. Integrated signer email suppression modules across email queuing workers, and optimized PDF attachment extraction.",
     "challenges": "Handling client-side auto-save synchronization collisions and state leaks when the server is taken down for maintenance. Resolved by designing a custom Axios interceptor (`maintenanceInterceptor`) and injecting status-locking hooks (`useAutoSave`, `useSaveFields`) to halt client updates instantly.",
-    "techStack": ["React", "TypeScript", "Redux Toolkit", "Node.js", "Express", "PostgreSQL", "Axios Interceptors", "PDF Services", "Cursor AI"],
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Redux Toolkit",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Axios Interceptors",
+      "PDF Services",
+      "Cursor AI"
+    ],
     "lessonsLearned": "Gained rich expertise in managing complex global state structures, designing resilient middleware routing controls, automating document processing pipeline extensions, and boosting developer productivity via Cursor AI.",
     "video": "",
     "images": [],
@@ -141,7 +160,16 @@
     "problem": "High administrative overhead of manually tracking course completions, scheduling reminders, and updating student certificates across Adobe and WordPress systems.",
     "solution": "Developed a custom sync plugin processing class updates, automated Twilio reminder workflows with replies caching, and a fuzzy scoring matching algorithm for CSV data uploads.",
     "challenges": "Optimizing CSV matching speeds and database timeout issues during large class uploads, which was resolved by implementing a dedicated pre-indexed database cache manager.",
-    "techStack": ["PHP", "WordPress", "Event Espresso", "Twilio API", "Adobe Captivate API", "SQL", "JavaScript", "AJAX"],
+    "techStack": [
+      "PHP",
+      "WordPress",
+      "Event Espresso",
+      "Twilio API",
+      "Adobe Captivate API",
+      "SQL",
+      "JavaScript",
+      "AJAX"
+    ],
     "lessonsLearned": "Acquired experience in relational SQL database optimization, caching, and building reliable event-driven notification pipelines.",
     "video": "",
     "images": [],
@@ -178,7 +206,16 @@
     "problem": "Requirement for high-performance responsive block elements and user role dashboard features that standard block libraries did not support.",
     "solution": "Engineered 33 custom Gutenberg React blocks, developed a Swiper-powered video slider integrated with YouTube/Vimeo APIs, registered custom coach profile capabilities, and programmed an AJAX-driven local notifications caching database.",
     "challenges": "Synchronizing YouTube/Vimeo API play states with the Swiper carousel's autoplay functions to prevent slide transitions during active video playbacks, resolved by binding custom JavaScript controllers to iframe events.",
-    "techStack": ["React", "JavaScript", "Sass", "PHP", "WordPress", "Swiper JS", "SQL", "YouTube API"],
+    "techStack": [
+      "React",
+      "JavaScript",
+      "Sass",
+      "PHP",
+      "WordPress",
+      "Swiper JS",
+      "SQL",
+      "YouTube API"
+    ],
     "lessonsLearned": "Mastered Gutenberg block lifecycle events, enqueuing localized scripts in WordPress admin spaces, and managing asynchronous updates via custom tables.",
     "video": "",
     "images": [],

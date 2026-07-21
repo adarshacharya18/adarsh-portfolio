@@ -1,6 +1,6 @@
 # Melodic Sequence Generation: Deep LSTMs vs. Probabilistic Markov Chains in Generative Music AI
 
-Generative musical systems must balance two distinct structural forces: **global thematic coherence** (recurring motifs, musical phrases, and harmonic progressions) and **local note transitions** (melodic smoothness, appropriate step intervals, and avoiding sudden dissonant leaps). 
+Generative musical systems must balance two distinct structural forces: **global thematic coherence** (recurring motifs, musical phrases, and harmonic progressions) and **local note transitions** (melodic smoothness, appropriate step intervals, and avoiding sudden dissonant leaps).
 
 In this article, we analyze the algorithmic trade-offs between deep sequence models and classical probabilistic models, drawing from the experimental configurations in the `ICTIS-2023` study. We compare **Long Short-Term Memory (LSTM) Networks** against **First-Order Markov Chains**, detailing data preprocessing steps, sequence mapping, transition probabilities, and how these models apply to different musical styles—specifically Western Classical Piano works and Indian Classical Ragas.
 
@@ -16,15 +16,19 @@ Before feeding musical data into a generative model, we must parse symbolic audi
 ```
 
 ### 1. Western Classical Piano (Kern Format)
-Western classical music, particularly piano compositions, contains polyphonic structures (multiple notes/chords playing simultaneously) and strict time signatures. 
+
+Western classical music, particularly piano compositions, contains polyphonic structures (multiple notes/chords playing simultaneously) and strict time signatures.
+
 - **Format:** Kern (`.krn`) format from the Humdrum toolkit is ideal because it serializes musical parameters into clear text columns.
-- **Preprocessing:** We parse the Kern files, extracting pitches, chords, rests, and note durations. Chords are mapped to unique token identifiers, and durations are quantized (e.g., sixteenth notes). 
+- **Preprocessing:** We parse the Kern files, extracting pitches, chords, rests, and note durations. Chords are mapped to unique token identifiers, and durations are quantized (e.g., sixteenth notes).
 - **Output:** A serialized sequence of token IDs representing the performance:
   `['C4', 'E4', 'G4', 'C4-E4-G4', 'REST', 'D4', 'F4', 'A4']`
 
 ### 2. Indian Classical Ragas (MIDI Format)
-Indian Classical Music is predominantly monophonic, focusing on intricate melodic movements (*swaras*) and improvisations within a strict scale (*raga*).
-- **Format:** MIDI files capture the continuous pitch-bending (*meend*) and ornamentations characteristic of ragas.
+
+Indian Classical Music is predominantly monophonic, focusing on intricate melodic movements (_swaras_) and improvisations within a strict scale (_raga_).
+
+- **Format:** MIDI files capture the continuous pitch-bending (_meend_) and ornamentations characteristic of ragas.
 - **Preprocessing:** We extract note-on events, ignore absolute tempo variations, and map frequencies to the relative scale degrees of the raga (e.g., Sa, Re, Ga, Ma, Pa, Dha, Ni).
 - **Output:** A single-track numeric stream of MIDI note numbers filtered to contain only notes within the specific raga scale.
 
@@ -32,9 +36,10 @@ Indian Classical Music is predominantly monophonic, focusing on intricate melodi
 
 ## Model 1: First-Order Markov Chains
 
-A First-Order Markov Chain is a probabilistic model where the probability of the next state (note) depends solely on the current state. 
+A First-Order Markov Chain is a probabilistic model where the probability of the next state (note) depends solely on the current state.
 
 ### Mathematical Formulation
+
 The fundamental Markov property is expressed as:
 $$P(X_t \mid X_1, \dots, X_{t-1}) = P(X_t \mid X_{t-1})$$
 
@@ -42,6 +47,7 @@ To generate a melody, we sample iteratively using a transition probability matri
 $$X_1 \sim P_0(X), \quad X_t \sim P(X_t \mid X_{t-1})$$
 
 ### Python Implementation
+
 Here is a complete script demonstrating how to calculate a transition matrix from a sequence of notes and sample a new melody:
 
 ```python
@@ -60,11 +66,11 @@ class MarkovMelodyGenerator:
         self.states = sorted(list(set(note_sequence)))
         self.state_to_idx = {state: idx for idx, state in enumerate(self.states)}
         self.idx_to_state = {idx: state for idx, state in enumerate(self.states)}
-        
+
         num_states = len(self.states)
         # Initialize transition matrix count
         counts = np.zeros((num_states, num_states))
-        
+
         # Count transitions
         for i in range(len(note_sequence) - 1):
             curr_state = note_sequence[i]
@@ -72,7 +78,7 @@ class MarkovMelodyGenerator:
             curr_idx = self.state_to_idx[curr_state]
             next_idx = self.state_to_idx[next_state]
             counts[curr_idx, next_idx] += 1
-            
+
         # Normalize rows to form transition probabilities
         row_sums = counts.sum(axis=1, keepdims=True)
         # Handle states with zero outgoing transitions to prevent divide-by-zero
@@ -81,16 +87,16 @@ class MarkovMelodyGenerator:
     def generate(self, start_note, length=32):
         if start_note not in self.state_to_idx:
             raise ValueError(f"Starting note '{start_note}' not found in training corpus.")
-            
+
         current_idx = self.state_to_idx[start_note]
         melody = [start_note]
-        
+
         for _ in range(length - 1):
             probabilities = self.transition_matrix[current_idx]
             next_idx = np.random.choice(len(self.states), p=probabilities)
             melody.append(self.idx_to_state[next_idx])
             current_idx = next_idx
-            
+
         return melody
 
 # Example Usage:
@@ -102,6 +108,7 @@ print("Generated Raga Sequence:", new_melody)
 ```
 
 ### Musical Performance
+
 - **Strengths:** Excellent for improvisational systems. It enforces local rules (scale constraints) and runs instantaneously. Training requires only counting transitions, meaning it can run on tiny datasets of a single raga performance.
 - **Weaknesses:** Complete lack of memory. The model cannot maintain key center themes or repeat musical motifs, leading to rapid thematic drift (random walk).
 
@@ -112,10 +119,12 @@ print("Generated Raga Sequence:", new_melody)
 An LSTM is a recurrent neural network (RNN) architecture designed to capture long-term dependencies in sequential data by utilizing a cell state ($C_t$) governed by three gates: forget, input, and output.
 
 ### Mathematical Formulation
+
 The LSTM processes input sequences of length $L$ to predict the next note probability distribution:
 $$y = f(x_t, x_{t-1}, \dots, x_{t-L})$$
 
 ### Python Implementation (TensorFlow/Keras)
+
 Here is the core architecture of an LSTM-based melodic sequence composer:
 
 ```python
@@ -129,22 +138,22 @@ def build_lstm_melody_generator(vocab_size, sequence_length, embedding_dim=64):
     model = models.Sequential([
         # Project sparse token IDs into dense vectors
         layers.Embedding(input_dim=vocab_size, output_dim=embedding_dim, input_length=sequence_length),
-        
+
         # First LSTM layer returns sequences for the next LSTM layer
         layers.LSTM(128, return_sequences=True),
         layers.Dropout(0.2),
-        
+
         # Second LSTM layer captures deeper temporal relations
         layers.LSTM(128),
         layers.Dropout(0.2),
-        
+
         # Output layer produces logit probabilities for each note in the vocabulary
         layers.Dense(vocab_size, activation='softmax')
     ])
-    
+
     model.compile(
-        loss='sparse_categorical_crossentropy', 
-        optimizer='adam', 
+        loss='sparse_categorical_crossentropy',
+        optimizer='adam',
         metrics=['accuracy']
     )
     return model
@@ -156,6 +165,7 @@ model.summary()
 ```
 
 ### Musical Performance
+
 - **Strengths:** Captures long-range musical dependencies, structural motifs, and thematic patterns. It can construct phrases that return to the primary key signature after multiple bars, making it ideal for highly structured Western classical piano pieces.
 - **Weaknesses:** Computational overhead is high, requiring GPU training. If overfitted, LSTMs fall into repetitive loops (monotony circles), playing the exact same note sequences indefinitely.
 
@@ -163,16 +173,16 @@ model.summary()
 
 ## Algorithmic Comparison: LSTMs vs. Markov Chains
 
-| Metric / Aspect | First-Order Markov Chain | Long Short-Term Memory (LSTM) |
-| :--- | :--- | :--- |
-| **Modeling Paradigm** | Probabilistic Transition | Deep Recurrent Neural Network |
-| **Memory Horizon** | Local (1-step state history) | Global (remembers long sequence states) |
-| **Primary Musical Fit** | Indian Classical Ragas (improvisational) | Western Classical Piano (highly structured) |
-| **Data Preprocessing** | Simple token frequency counting | Token mapping, sequence chunking, embedding |
-| **Training Requirements** | CPU-only, runs in milliseconds | GPU-intensive, takes hours/days |
-| **Computational Overhead** | Near-zero lookup cost | High inference processing cost per note |
-| **Risk of Overfitting** | None (acts as a random-walk generator) | High (can generate repetitive monotony loops) |
-| **Polyphony Support** | Poor (struggles with simultaneous notes) | High (maps complex chord token groups easily) |
+| Metric / Aspect            | First-Order Markov Chain                 | Long Short-Term Memory (LSTM)                 |
+| :------------------------- | :--------------------------------------- | :-------------------------------------------- |
+| **Modeling Paradigm**      | Probabilistic Transition                 | Deep Recurrent Neural Network                 |
+| **Memory Horizon**         | Local (1-step state history)             | Global (remembers long sequence states)       |
+| **Primary Musical Fit**    | Indian Classical Ragas (improvisational) | Western Classical Piano (highly structured)   |
+| **Data Preprocessing**     | Simple token frequency counting          | Token mapping, sequence chunking, embedding   |
+| **Training Requirements**  | CPU-only, runs in milliseconds           | GPU-intensive, takes hours/days               |
+| **Computational Overhead** | Near-zero lookup cost                    | High inference processing cost per note       |
+| **Risk of Overfitting**    | None (acts as a random-walk generator)   | High (can generate repetitive monotony loops) |
+| **Polyphony Support**      | Poor (struggles with simultaneous notes) | High (maps complex chord token groups easily) |
 
 ---
 

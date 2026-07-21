@@ -1,6 +1,6 @@
 # Architecting Concurrency-Safe WordPress Checkouts: Overcoming Event Espresso SPCO Race Conditions
 
-High-volume transactional systems built on WordPress frequently encounter severe data integrity issues under concurrency spikes. When hundreds of users simultaneously attempt to purchase tickets, register for courses, or sign contracts, standard database abstraction layers and caching mechanisms can break down. 
+High-volume transactional systems built on WordPress frequently encounter severe data integrity issues under concurrency spikes. When hundreds of users simultaneously attempt to purchase tickets, register for courses, or sign contracts, standard database abstraction layers and caching mechanisms can break down.
 
 In this deep dive, we will analyze the concurrency bottlenecks within the Event Espresso 4 (EE4) Single-Page Checkout (SPCO) system—specifically focusing on experiences gained from optimizing high-traffic integrations like `utee-esign` and `wdm-adobe-integration`. We will explore how stale cache hydration, commit timing race conditions, and model write failures occur, and how we engineered concrete solutions: forced entity map invalidation, direct `$wpdb` bypasses, raw POST interception self-healing, and duplicate request overload shields.
 
@@ -24,7 +24,9 @@ Request 2 (Thread B) -------------> Load Registration [ATT_ID = 0] (Cached)
 ```
 
 ### The Race Condition Under High Load
+
 Under concurrent checkout conditions, the following sequence occurs:
+
 1. Two or more concurrent requests for the same transaction/registration hit the SPCO step hooks.
 2. The registration model object is loaded into the entity map cache. At this moment, the attendee relationship has not been fully processed, meaning the attendee ID (`ATT_ID`) is still `0`.
 3. Request A processes the attendee information and saves the attendee record, updating the database.
@@ -59,7 +61,7 @@ function wdm_force_refresh_registration_cache( $registration ) {
             $registration = $refreshed;
         }
     }
-    
+
     return $registration;
 }
 ```
@@ -181,7 +183,7 @@ function wdm_self_heal_registration_data() {
                 if ( $question_id === 'fname' || $question_id === 'lname' || $question_id === 'email' ) {
                     continue;
                 }
-                
+
                 $wpdb->insert(
                     $wpdb->prefix . 'esp_answer',
                     array(
@@ -225,17 +227,17 @@ To prevent parallel requests from processing the same registration simultaneousl
  */
 function wdm_acquire_registration_lock( $registration_id ) {
     global $wpdb;
-    
+
     $registration_id = intval( $registration_id );
     if ( $registration_id <= 0 ) {
         return false;
     }
 
     $meta_table = $wpdb->prefix . 'esp_registration_meta'; // Custom or standard EE meta table
-    
+
     // Check if a lock already exists and is unexpired (e.g., less than 60 seconds old)
     $lock_time = $wpdb->get_var( $wpdb->prepare(
-        "SELECT meta_value FROM {$wpdb->prefix}postmeta 
+        "SELECT meta_value FROM {$wpdb->prefix}postmeta
          WHERE post_id = %d AND meta_key = 'wdm_adobe_transaction_status'",
         $registration_id
     ) );
@@ -247,7 +249,7 @@ function wdm_acquire_registration_lock( $registration_id ) {
 
     // Set the status to PENDING using direct update to avoid model cache lag
     update_post_meta( $registration_id, 'wdm_adobe_transaction_status', 'PENDING' );
-    
+
     return true;
 }
 

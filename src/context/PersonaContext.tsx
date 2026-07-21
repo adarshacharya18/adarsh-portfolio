@@ -57,6 +57,12 @@ export const PersonaProvider: React.FC<{ children: React.ReactNode }> = ({ child
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // Update CSS variable on document element for dynamic accents
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.style.setProperty('--accent-primary', `var(--persona-${activePersona})`);
+  }, [activePersona]);
+
   return (
     <PersonaContext.Provider value={{ activePersona, setPersona }}>
       {children}
