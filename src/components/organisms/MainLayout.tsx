@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { usePersona } from '../../hooks/usePersona';
@@ -11,7 +11,11 @@ import ScrollToTop from '../molecules/ScrollToTop';
 const MainLayout: React.FC = () => {
   const { activePersona } = usePersona();
   const { scrollProgress } = useScroll();
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
+
+  const isTimeline = location.pathname === '/timeline';
+  const displayProgress = isTimeline ? Math.max(0, 100 - scrollProgress) : scrollProgress;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -55,9 +59,9 @@ const MainLayout: React.FC = () => {
       {/* Scroll Progress Bar */}
       <div
         className="fixed top-0 left-0 h-[2px] bg-accent-primary z-[60] transition-[width] duration-75 ease-out"
-        style={{ width: `${scrollProgress}%` }}
+        style={{ width: `${displayProgress}%` }}
         role="progressbar"
-        aria-valuenow={Math.round(scrollProgress)}
+        aria-valuenow={Math.round(displayProgress)}
         aria-valuemin={0}
         aria-valuemax={100}
       />

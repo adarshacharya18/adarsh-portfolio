@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Section from '../atoms/Section';
 import { motion, AnimatePresence } from 'framer-motion';
+import AntigravityCard from '../molecules/AntigravityCard';
 import type { TestimonialItem } from '../../types/testimonials';
 import type { PersonaType } from '../../types/persona';
 
@@ -29,6 +30,19 @@ const TestimonialsPresenter: React.FC<TestimonialsPresenterProps> = ({
     exit: { opacity: 0, y: -4, transition: { duration: 0.15, ease: 'easeIn' as const } },
   };
 
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const staggerItem = {
+    hidden: { opacity: 0, y: 30, rotateX: 20 },
+    show: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
+  };
+
   const activeTestimonial = testimonials[currentIndex];
 
   return (
@@ -50,22 +64,29 @@ const TestimonialsPresenter: React.FC<TestimonialsPresenterProps> = ({
           className="max-w-4xl"
         >
           {/* Desktop Grid Layout (Visible on md: and up) */}
-          <div className="hidden md:grid grid-cols-2 gap-6">
+          <motion.div
+            className="hidden md:grid grid-cols-2 gap-6"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {testimonials.map((item) => (
-              <div
-                key={item.id}
-                className="border border-border-primary bg-bg-secondary p-6 rounded-lg space-y-4 shadow-soft text-left"
-              >
-                <p className="text-xs md:text-sm italic text-text-secondary leading-relaxed">
-                  "{item.text}"
-                </p>
-                <div className="pt-2 border-t border-border-primary space-y-1">
-                  <h4 className="text-xs font-bold text-text-primary">{item.name}</h4>
-                  <p className="text-3xs text-text-muted font-mono">{item.role}</p>
-                </div>
-              </div>
+              <motion.div key={item.id} variants={staggerItem} className="perspective-[1000px]">
+                <AntigravityCard className="border border-accent-primary/20 bg-bg-secondary/20 p-6 shadow-soft text-left h-full">
+                  <div className="h-full flex flex-col justify-between space-y-4">
+                    <p className="text-xs md:text-sm italic text-text-secondary leading-relaxed">
+                      "{item.text}"
+                    </p>
+                    <div className="pt-2 border-t border-border-primary space-y-1">
+                      <h4 className="text-xs font-bold text-text-primary">{item.name}</h4>
+                      <p className="text-3xs text-text-muted font-mono">{item.role}</p>
+                    </div>
+                  </div>
+                </AntigravityCard>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Mobile Touch Slider Layout (Visible on screens under md) */}
           {testimonials.length > 0 && (

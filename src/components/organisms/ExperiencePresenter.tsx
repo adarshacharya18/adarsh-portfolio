@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Section from '../atoms/Section';
 import { FiArrowRight } from 'react-icons/fi';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import AntigravityCard from '../molecules/AntigravityCard';
 import type { ExperienceItem } from '../../types/experience';
 import type { PersonaType } from '../../types/persona';
 
@@ -54,32 +55,38 @@ const ExperiencePresenter: React.FC<ExperiencePresenterProps> = ({
             className="flex flex-col gap-6 max-w-3xl"
           >
             {experience.map((exp) => (
-              <motion.div
+              <Link
                 key={`${exp.role}-${exp.company}`}
-                initial={{ opacity: 0, y: yVal }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ duration: shouldReduceMotion ? 0.05 : 0.3 }}
-                className="border border-border-primary bg-bg-secondary p-5 rounded-lg flex flex-col sm:flex-row sm:items-start justify-between gap-3 shadow-soft hover:border-border-focus transition"
+                to={`/projects?role=${encodeURIComponent(exp.role)}&company=${encodeURIComponent(exp.company)}`}
+                className="block group cursor-pointer"
               >
-                <div className="space-y-2 text-left">
-                  <span className="font-mono text-2xs text-text-muted tracking-wider uppercase block mb-1">
-                    {exp.period}
-                  </span>
-                  <div className="space-y-0.5">
-                    <h3 className="text-base font-semibold text-text-primary">{exp.role}</h3>
-                    <p className="text-sm text-text-secondary">{exp.company}</p>
-                  </div>
-                  <p className="text-sm text-text-muted leading-relaxed pt-1">{exp.description}</p>
-                </div>
-                <Link
-                  to={`/projects?role=${encodeURIComponent(exp.role)}&company=${encodeURIComponent(exp.company)}`}
-                  className="inline-flex items-center space-x-1 text-xs text-text-muted font-semibold hover:text-text-primary cursor-pointer shrink-0 transition"
+                <motion.div
+                  initial={{ opacity: 0, y: yVal }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-20px' }}
+                  transition={{ duration: shouldReduceMotion ? 0.05 : 0.3 }}
+                  className="h-full"
                 >
-                  <span>View Details</span>
-                  <FiArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </motion.div>
+                  <AntigravityCard className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 p-5 bg-bg-secondary/20 border-border-primary/50 hover:border-border-focus/70 transition-colors h-full">
+                    <div className="space-y-2 text-left">
+                      <span className="font-mono text-2xs text-text-muted tracking-wider uppercase block mb-1">
+                        {exp.period}
+                      </span>
+                      <div className="space-y-0.5">
+                        <h3 className="text-base font-semibold text-text-primary">{exp.role}</h3>
+                        <p className="text-sm text-text-secondary">{exp.company}</p>
+                      </div>
+                      <p className="text-sm text-text-muted leading-relaxed pt-1">
+                        {exp.description}
+                      </p>
+                    </div>
+                    <div className="inline-flex items-center space-x-1.5 text-xs text-text-muted font-semibold group-hover:text-text-primary transition cursor-pointer shrink-0 sm:pt-1">
+                      <span>View Details</span>
+                      <FiArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </div>
+                  </AntigravityCard>
+                </motion.div>
+              </Link>
             ))}
           </motion.div>
         </AnimatePresence>

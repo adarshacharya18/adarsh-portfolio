@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '../atoms/Section';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import AntigravityCard from '../molecules/AntigravityCard';
 import type { SkillGroup } from '../../types/skill';
 import type { PersonaType } from '../../types/persona';
 
@@ -52,29 +53,31 @@ const SkillsPresenter: React.FC<SkillsPresenterProps> = ({ skills, activePersona
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-20px' }}
               transition={{ duration: shouldReduceMotion ? 0.05 : 0.3 }}
-              className="border border-border-primary bg-bg-secondary p-6 rounded-lg space-y-4 shadow-soft"
+              className="h-full"
             >
-              <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted border-b border-border-primary pb-2">
-                {group.category}
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {group.skills.map((skill) => (
-                  <div
-                    key={skill.name}
-                    className="flex items-center justify-between p-2 rounded bg-bg-primary border border-border-primary gap-2 min-w-0"
-                  >
-                    <span
-                      className="text-xs font-medium text-text-primary truncate"
-                      title={skill.name}
+              <AntigravityCard className="h-full p-6 space-y-4 bg-bg-secondary/20">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted border-b border-border-primary/50 pb-2">
+                  {group.category}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {group.skills.map((skill) => (
+                    <div
+                      key={skill.name}
+                      className="flex items-center justify-between p-2 rounded bg-bg-primary/50 backdrop-blur-sm border border-border-primary/50 gap-2 min-w-0"
                     >
-                      {skill.name}
-                    </span>
-                    <span className="text-3xs font-mono px-1.5 py-0.5 rounded bg-bg-tertiary border border-border-primary text-text-secondary shrink-0">
-                      {skill.level}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                      <span
+                        className="text-xs font-medium text-text-primary truncate"
+                        title={skill.name}
+                      >
+                        {skill.name}
+                      </span>
+                      <span className="text-3xs font-mono px-1.5 py-0.5 rounded bg-bg-tertiary/50 border border-border-primary/50 text-text-secondary shrink-0">
+                        {skill.level}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </AntigravityCard>
             </motion.div>
           ))}
         </motion.div>

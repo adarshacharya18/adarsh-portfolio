@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface LogoMarkProps {
   size?: number;
@@ -22,23 +23,31 @@ interface LogoMarkProps {
  */
 const LogoMark: React.FC<LogoMarkProps> = ({ size = 24, className = '' }) => {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 48 48"
-      width={size}
-      height={size}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={3}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
+    <motion.div
+      whileHover={{ scale: 1.08, rotate: 3 }}
+      whileTap={{ scale: 0.92, rotate: -2 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+      className={`inline-flex items-center justify-center cursor-pointer ${className}`}
+      style={{ width: size, height: size }}
     >
-      <path d="M 3,42 L 15,6 L 24,42 L 33,6 L 45,42" />
-      <path d="M 8,28 L 20.5,28" />
-      <path d="M 27.5,28 L 40,28" />
-    </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 48 48"
+        width={size}
+        height={size}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={3}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+        className="block"
+      >
+        <path d="M 3,42 L 15,6 L 24,42 L 33,6 L 45,42" />
+        <path d="M 8,28 L 20.5,28" />
+        <path d="M 27.5,28 L 40,28" />
+      </svg>
+    </motion.div>
   );
 };
 

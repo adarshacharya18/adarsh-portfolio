@@ -81,26 +81,34 @@ const Navbar: React.FC = () => {
                 />
               </button>
 
-              {isMoreOpen && (
-                <div className="absolute left-0 mt-2 w-36 rounded-lg border border-border-primary bg-bg-secondary shadow-medium z-50 p-1 space-y-0.5">
-                  {secondaryLinks.map((link) => (
-                    <NavLink
-                      key={link.path}
-                      to={link.path}
-                      onClick={() => setIsMoreOpen(false)}
-                      className={({ isActive }) =>
-                        `block px-3 py-2 text-3xs font-semibold tracking-wider uppercase rounded transition ${
-                          isActive
-                            ? 'bg-bg-tertiary text-text-primary'
-                            : 'text-text-muted hover:bg-bg-primary hover:text-text-primary'
-                        }`
-                      }
-                    >
-                      {link.label}
-                    </NavLink>
-                  ))}
-                </div>
-              )}
+              <AnimatePresence>
+                {isMoreOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute left-0 mt-2 w-36 rounded-lg border border-border-primary bg-bg-secondary/90 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] z-50 p-1 space-y-0.5"
+                  >
+                    {secondaryLinks.map((link) => (
+                      <NavLink
+                        key={link.path}
+                        to={link.path}
+                        onClick={() => setIsMoreOpen(false)}
+                        className={({ isActive }) =>
+                          `block px-3 py-2 text-3xs font-semibold tracking-wider uppercase rounded transition ${
+                            isActive
+                              ? 'bg-bg-tertiary text-text-primary'
+                              : 'text-text-muted hover:bg-bg-primary hover:text-text-primary'
+                          }`
+                        }
+                      >
+                        {link.label}
+                      </NavLink>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           )}
 

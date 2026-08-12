@@ -38,10 +38,18 @@ const HeroPresenter: React.FC<HeroPresenterProps> = ({
 }) => {
   const socials = socialsData as unknown as SocialLinkItem[];
 
-  const fadeVariants = {
-    initial: { opacity: 0, y: 4 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' as const } },
-    exit: { opacity: 0, y: -4, transition: { duration: 0.15, ease: 'easeIn' as const } },
+  const containerVariants = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+    },
+    exit: { opacity: 0, transition: { duration: 0.15 } },
+  };
+
+  const itemVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
   };
 
   return (
@@ -52,59 +60,71 @@ const HeroPresenter: React.FC<HeroPresenterProps> = ({
           initial="initial"
           animate="animate"
           exit="exit"
-          variants={fadeVariants}
+          variants={containerVariants}
           className="space-y-4"
         >
-          <div className="space-y-1">
+          <motion.div variants={itemVariants} className="space-y-1">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-text-primary">
               {profile.name}
             </h1>
             <h2 className="text-lg md:text-xl font-medium text-text-secondary h-7">
               <TypingText text={currentPersonaContent.title} key={activePersona} />
             </h2>
-          </div>
+          </motion.div>
 
-          <p className="text-sm md:text-base text-text-muted max-w-2xl leading-relaxed">
+          <motion.p
+            variants={itemVariants}
+            className="text-sm md:text-base text-text-muted max-w-2xl leading-relaxed"
+          >
             {currentPersonaContent.description}
-          </p>
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-2">
+            <motion.a
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              href={profile.resumeUrl}
+              download="adarsh-acharya-resume-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 px-4 py-2 border border-border-primary rounded-md text-xs font-semibold text-text-primary bg-bg-secondary hover:bg-bg-tertiary transition-colors cursor-pointer shadow-soft"
+            >
+              <FiDownload className="w-4 h-4" />
+              <span>Resume / CV</span>
+            </motion.a>
+
+            <motion.a
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              href={profile.email}
+              className="inline-flex items-center space-x-2 px-4 py-2 bg-text-primary text-bg-primary rounded-md text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer shadow-soft"
+            >
+              <FiMail className="w-4 h-4" />
+              <span>Get in Touch</span>
+            </motion.a>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="flex items-center space-x-4 pt-2">
+            {socials.map((link) => (
+              <motion.a
+                whileHover={{ scale: 1.2, y: -3 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-muted hover:text-text-primary transition-colors"
+                aria-label={`${link.name} Profile`}
+              >
+                {getSocialIcon(link.icon)}
+              </motion.a>
+            ))}
+          </motion.div>
         </motion.div>
       </AnimatePresence>
-
-      <div className="flex flex-wrap gap-4 pt-2">
-        <a
-          href={profile.resumeUrl}
-          download="adarsh-acharya-resume-2026.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center space-x-2 px-4 py-2 border border-border-primary rounded-md text-xs font-semibold text-text-primary bg-bg-secondary hover:bg-bg-tertiary transition cursor-pointer shadow-soft"
-        >
-          <FiDownload className="w-4 h-4" />
-          <span>Resume / CV</span>
-        </a>
-
-        <a
-          href={profile.email}
-          className="inline-flex items-center space-x-2 px-4 py-2 bg-text-primary text-bg-primary rounded-md text-xs font-semibold hover:opacity-90 transition cursor-pointer shadow-soft"
-        >
-          <FiMail className="w-4 h-4" />
-          <span>Get in Touch</span>
-        </a>
-      </div>
-
-      <div className="flex items-center space-x-4 pt-2">
-        {socials.map((link) => (
-          <a
-            key={link.name}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text-muted hover:text-text-primary transition"
-            aria-label={`${link.name} Profile`}
-          >
-            {getSocialIcon(link.icon)}
-          </a>
-        ))}
-      </div>
     </Section>
   );
 };

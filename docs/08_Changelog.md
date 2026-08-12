@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.13.2-floating-status-dynamic] - 2026-08-12
+
+### Added
+
+- **Data-Driven Antigravity Widget**:
+  - Refactored `FloatingStatusWidget.tsx` to read the active "In Progress" project dynamically from `projects.json` instead of hardcoding text strings.
+  - Aligns with the strict portfolio-architect rule of "never hardcode portfolio data."
+
 ## [0.13.1-accent-fix] - 2026-07-22
 
 ### Fixed

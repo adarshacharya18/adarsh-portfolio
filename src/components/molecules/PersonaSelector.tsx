@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { usePersona } from '../../hooks/usePersona';
 import type { PersonaType } from '../../types/persona';
 import { FiChevronDown } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface PersonaSelectorProps {
   onSelect?: () => void;
@@ -69,28 +70,36 @@ const PersonaSelector: React.FC<PersonaSelectorProps> = ({ onSelect }) => {
         />
       </button>
 
-      {isOpen && (
-        <div className="absolute left-0 lg:left-auto lg:right-0 mt-2 w-48 rounded-lg border border-border-primary bg-bg-secondary shadow-medium z-50 p-1 space-y-0.5">
-          {personas.map((p) => (
-            <button
-              key={p.id}
-              onClick={() => {
-                setPersona(p.id);
-                setIsOpen(false);
-                if (onSelect) onSelect();
-              }}
-              className={`w-full text-left px-3 py-2 text-2xs font-semibold rounded transition flex items-center space-x-2 cursor-pointer ${
-                activePersona === p.id
-                  ? 'bg-bg-tertiary text-text-primary'
-                  : 'text-text-muted hover:bg-bg-primary hover:text-text-primary'
-              }`}
-            >
-              <span className={`w-1.5 h-1.5 rounded-full ${p.dotClass}`} />
-              <span>{p.label}</span>
-            </button>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="absolute left-0 lg:left-auto lg:right-0 mt-2 w-48 rounded-lg border border-border-primary bg-bg-secondary/90 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.1)] z-50 p-1 space-y-0.5"
+          >
+            {personas.map((p) => (
+              <button
+                key={p.id}
+                onClick={() => {
+                  setPersona(p.id);
+                  setIsOpen(false);
+                  if (onSelect) onSelect();
+                }}
+                className={`w-full text-left px-3 py-2 text-2xs font-semibold rounded transition flex items-center space-x-2 cursor-pointer ${
+                  activePersona === p.id
+                    ? 'bg-bg-tertiary text-text-primary'
+                    : 'text-text-muted hover:bg-bg-primary hover:text-text-primary'
+                }`}
+              >
+                <span className={`w-1.5 h-1.5 rounded-full ${p.dotClass}`} />
+                <span>{p.label}</span>
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

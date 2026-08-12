@@ -4,6 +4,7 @@ import Section from '../atoms/Section';
 import { FiClock, FiArrowRight, FiUser } from 'react-icons/fi';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import TagBadgeList from '../molecules/TagBadgeList';
+import AntigravityCard from '../molecules/AntigravityCard';
 import type { ProjectItem } from '../../types/project';
 import type { PersonaType } from '../../types/persona';
 
@@ -52,50 +53,49 @@ const ProjectsPresenter: React.FC<ProjectsPresenterProps> = ({
               to={`/case-studies/${project.slug}`}
               className="block group cursor-pointer"
             >
-              <motion.article
-                variants={itemVariants}
-                className="border border-border-primary bg-bg-secondary p-6 rounded-xl flex flex-col justify-between space-y-4 h-full shadow-soft hover:border-border-focus transition-colors text-left"
-              >
-                <div className="space-y-3">
-                  <header className="space-y-1.5">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 sm:gap-4">
-                      <h2 className="text-base font-bold tracking-tight text-text-primary">
-                        {project.title}
-                      </h2>
-                      {project.status && (
-                        <span className="shrink-0 whitespace-nowrap self-start sm:self-auto text-5xs px-2 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary font-bold uppercase tracking-wider font-mono">
-                          {project.status}
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-wrap items-center gap-3 text-3xs text-text-muted font-mono">
-                      <div className="flex items-center space-x-1">
-                        <FiUser className="w-3.5 h-3.5" />
-                        <span>{project.role}</span>
+              <motion.article variants={itemVariants} className="h-full">
+                <AntigravityCard className="flex flex-col justify-between space-y-4 h-full p-6 text-left border-border-primary/50 hover:border-border-focus/70 transition-colors">
+                  <div className="space-y-3">
+                    <header className="space-y-1.5">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1.5 sm:gap-4">
+                        <h2 className="text-base font-bold tracking-tight text-text-primary">
+                          {project.title}
+                        </h2>
+                        {project.status && (
+                          <span className="shrink-0 whitespace-nowrap self-start sm:self-auto text-5xs px-2 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary font-bold uppercase tracking-wider font-mono">
+                            {project.status}
+                          </span>
+                        )}
                       </div>
-                      <span>&bull;</span>
-                      <div className="flex items-center space-x-1">
-                        <FiClock className="w-3.5 h-3.5" />
-                        <span>{project.timeline}</span>
+                      <div className="flex flex-wrap items-center gap-3 text-3xs text-text-muted font-mono">
+                        <div className="flex items-center space-x-1">
+                          <FiUser className="w-3.5 h-3.5" />
+                          <span>{project.role}</span>
+                        </div>
+                        <span>&bull;</span>
+                        <div className="flex items-center space-x-1">
+                          <FiClock className="w-3.5 h-3.5" />
+                          <span>{project.timeline}</span>
+                        </div>
                       </div>
-                    </div>
-                  </header>
+                    </header>
 
-                  <p className="text-sm text-text-muted leading-relaxed line-clamp-3">
-                    {project.solution}
-                  </p>
-                </div>
+                    <p className="text-sm text-text-muted leading-relaxed line-clamp-3">
+                      {project.solution}
+                    </p>
+                  </div>
 
-                <div className="space-y-4 pt-4 border-t border-border-primary">
-                  <TagBadgeList tags={project.techStack} />
+                  <div className="space-y-4 pt-4 border-t border-border-primary/50">
+                    <TagBadgeList tags={project.techStack} />
 
-                  <div className="flex justify-end pt-1">
-                    <div className="inline-flex items-center space-x-1.5 text-xs text-text-muted font-semibold group-hover:text-text-primary transition">
-                      <span>View Case Study</span>
-                      <FiArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                    <div className="flex justify-end pt-1">
+                      <div className="inline-flex items-center space-x-1.5 text-xs text-text-muted font-semibold group-hover:text-text-primary transition">
+                        <span>View Case Study</span>
+                        <FiArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </AntigravityCard>
               </motion.article>
             </Link>
           ))}

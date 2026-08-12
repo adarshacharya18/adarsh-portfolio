@@ -6,19 +6,22 @@ import skillsData from '../data/skills.json';
 import experienceData from '../data/experience.json';
 import testimonialsData from '../data/testimonials.json';
 import seoData from '../data/seo.json';
+import projectsData from '../data/projects.json';
 import HeroPresenter from '../components/organisms/HeroPresenter';
 import SkillsPresenter from '../components/organisms/SkillsPresenter';
 import ExperiencePresenter from '../components/organisms/ExperiencePresenter';
 import TestimonialsPresenter from '../components/organisms/TestimonialsPresenter';
 import LeetCodeHighlight from '../components/organisms/LeetCodeHighlight';
+import FloatingStatusWidget from '../components/organisms/FloatingStatusWidget';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import JsonLd from '../components/atoms/JsonLd';
 import type { PersonaType } from '../types/persona';
-import type { Profile, PersonaContent } from '../types/profile';
+import type { PersonaContent, Profile } from '../types/profile';
 import type { SkillGroup } from '../types/skill';
 import type { ExperienceItem } from '../types/experience';
 import type { TestimonialItem } from '../types/testimonials';
 import type { SeoConfig } from '../types/seo';
+import type { ProjectItem } from '../types/project';
 
 import { comparePeriods } from '../utils/sorting';
 
@@ -37,6 +40,9 @@ const Home: React.FC = () => {
   const currentTestimonials = (testimonialsData as unknown as TestimonialItem[]).filter(
     (t) => activePersona === 'overall' || t.personas.includes(activePersona),
   );
+
+  const inProgressProject =
+    (projectsData as unknown as ProjectItem[]).find((p) => p.status === 'In Progress') || null;
 
   const originUrl = typeof window !== 'undefined' ? window.location.origin : 'https://adarsh.dev';
 
@@ -65,6 +71,7 @@ const Home: React.FC = () => {
         currentPersonaContent={currentPersonaContent}
         activePersona={activePersona}
       />
+      <FloatingStatusWidget inProgressProject={inProgressProject} />
       <SkillsPresenter skills={currentSkills} activePersona={activePersona} />
       <ExperiencePresenter
         experience={currentExperience}
