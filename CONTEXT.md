@@ -13,3 +13,10 @@ This file serves as the definitive glossary and domain model mapping for the por
 
 ### Active Persona
 **Description:** The currently selected target audience profile (e.g., 'swe', 'backend', 'fullstack'). It drives the filtering logic across all Persona-Curated Feeds.
+
+### Global Scroll Engine
+**Description:** The centralized, hardware-accelerated scroll tracking module.
+**Architecture Constraints:**
+- Must bypass React state updates (re-renders) completely.
+- Operates strictly via Framer Motion `MotionValue`s to ensure maximum 60fps performance across the view layer.
+- Other components needing scroll physics should subscribe to this engine rather than adding their own DOM event listeners.

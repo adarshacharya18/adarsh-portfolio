@@ -3,7 +3,8 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { usePersona } from '../../hooks/usePersona';
-import { motion, AnimatePresence, useTransform, useMotionValue } from 'framer-motion';
+import { motion, AnimatePresence, useTransform } from 'framer-motion';
+import { useOptimizedScroll } from '../../hooks/useOptimizedScroll';
 import LoadingScreen from '../molecules/LoadingScreen';
 import ScrollToTop from '../molecules/ScrollToTop';
 
@@ -12,35 +13,15 @@ const MainLayout: React.FC = () => {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
 
-  // Custom MotionValue to track scroll without React re-renders
-  const rawProgress = useMotionValue(0);
+  // Use the Global Scroll Engine
+  const { scrollYProgress } = useOptimizedScroll();
 
   const isTimeline = location.pathname === '/timeline';
 
-  const displayWidth = useTransform(rawProgress, (val) => {
+  const displayWidth = useTransform(scrollYProgress, (val) => {
     const percentage = isTimeline ? Math.max(0, (1 - val) * 100) : val * 100;
     return `${percentage}%`;
   });
-
-  useEffect(() => {
-    const updateScroll = () => {
-      const y = window.scrollY;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = height > 0 ? y / height : 0;
-      rawProgress.set(progress);
-    };
-
-    window.addEventListener('scroll', updateScroll, { passive: true });
-    window.addEventListener('resize', updateScroll, { passive: true });
-
-    // Initial calculation
-    updateScroll();
-
-    return () => {
-      window.removeEventListener('scroll', updateScroll);
-      window.removeEventListener('resize', updateScroll);
-    };
-  }, [rawProgress]);
 
   useEffect(() => {
     // Wait for the browser to signal complete rather than a hardcoded timeout
