@@ -1,8 +1,7 @@
 import React from 'react';
 import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
-import { usePersona } from '../hooks/usePersona';
-import certificatesData from '../data/certificates.json';
+import { usePersonaContent } from '../hooks/usePersonaContent';
 import seoData from '../data/seo.json';
 import CertificatesPresenter from '../components/organisms/CertificatesPresenter';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
@@ -12,12 +11,12 @@ import type { SeoConfig } from '../types/seo';
 import { compareDates } from '../utils/sorting';
 
 const Certificates: React.FC = () => {
-  const { activePersona } = usePersona();
+  const { content: certificates, activePersona } = usePersonaContent('certificates');
   const seo = seoData as unknown as SeoConfig;
 
-  const filteredCertificates = (certificatesData as unknown as CertificateItem[])
-    .filter((cert) => activePersona === 'overall' || cert.personas.includes(activePersona))
-    .sort((a, b) => compareDates(a.date, b.date));
+  const filteredCertificates = (certificates as CertificateItem[]).sort((a, b) =>
+    compareDates(a.date, b.date),
+  );
 
   useDocumentMetadata({
     title: seo.certificates.title,

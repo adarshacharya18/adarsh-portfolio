@@ -1,23 +1,20 @@
 import React from 'react';
 import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
-import { usePersona } from '../hooks/usePersona';
-import timelineData from '../data/timeline.json';
+import { usePersonaContent } from '../hooks/usePersonaContent';
 import seoData from '../data/seo.json';
 import TimelinePresenter from '../components/organisms/TimelinePresenter';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
-import type { TimelineItem } from '../types/timeline';
 import type { SeoConfig } from '../types/seo';
+import type { PersonaType } from '../types/persona';
 
 import { compareQuarters } from '../utils/sorting';
 
 const Timeline: React.FC = () => {
-  const { activePersona } = usePersona();
+  const { content: timeline, activePersona } = usePersonaContent('timeline');
   const seo = seoData as unknown as SeoConfig;
 
-  const filteredTimeline = (timelineData as unknown as TimelineItem[])
-    .filter((t) => activePersona === 'overall' || t.personas.includes(activePersona))
-    .sort((a, b) => compareQuarters(a.quarter, b.quarter));
+  const filteredTimeline = timeline.sort((a, b) => compareQuarters(a.quarter, b.quarter));
 
   useDocumentMetadata({
     title: seo.timeline.title,
@@ -33,7 +30,7 @@ const Timeline: React.FC = () => {
         </p>
       </Section>
 
-      <TimelinePresenter timeline={filteredTimeline} activePersona={activePersona} />
+      <TimelinePresenter timeline={filteredTimeline} activePersona={activePersona as PersonaType} />
     </PageWrapper>
   );
 };

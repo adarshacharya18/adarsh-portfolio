@@ -3,30 +3,28 @@ import { useSearchParams } from 'react-router-dom';
 import { FiX } from 'react-icons/fi';
 import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
-import { usePersona } from '../hooks/usePersona';
-import projectsData from '../data/projects.json';
+import { usePersonaContent } from '../hooks/usePersonaContent';
 import seoData from '../data/seo.json';
 import ProjectsPresenter from '../components/organisms/ProjectsPresenter';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
-import type { ProjectItem } from '../types/project';
 import type { SeoConfig } from '../types/seo';
+import type { PersonaType } from '../types/persona';
 
 import { comparePeriods } from '../utils/sorting';
 
 const Projects: React.FC = () => {
-  const { activePersona } = usePersona();
+  const { content: curatedProjects, activePersona } = usePersonaContent('projects');
   const [searchParams, setSearchParams] = useSearchParams();
   const seo = seoData as unknown as SeoConfig;
 
   const filterRole = searchParams.get('role');
   const filterCompany = searchParams.get('company');
 
-  // Filter and sort projects by active recruiter track (latest end date first) and query parameters
-  const filteredProjects = (projectsData as unknown as ProjectItem[])
+  // Sort projects by latest end date first and filter by role query parameters
+  const filteredProjects = curatedProjects
     .filter((p) => {
-      const matchesPersona = activePersona === 'overall' || p.personas.includes(activePersona);
       const matchesRole = !filterRole || p.role.toLowerCase() === filterRole.toLowerCase();
-      return matchesPersona && matchesRole;
+      return matchesRole;
     })
     .sort((a, b) => comparePeriods(a.timeline, b.timeline));
 
@@ -60,7 +58,7 @@ const Projects: React.FC = () => {
 
       <ProjectsPresenter
         projects={filteredProjects}
-        activePersona={activePersona}
+        activePersona={activePersona as PersonaType}
         className={filterRole ? '!pt-0' : ''}
       />
     </PageWrapper>

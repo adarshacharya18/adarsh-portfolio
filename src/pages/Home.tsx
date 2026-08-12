@@ -1,10 +1,9 @@
 import React from 'react';
 import PageWrapper from '../components/organisms/PageWrapper';
 import { usePersona } from '../hooks/usePersona';
+import { usePersonaContent } from '../hooks/usePersonaContent';
 import profileData from '../data/profile.json';
 import skillsData from '../data/skills.json';
-import experienceData from '../data/experience.json';
-import testimonialsData from '../data/testimonials.json';
 import seoData from '../data/seo.json';
 import projectsData from '../data/projects.json';
 import HeroPresenter from '../components/organisms/HeroPresenter';
@@ -18,8 +17,6 @@ import JsonLd from '../components/atoms/JsonLd';
 import type { PersonaType } from '../types/persona';
 import type { PersonaContent, Profile } from '../types/profile';
 import type { SkillGroup } from '../types/skill';
-import type { ExperienceItem } from '../types/experience';
-import type { TestimonialItem } from '../types/testimonials';
 import type { SeoConfig } from '../types/seo';
 import type { ProjectItem } from '../types/project';
 
@@ -33,13 +30,12 @@ const Home: React.FC = () => {
   const currentPersonaContent = (profile.personaContent as Record<PersonaType, PersonaContent>)[
     activePersona
   ];
+  const { content: currentExperience } = usePersonaContent('experience');
+  const { content: currentTestimonials } = usePersonaContent('testimonials');
+
   const currentSkills = (skillsData as unknown as Record<PersonaType, SkillGroup[]>)[activePersona];
-  const currentExperience = (experienceData as unknown as ExperienceItem[])
-    .filter((exp) => activePersona === 'overall' || exp.personas.includes(activePersona))
-    .sort((a, b) => comparePeriods(a.period, b.period));
-  const currentTestimonials = (testimonialsData as unknown as TestimonialItem[]).filter(
-    (t) => activePersona === 'overall' || t.personas.includes(activePersona),
-  );
+
+  const sortedExperience = currentExperience.sort((a, b) => comparePeriods(a.period, b.period));
 
   const inProgressProject =
     (projectsData as unknown as ProjectItem[]).find((p) => p.status === 'In Progress') || null;
@@ -74,7 +70,7 @@ const Home: React.FC = () => {
       <FloatingStatusWidget inProgressProject={inProgressProject} />
       <SkillsPresenter skills={currentSkills} activePersona={activePersona} />
       <ExperiencePresenter
-        experience={currentExperience}
+        experience={sortedExperience}
         activePersona={activePersona}
         compact={true}
       />

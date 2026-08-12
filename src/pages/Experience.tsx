@@ -1,23 +1,19 @@
 import React from 'react';
 import PageWrapper from '../components/organisms/PageWrapper';
 import Section from '../components/atoms/Section';
-import { usePersona } from '../hooks/usePersona';
-import experienceData from '../data/experience.json';
+import { usePersonaContent } from '../hooks/usePersonaContent';
 import seoData from '../data/seo.json';
 import ExperiencePresenter from '../components/organisms/ExperiencePresenter';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
-import type { ExperienceItem } from '../types/experience';
 import type { SeoConfig } from '../types/seo';
 
 import { comparePeriods } from '../utils/sorting';
 
 const Experience: React.FC = () => {
-  const { activePersona } = usePersona();
+  const { content: curatedExperience, activePersona } = usePersonaContent('experience');
   const seo = seoData as unknown as SeoConfig;
 
-  const filteredExperience = (experienceData as unknown as ExperienceItem[])
-    .filter((exp) => activePersona === 'overall' || exp.personas.includes(activePersona))
-    .sort((a, b) => comparePeriods(a.period, b.period));
+  const filteredExperience = curatedExperience.sort((a, b) => comparePeriods(a.period, b.period));
 
   useDocumentMetadata({
     title: seo.experience.title,
