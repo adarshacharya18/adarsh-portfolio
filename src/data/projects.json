@@ -1,7 +1,7 @@
 [
   {
     "slug": "leetcode-explainer-pipeline",
-    "title": "Automated LeetCode Explainer Pipeline",
+    "title": "Automated LeetCode Explainer RAG Pipeline",
     "personas": ["swe", "backend", "fullstack"],
     "role": "Independent Developer",
     "timeline": "Jul 2026 - Present",
