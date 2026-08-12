@@ -1,4 +1,5 @@
 import React from 'react';
+import DOMPurify from 'dompurify';
 
 /**
  * Basic desaturated syntax highlighter helper for code blocks.
@@ -178,7 +179,9 @@ export const parseMarkdown = (markdown: string): React.ReactNode[] => {
           >
             <code
               className={`language-${currentLang}`}
-              dangerouslySetInnerHTML={{ __html: highlightCode(code, currentLang) }}
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(highlightCode(code, currentLang)),
+              }}
             />
           </pre>,
         );
