@@ -101,10 +101,10 @@ const TimelineNode: React.FC<{
         initial="empty"
         variants={{
           filled: { opacity: 1, filter: 'blur(0px)' },
-          empty: { opacity: 0.4, filter: 'blur(0.5px)' },
+          empty: { opacity: 0.65, filter: 'blur(0.5px)' },
         }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className="flex flex-col space-y-1.5"
+        className="flex flex-col space-y-1.5 will-change-transform will-change-filter"
       >
         <div className="flex items-center space-x-2">
           <span className="font-mono text-2xs text-text-muted">{item.quarter}</span>
