@@ -16,7 +16,7 @@
     "images": [],
     "screenshots": [],
     "links": {
-      "github": "https://github.com/adarshacharya18/leetcode-explainer-pipeline"
+      "github": "https://github.com/adarshacharya18/youtube-video-rag"
     },
     "futureImprovements": "Integrate automated thumbnail generation using Gemini Image API, design an administrative pipeline dashboard, and expand support to competitive programming archives."
   },
