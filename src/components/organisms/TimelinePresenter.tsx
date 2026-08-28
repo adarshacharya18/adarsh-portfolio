@@ -28,7 +28,6 @@ const TimelinePresenter: React.FC<TimelinePresenterProps> = ({ timeline, activeP
             <TimelineNode
               key={item.id}
               item={item}
-              index={index}
               isLast={index === timeline.length - 1}
               shouldReduceMotion={shouldReduceMotion}
               yVal={yVal}
@@ -44,14 +43,14 @@ export default TimelinePresenter;
 
 const TimelineNode: React.FC<{
   item: TimelineItem;
-  index: number;
   isLast: boolean;
   shouldReduceMotion: boolean | null;
   yVal: number;
-}> = ({ item, index, isLast, shouldReduceMotion, yVal }) => {
+}> = ({ item, isLast, shouldReduceMotion, yVal }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { margin: '-30% 0px 5000px 0px' });
   const state = isInView ? 'filled' : 'empty';
+  const isInProgress = item.status === 'In Progress';
 
   return (
     <motion.div
@@ -72,7 +71,7 @@ const TimelineNode: React.FC<{
             animate={state}
             initial="empty"
             variants={{
-              filled: { opacity: index === 0 ? 0 : 1 },
+              filled: { opacity: isInProgress ? 0 : 1 },
               empty: { opacity: 0 },
             }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -87,7 +86,7 @@ const TimelineNode: React.FC<{
           animate={state}
           initial="empty"
           variants={{
-            filled: { scale: index === 0 ? 0 : 1 },
+            filled: { scale: isInProgress ? 0 : 1 },
             empty: { scale: 0 },
           }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -111,6 +110,11 @@ const TimelineNode: React.FC<{
           <span className="text-3xs font-semibold px-1.5 py-0.5 rounded bg-bg-secondary border border-border-primary text-text-secondary">
             {item.category}
           </span>
+          {isInProgress && (
+            <span className="text-4xs font-mono font-semibold px-1.5 py-0.5 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary uppercase tracking-wider">
+              In Progress
+            </span>
+          )}
         </div>
         <h2 className="text-base font-semibold text-text-primary">{item.title}</h2>
         <p className="text-xs md:text-sm text-text-muted leading-relaxed">{item.description}</p>

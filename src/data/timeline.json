@@ -1,11 +1,21 @@
 [
   {
+    "id": "spic-voice-copilot",
+    "quarter": "2026 Q3",
+    "title": "Spic: Privacy-First Linux Voice Copilot",
+    "description": "Architected an ultra-low latency (<300ms) native Linux voice copilot daemon featuring PipeWire PCM streaming, CPU-quantized Whisper (int8), Ollama SLM routing, and Linux Kernel /dev/uinput virtual hardware typing for Wayland & X11.",
+    "category": "Systems & AI Engineering",
+    "personas": ["swe", "backend", "fullstack"],
+    "status": "In Progress"
+  },
+  {
     "id": "leetcode-explainer-pipeline",
     "quarter": "2026 Q3",
     "title": "Automated LeetCode Explainer RAG Pipeline",
     "description": "Began engineering an automated video explanation pipeline in Python. Integrates Manim engine animation rendering, Chatterbox cloned voice synthesis, and LLM-based RAG script generation.",
     "category": "Independent Project",
-    "personas": ["swe", "backend", "fullstack"]
+    "personas": ["swe", "backend", "fullstack"],
+    "status": "In Progress"
   },
   {
     "id": "portfolio-initialization-v2",

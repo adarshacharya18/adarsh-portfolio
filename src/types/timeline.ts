@@ -7,4 +7,5 @@ export interface TimelineItem {
   description: string;
   category: string;
   personas: PersonaType[];
+  status?: string;
 }

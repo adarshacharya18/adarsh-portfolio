@@ -37,8 +37,9 @@ const Home: React.FC = () => {
 
   const sortedExperience = currentExperience.sort((a, b) => comparePeriods(a.period, b.period));
 
-  const inProgressProject =
-    (projectsData as unknown as ProjectItem[]).find((p) => p.status === 'In Progress') || null;
+  const inProgressProjects = (projectsData as unknown as ProjectItem[]).filter(
+    (p) => p.status === 'In Progress',
+  );
 
   const originUrl = typeof window !== 'undefined' ? window.location.origin : 'https://adarsh.dev';
 
@@ -67,7 +68,7 @@ const Home: React.FC = () => {
         currentPersonaContent={currentPersonaContent}
         activePersona={activePersona}
       />
-      <FloatingStatusWidget inProgressProject={inProgressProject} />
+      <FloatingStatusWidget inProgressProjects={inProgressProjects} />
       <SkillsPresenter skills={currentSkills} activePersona={activePersona} />
       <ExperiencePresenter
         experience={sortedExperience}

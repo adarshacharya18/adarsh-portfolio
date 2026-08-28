@@ -1,5 +1,35 @@
 [
   {
+    "slug": "spic-voice-copilot",
+    "title": "Spic: Native Privacy-First Linux Voice Copilot",
+    "personas": ["swe", "backend", "fullstack"],
+    "role": "Creator & Lead Engineer",
+    "timeline": "Aug 2026 - Present",
+    "status": "In Progress",
+    "architecture": "Daemon architecture built with Python, PipeWire raw PCM streaming, CPU-quantized faster-whisper (int8), local Ollama SLMs / cloud LLM router, and Linux Kernel /dev/uinput virtual hardware keystroke injection for Wayland & X11.",
+    "problem": "Modern AI dictation tools are privacy-invasive, cloud-dependent, and introduce latency. Additionally, modern Wayland Linux desktop environments isolate application windows, preventing standard synthetic input tools (like xdotool) from typing across applications without breaking security boundaries or causing desktop freezes.",
+    "solution": "Engineered an ultra-low latency (<300ms) background daemon with 100% local speech processing. Combines PipeWire audio streaming and energy-based VAD, a 2-tier interpreter (deterministic rule engine for <1ms verbal formatting and mid-sentence self-corrections + Ollama LLM router for deep context), Linux Kernel /dev/uinput virtual keyboard injection bypassing Wayland sandboxing at 1.5ms/char, an ambient 60 FPS fluid wave HUD with spring physics, and GNOME gsettings desktop keybinding conflict detection.",
+    "challenges": "Bypassing Wayland's strict compositor window isolation without requiring root privileges or window freezing, and resolving conversational self-corrections (e.g., 'at 8pm, no make it 9pm') with sub-millisecond overhead. Resolved by creating a kernel-level uinput virtual hardware device emitting hardware scancodes directly to the active window, coupled with an AST-based rule engine and GNOME gsettings introspection.",
+    "techStack": [
+      "Python",
+      "PipeWire",
+      "Whisper",
+      "Ollama",
+      "Linux Kernel (/dev/uinput)",
+      "Wayland & X11",
+      "GNOME IPC",
+      "Groq API"
+    ],
+    "lessonsLearned": "Gained deep expertise in Linux kernel input subsystems (/dev/uinput), PipeWire PCM streaming architectures, CPU-quantized speech-to-text inference optimization (CTranslate2), and desktop IPC synchronization.",
+    "video": "",
+    "images": [],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/adarshacharya18/spic-voice-copilot"
+    },
+    "futureImprovements": "Support multi-language whisper models on-the-fly, expand uinput macros for IDE-specific voice refactoring commands, and package as a systemd user daemon with Flatpak/Snap distribution."
+  },
+  {
     "slug": "leetcode-explainer-pipeline",
     "title": "Automated LeetCode Explainer RAG Pipeline",
     "personas": ["swe", "backend", "fullstack"],

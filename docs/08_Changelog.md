@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.14.0-multi-inprogress-widget] - 2026-08-28
+
+### Added
+
+- **Multi-Project In-Progress Widget Support**:
+  - Upgraded `FloatingStatusWidget.tsx` to dynamically render all active in-progress projects in a responsive, multi-column grid rather than limiting to a single item.
+  - Showcases both `Spic: Native Privacy-First Linux Voice Copilot` and `Automated LeetCode Explainer RAG Pipeline` simultaneously on the Home page.
+  - Added new `spic-voice-copilot` project and milestone to `projects.json` and `timeline.json`.
+
 ## [0.13.2-floating-status-dynamic] - 2026-08-12
 
 ### Added
