@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiClock, FiArrowLeft, FiUser, FiLayers } from 'react-icons/fi';
+import { FiClock, FiArrowLeft, FiUser, FiLayers, FiPlay } from 'react-icons/fi';
 import ProjectLinksGroup from '../molecules/ProjectLinksGroup';
 import TagBadgeList from '../molecules/TagBadgeList';
 import ImageLightbox from '../molecules/ImageLightbox';
 import type { ProjectItem } from '../../types/project';
+
+const getYouTubeEmbedUrl = (url?: string) => {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11
+    ? `https://www.youtube-nocookie.com/embed/${match[2]}`
+    : null;
+};
 
 interface CaseStudyPresenterProps {
   project: ProjectItem;
@@ -114,6 +123,33 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
             <p className="text-text-muted">{project.futureImprovements}</p>
           </div>
         </div>
+
+        {/* Video / Output Demonstration */}
+        {project.video && (
+          <div className="space-y-3 pt-6 border-t border-border-primary">
+            <h2 className="font-bold text-text-primary uppercase tracking-wide text-2xs flex items-center gap-1.5">
+              <FiPlay className="w-3.5 h-3.5 text-accent-primary" />
+              <span>Project Demonstration / Result</span>
+            </h2>
+            {getYouTubeEmbedUrl(project.video) ? (
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-border-primary bg-bg-primary shadow-soft">
+                <iframe
+                  src={getYouTubeEmbedUrl(project.video)!}
+                  title={`${project.title} - Video Result`}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <video
+                src={project.video}
+                controls
+                className="w-full aspect-video rounded-xl border border-border-primary bg-bg-primary shadow-soft"
+              />
+            )}
+          </div>
+        )}
 
         {/* Screenshots Gallery */}
         {project.screenshots && project.screenshots.length > 0 && (
