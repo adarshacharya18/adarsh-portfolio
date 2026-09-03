@@ -125,31 +125,57 @@ const CaseStudyPresenter: React.FC<CaseStudyPresenterProps> = ({ project }) => {
         </div>
 
         {/* Video / Output Demonstration */}
-        {project.video && (
-          <div className="space-y-3 pt-6 border-t border-border-primary">
-            <h2 className="font-bold text-text-primary uppercase tracking-wide text-2xs flex items-center gap-1.5">
-              <FiPlay className="w-3.5 h-3.5 text-accent-primary" />
-              <span>Project Demonstration / Result</span>
-            </h2>
-            {getYouTubeEmbedUrl(project.video) ? (
-              <div className="relative aspect-video rounded-xl overflow-hidden border border-border-primary bg-bg-primary shadow-soft">
-                <iframe
-                  src={getYouTubeEmbedUrl(project.video)!}
-                  title={`${project.title} - Video Result`}
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
+        {(() => {
+          const videoList: string[] = Array.isArray(project.video)
+            ? project.video
+            : project.videos
+              ? project.videos
+              : project.video
+                ? [project.video]
+                : [];
+
+          if (videoList.length === 0) return null;
+
+          return (
+            <div className="space-y-3 pt-6 border-t border-border-primary">
+              <h2 className="font-bold text-text-primary uppercase tracking-wide text-2xs flex items-center gap-1.5">
+                <FiPlay className="w-3.5 h-3.5 text-accent-primary" />
+                <span>
+                  {videoList.length > 1
+                    ? 'Project Demonstrations / Results'
+                    : 'Project Demonstration / Result'}
+                </span>
+              </h2>
+              <div
+                className={`grid gap-4 ${
+                  videoList.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'
+                }`}
+              >
+                {videoList.map((videoUrl, idx) => {
+                  const embedUrl = getYouTubeEmbedUrl(videoUrl);
+                  return (
+                    <div
+                      key={videoUrl + idx}
+                      className="relative aspect-video rounded-xl overflow-hidden border border-border-primary bg-bg-primary shadow-soft"
+                    >
+                      {embedUrl ? (
+                        <iframe
+                          src={embedUrl}
+                          title={`${project.title} - Video Result ${idx + 1}`}
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                        />
+                      ) : (
+                        <video src={videoUrl} controls className="w-full h-full object-cover" />
+                      )}
+                    </div>
+                  );
+                })}
               </div>
-            ) : (
-              <video
-                src={project.video}
-                controls
-                className="w-full aspect-video rounded-xl border border-border-primary bg-bg-primary shadow-soft"
-              />
-            )}
-          </div>
-        )}
+            </div>
+          );
+        })()}
 
         {/* Screenshots Gallery */}
         {project.screenshots && project.screenshots.length > 0 && (

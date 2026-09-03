@@ -24,7 +24,8 @@ export interface ProjectItem {
   challenges: string;
   techStack: string[];
   lessonsLearned: string;
-  video?: string;
+  video?: string | string[];
+  videos?: string[];
   images: string[];
   screenshots: string[];
   gallery?: GalleryItem[];

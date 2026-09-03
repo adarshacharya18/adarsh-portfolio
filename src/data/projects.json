@@ -42,7 +42,14 @@
     "challenges": "Aligning programmatically generated voiceover audio files with dynamic Manim animation scene transitions. Resolved by building a timestamp syncing scheduler that maps Manim scene triggers directly to audio segment durations.",
     "techStack": ["Python", "Manim", "LLMs", "RAG", "Chatterbox", "FFmpeg", "YouTube API"],
     "lessonsLearned": "Acquired deep competencies in programmatic video rendering, automated audio alignment logic, advanced RAG search architectures, and structured JSON output validation.",
-    "video": "https://www.youtube.com/watch?v=brYP_HXUGSg",
+    "video": [
+      "https://www.youtube.com/watch?v=brYP_HXUGSg",
+      "https://www.youtube.com/watch?v=yrLSYmgTys8"
+    ],
+    "videos": [
+      "https://www.youtube.com/watch?v=brYP_HXUGSg",
+      "https://www.youtube.com/watch?v=yrLSYmgTys8"
+    ],
     "images": [],
     "screenshots": [],
     "links": {
