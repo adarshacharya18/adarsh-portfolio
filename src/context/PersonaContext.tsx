@@ -1,14 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
-import React, { createContext, useState, useEffect } from 'react';
-import type { PersonaType } from '../types/persona';
+import React, { createContext, useState, useEffect, useCallback, useMemo } from 'react';
+import { type PersonaType, DEFAULT_PERSONA, isPersonaType } from '../types/persona';
 
 interface PersonaContextType {
   activePersona: PersonaType;
   setPersona: (persona: PersonaType) => void;
 }
-
-const DEFAULT_PERSONA: PersonaType = 'overall';
-const VALID_PERSONAS: PersonaType[] = ['overall', 'swe', 'backend', 'fullstack', 'wordpress'];
 
 export const PersonaContext = createContext<PersonaContextType | undefined>(undefined);
 
@@ -16,40 +13,67 @@ export const PersonaProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [activePersona, setActivePersona] = useState<PersonaType>(() => {
     if (typeof window === 'undefined') return DEFAULT_PERSONA;
 
-    // 1. Check URL query parameters
+    // 1. If path is a resume persona route (/resume/:persona), initialize from path
+    if (window.location.pathname.startsWith('/resume/')) {
+      const pathPart = window.location.pathname.replace('/resume/', '').split('/')[0];
+      if (isPersonaType(pathPart) && pathPart !== 'overall') {
+        return pathPart;
+      }
+    }
+
+    // 2. Check URL query parameters
     const params = new URLSearchParams(window.location.search);
-    const roleParam = params.get('role') as PersonaType;
-    if (roleParam && VALID_PERSONAS.includes(roleParam)) {
+    const roleParam = params.get('role');
+    if (isPersonaType(roleParam)) {
       return roleParam;
     }
 
-    // 2. Check localStorage
-    const saved = localStorage.getItem('active-persona') as PersonaType;
-    if (saved && VALID_PERSONAS.includes(saved)) {
+    // 3. Check localStorage
+    const saved = localStorage.getItem('active-persona');
+    if (isPersonaType(saved)) {
       return saved;
     }
 
     return DEFAULT_PERSONA;
   });
 
-  const setPersona = (persona: PersonaType) => {
-    if (!VALID_PERSONAS.includes(persona)) return;
-    setActivePersona(persona);
-    localStorage.setItem('active-persona', persona);
+  const setPersona = useCallback(
+    (persona: PersonaType) => {
+      if (!isPersonaType(persona) || persona === activePersona) return;
+      setActivePersona(persona);
+      localStorage.setItem('active-persona', persona);
 
-    // Synchronize query parameters dynamically
-    const url = new URL(window.location.href);
-    url.searchParams.set('role', persona);
-    window.history.pushState({}, '', url.toString());
-  };
+      // Synchronize query parameters dynamically
+      if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href);
+        if (url.pathname.startsWith('/resume')) {
+          // Resume routes use dedicated paths (/resume, /resume/:persona), avoid query param pollution
+          url.searchParams.delete('role');
+        } else {
+          if (persona === DEFAULT_PERSONA) {
+            url.searchParams.delete('role');
+          } else {
+            url.searchParams.set('role', persona);
+          }
+        }
+        window.history.replaceState({}, '', url.toString());
+      }
+    },
+    [activePersona],
+  );
 
   // Sync state if user uses browser navigation (back/forward)
   useEffect(() => {
     const handlePopState = () => {
+      // Resume page handles its own route parameter changes
+      if (window.location.pathname.startsWith('/resume')) return;
+
       const params = new URLSearchParams(window.location.search);
-      const roleParam = params.get('role') as PersonaType;
-      if (roleParam && VALID_PERSONAS.includes(roleParam)) {
+      const roleParam = params.get('role');
+      if (isPersonaType(roleParam)) {
         setActivePersona(roleParam);
+      } else if (!roleParam) {
+        setActivePersona(DEFAULT_PERSONA);
       }
     };
 
@@ -63,10 +87,8 @@ export const PersonaProvider: React.FC<{ children: React.ReactNode }> = ({ child
     root.style.setProperty('--accent-primary', `var(--persona-${activePersona})`);
   }, [activePersona]);
 
-  return (
-    <PersonaContext.Provider value={{ activePersona, setPersona }}>
-      {children}
-    </PersonaContext.Provider>
-  );
+  const contextValue = useMemo(() => ({ activePersona, setPersona }), [activePersona, setPersona]);
+
+  return <PersonaContext.Provider value={contextValue}>{children}</PersonaContext.Provider>;
 };
 export default PersonaContext;

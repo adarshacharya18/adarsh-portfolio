@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/generate-rss.cjs",
+    "build": "tsc -b && node scripts/generate-rss.cjs && vite build",
     "typecheck": "tsc -b",
     "lint": "eslint .",
     "format:check": "prettier --check .",

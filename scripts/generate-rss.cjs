@@ -73,7 +73,20 @@ let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <loc>${siteUrl}/contact</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>${siteUrl}/resume</loc>
+    <priority>0.8</priority>
+  </url>
 `;
+
+const personaRoutes = ['swe', 'backend', 'fullstack', 'wordpress'];
+personaRoutes.forEach((persona) => {
+  sitemap += `  <url>
+    <loc>${siteUrl}/resume/${persona}</loc>
+    <priority>0.7</priority>
+  </url>
+`;
+});
 
 articles.forEach((art) => {
   sitemap += `  <url>
@@ -88,3 +101,10 @@ sitemap += `</urlset>`;
 
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemap);
 console.log('Successfully generated public/sitemap.xml');
+
+// Also update dist if it exists
+const distDir = path.join(__dirname, '../dist');
+if (fs.existsSync(distDir)) {
+  fs.writeFileSync(path.join(distDir, 'rss.xml'), rss);
+  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemap);
+}

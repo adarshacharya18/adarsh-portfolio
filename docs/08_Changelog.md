@@ -7,6 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.15.0-persona-resumes-and-public-routes] - 2026-09-09
+
+### Added
+
+- **Persona-Based Dynamic Resume Resolution (Feature 1)**:
+  - Configured tailored resume assets: Full Stack and Backend personas serve `adarsh-acharya-resume-swe-role-sep-2026.pdf`, while Overall, Software Engineer, and WordPress personas serve `adarsh-acharya-resume-sep-2026.pdf`.
+  - Updated `public/adarsh-acharya-resume-sep-2026.pdf` from latest source.
+  - Updated `src/data/profile.json` with a dedicated `personaResumes` dictionary and per-persona `resumeUrl` entries.
+  - Updated Home page "View Resume / CV" button to navigate directly to `/resume` (or `/resume/:persona` based on active persona) using React Router `Link`.
+
+- **Dedicated Minimal Public Recruiter Routes & Resume Page (Feature 2)**:
+  - Created streamlined `src/pages/Resume.tsx` supporting clean, sharable public resume URLs.
+  - Canonical default route `/resume` serves the overall resume without any "overall" keyword in the path.
+  - Persona-specific paths (`/resume/backend`, `/resume/fullstack`, `/resume/swe`, `/resume/wordpress`) serve tailored recruiter views.
+  - Bidirectionally synchronized with the global navbar header `PersonaSelector`: switching personas in the header updates both the displayed resume and the canonical route.
+  - Kept strictly minimal: removed redundant introductions, active track pills, and duplicate tabs, keeping solely the action toolbar (Copy Link, Download PDF, Open in Tab) and full-height PDF viewport.
+  - Sized PDF viewer to natural A4 paper proportions (`max-w-[850px]` centered, ~1:1.414 aspect ratio) with `#view=FitH`, avoiding ultrawide stretching and empty side gutters.
+  - Registered `/resume` in `navigation.json` and added it to sitemap generation.
+
+### Fixed
+
+- **Persona Switching Glitch & Route Oscillation**:
+  - Resolved circular race condition in `Resume.tsx` where header changes and route syncing effects fought each other and immediately reverted persona changes.
+  - Replaced separate `resume` and `resume/:persona` route definitions with unified `resume/:persona?` route, preventing unmount/remount churn on route changes.
+  - Refactored `PersonaContext.tsx` to initialize directly from route paths on `/resume/:persona` visits and eliminated query string pollution (`?role=`) on dedicated resume routes.
+  - Added dynamic `key={resumeUrl}` to the `<object>` viewer to guarantee clean native PDF plugin reloads on persona switches.
+
+### Removed
+
+- **Unnecessary PDF Lightbox Modal**:
+  - Deleted `src/components/molecules/PdfLightbox.tsx` and removed all popup modal states and handlers from `HeroPresenter.tsx` to streamline the codebase and eliminate modal overhead.
+
 ## [0.14.0-multi-inprogress-widget] - 2026-08-28
 
 ### Added

@@ -13,6 +13,7 @@ export interface PersonaContent {
   description: string;
   featuredHeading: string;
   featuredDescription: string;
+  resumeUrl?: string;
 }
 
 export interface Profile {
@@ -20,6 +21,7 @@ export interface Profile {
   avatarUrl: string;
   email: string;
   resumeUrl: string;
+  personaResumes?: Record<PersonaType, string>;
   socials: Socials;
   personaContent: Record<PersonaType, PersonaContent>;
 }

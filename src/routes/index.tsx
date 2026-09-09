@@ -13,6 +13,7 @@ const Certificates = lazy(() => import('../pages/Certificates'));
 const Contact = lazy(() => import('../pages/Contact'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 const CaseStudy = lazy(() => import('../pages/CaseStudy'));
+const Resume = lazy(() => import('../pages/Resume'));
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
       { path: 'certificates', element: <Certificates /> },
       { path: 'contact', element: <Contact /> },
       { path: 'case-studies/:slug', element: <CaseStudy /> },
+      { path: 'resume/:persona?', element: <Resume /> },
       { path: '*', element: <NotFound /> },
     ],
   },

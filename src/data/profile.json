@@ -2,7 +2,14 @@
   "name": "Adarsh Acharya",
   "avatarUrl": "/avatar.svg",
   "email": "mailto:adarshacharya7830@gmail.com",
-  "resumeUrl": "/adarsh-acharya-resume-swe-role-sep-2026.pdf",
+  "resumeUrl": "/adarsh-acharya-resume-sep-2026.pdf",
+  "personaResumes": {
+    "overall": "/adarsh-acharya-resume-sep-2026.pdf",
+    "swe": "/adarsh-acharya-resume-sep-2026.pdf",
+    "backend": "/adarsh-acharya-resume-swe-role-sep-2026.pdf",
+    "fullstack": "/adarsh-acharya-resume-swe-role-sep-2026.pdf",
+    "wordpress": "/adarsh-acharya-resume-sep-2026.pdf"
+  },
   "socials": {
     "github": "https://github.com/adarshacharya18",
     "linkedin": "https://linkedin.com/in/adarshacharya",
@@ -15,35 +22,40 @@
       "subTitle": "Specializing in Distributed Systems, React Ecosystems, and Custom CMS Architectures",
       "description": "Fusing robust backend engineering, distributed caching models, dynamic React frontends, and custom CMS plugins. I apply engineering-first principles across the entire stack, from low-latency databases to accessible, responsive user interfaces.",
       "featuredHeading": "Technical System Portfolio",
-      "featuredDescription": "A complete view of custom software systems, API engines, database models, and web applications developed across multiple engineering disciplines."
+      "featuredDescription": "A complete view of custom software systems, API engines, database models, and web applications developed across multiple engineering disciplines.",
+      "resumeUrl": "/adarsh-acharya-resume-sep-2026.pdf"
     },
     "swe": {
       "title": "Software Engineer",
       "subTitle": "Building Scalable, Highly Maintainable Software Systems",
       "description": "Focused on core software patterns, algorithmic optimization, and modular component structures. I construct systems with a strict emphasis on SOLID principles, testing coverages, and clean architecture.",
       "featuredHeading": "Core Competency Focus",
-      "featuredDescription": "Object-oriented and functional paradigm engineering, standard patterns integration, and performance benchmarking."
+      "featuredDescription": "Object-oriented and functional paradigm engineering, standard patterns integration, and performance benchmarking.",
+      "resumeUrl": "/adarsh-acharya-resume-sep-2026.pdf"
     },
     "backend": {
       "title": "Backend Engineer",
       "subTitle": "Designing High-Throughput APIs and Distributed Architectures",
       "description": "Specialized in server-side frameworks, relational/non-relational database architectures, edge caching layers, and containerized cloud services. I engineer services with high availability and low latency.",
       "featuredHeading": "Backend Focus Area",
-      "featuredDescription": "API design (REST/GraphQL), query plan optimization, caching strategies, and secure database migrations."
+      "featuredDescription": "API design (REST/GraphQL), query plan optimization, caching strategies, and secure database migrations.",
+      "resumeUrl": "/adarsh-acharya-resume-swe-role-sep-2026.pdf"
     },
     "fullstack": {
       "title": "Full Stack Developer",
       "subTitle": "Crafting Seamless, High-Performance End-to-End Solutions",
       "description": "Bridging the gap between robust serverless architecture and visually polished, responsive user interfaces. I implement modular state flows, CSS layout frameworks, and secure API bridges.",
       "featuredHeading": "Full Stack Focus Area",
-      "featuredDescription": "State machine synchronization, responsive UI design, edge routing middlewares, and automated test coverages."
+      "featuredDescription": "State machine synchronization, responsive UI design, edge routing middlewares, and automated test coverages.",
+      "resumeUrl": "/adarsh-acharya-resume-swe-role-sep-2026.pdf"
     },
     "wordpress": {
       "title": "WordPress Engineer",
       "subTitle": "Architecting Custom CMS Engines and Headless Implementations",
       "description": "Dedicated to professional WordPress development including decoupled Gutenberg blocks, complex custom plugins, database fine-tuning, and headless Next.js query layers.",
       "featuredHeading": "WordPress Dev Focus Area",
-      "featuredDescription": "Custom plugin lifecycle hooks, Gutenberg block development, headless GraphQL integrations, and WP REST API caching."
+      "featuredDescription": "Custom plugin lifecycle hooks, Gutenberg block development, headless GraphQL integrations, and WP REST API caching.",
+      "resumeUrl": "/adarsh-acharya-resume-sep-2026.pdf"
     }
   }
 }
