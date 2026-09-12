@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.16.0-timeline-line-continuity] - 2026-09-12
+
+### Added
+
+- **Continuous Timeline Accent Line Architecture**:
+  - Implemented `compareTimelineItems` sorting in `src/utils/sorting.ts`.
+  - When incomplete (`In Progress`) and completed projects share the same quarter date, incomplete projects are sorted strictly at the top.
+  - Guarantees the filled vertical accent line connects all completed milestones continuously without fragmented or broken gaps.
+  - Added `QuickFiller: Local-First AI Job Application Copilot` as an in-progress project and updated `Spic` to completed in `projects.json` and `timeline.json`.
+  - Reordered items in `timeline.json` and `projects.json` to maintain data-level alignment with sorting invariants.
+
 ## [0.15.0-persona-resumes-and-public-routes] - 2026-09-09
 
 ### Added

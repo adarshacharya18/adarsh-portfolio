@@ -1,33 +1,33 @@
 [
   {
-    "slug": "spic-voice-copilot",
-    "title": "Spic: Native Privacy-First Linux Voice Copilot",
-    "personas": ["swe", "backend", "fullstack"],
+    "slug": "quickfiller-job-copilot",
+    "title": "QuickFiller: Local-First AI Job Application Copilot",
+    "personas": ["swe", "fullstack", "backend"],
     "role": "Creator & Lead Engineer",
-    "timeline": "Aug 2026 - Present",
+    "timeline": "Sep 2026 - Present",
     "status": "In Progress",
-    "architecture": "Daemon architecture built with Python, PipeWire raw PCM streaming, CPU-quantized faster-whisper (int8), local Ollama SLMs / cloud LLM router, and Linux Kernel /dev/uinput virtual hardware keystroke injection for Wayland & X11.",
-    "problem": "Modern AI dictation tools are privacy-invasive, cloud-dependent, and introduce latency. Additionally, modern Wayland Linux desktop environments isolate application windows, preventing standard synthetic input tools (like xdotool) from typing across applications without breaking security boundaries or causing desktop freezes.",
-    "solution": "Engineered an ultra-low latency (<300ms) background daemon with 100% local speech processing. Combines PipeWire audio streaming and energy-based VAD, a 2-tier interpreter (deterministic rule engine for <1ms verbal formatting and mid-sentence self-corrections + Ollama LLM router for deep context), Linux Kernel /dev/uinput virtual keyboard injection bypassing Wayland sandboxing at 1.5ms/char, an ambient 60 FPS fluid wave HUD with spring physics, and GNOME gsettings desktop keybinding conflict detection.",
-    "challenges": "Bypassing Wayland's strict compositor window isolation without requiring root privileges or window freezing, and resolving conversational self-corrections (e.g., 'at 8pm, no make it 9pm') with sub-millisecond overhead. Resolved by creating a kernel-level uinput virtual hardware device emitting hardware scancodes directly to the active window, coupled with an AST-based rule engine and GNOME gsettings introspection.",
+    "architecture": "Chromium extension (Manifest V3) architected with TypeScript, React, and WXT. Features a slide-out Copilot Drawer injected via an isolated closed Shadow DOM container, a client-side PDF parser extracting structured profile data and embedded hyperlinks, a synthetic input event dispatcher overcoming reactive framework state traps (React/Angular), and a background service worker routing prompts between local Ollama SLMs (llama3.2:3b, qwen2.5) and BYOK cloud LLMs.",
+    "problem": "Applying to jobs online requires endlessly re-typing identical credentials and drafting repetitive screening answers across fragmented ATS portals (Greenhouse, Lever, Workday). Existing autofill tools pose severe privacy risks by syncing sensitive personal and salary data to third-party proprietary servers, while frequently breaking on dynamic multi-step single-page application forms.",
+    "solution": "Engineered a 100% local-first, zero-telemetry job application copilot for Chromium browsers. Uses chrome.storage.local to secure all personal data entirely within the browser sandbox. Injects an isolated Shadow DOM drawer that populates complex input fields with one-click synthetic event dispatchers and drafts tailored, high-impact responses to bespoke screening questions in real time using local Ollama models or BYOK cloud APIs (Gemini, OpenAI, Claude). Includes automated client-side resume parsing with embedded link harvesting.",
+    "challenges": "Overcoming reactive framework change-detection traps in modern ATS platforms where direct DOM input.value mutations fail to trigger internal framework state updates, and ensuring zero CSS style pollution between host websites and the extension UI. Resolved by dispatching synthetic keyboard/input events using native HTMLInputElement setter prototypes and encapsulating the interactive drawer inside an isolated Shadow DOM container.",
     "techStack": [
-      "Python",
-      "PipeWire",
-      "Whisper",
+      "TypeScript",
+      "Chromium MV3",
+      "React",
+      "WXT",
+      "Tailwind CSS",
+      "Shadow DOM",
       "Ollama",
-      "Linux Kernel (/dev/uinput)",
-      "Wayland & X11",
-      "GNOME IPC",
-      "Groq API"
+      "PDF.js"
     ],
-    "lessonsLearned": "Gained deep expertise in Linux kernel input subsystems (/dev/uinput), PipeWire PCM streaming architectures, CPU-quantized speech-to-text inference optimization (CTranslate2), and desktop IPC synchronization.",
+    "lessonsLearned": "Mastered Chrome Extension Manifest V3 background service worker lifecycles, Shadow DOM event retargeting and style boundaries, synthetic DOM event dispatch protocols across reactive frameworks, and efficient local LLM prompt orchestration.",
     "video": "",
     "images": [],
     "screenshots": [],
     "links": {
-      "github": "https://github.com/adarshacharya18/spic-voice-copilot"
+      "github": "https://github.com/adarshacharya18/QuickFiller"
     },
-    "futureImprovements": "Support multi-language whisper models on-the-fly, expand uinput macros for IDE-specific voice refactoring commands, and package as a systemd user daemon with Flatpak/Snap distribution."
+    "futureImprovements": "Implement automated multi-step ATS page progression detection, add cross-browser support for Firefox WebExtensions, and build a local semantic vector store for instant screening answer retrieval across historical applications."
   },
   {
     "slug": "leetcode-explainer-pipeline",
@@ -57,6 +57,35 @@
       "demo": "https://www.youtube.com/watch?v=brYP_HXUGSg"
     },
     "futureImprovements": "Integrate automated thumbnail generation using Gemini Image API, design an administrative pipeline dashboard, and expand support to competitive programming archives."
+  },
+  {
+    "slug": "spic-voice-copilot",
+    "title": "Spic: Native Privacy-First Linux Voice Copilot",
+    "personas": ["swe", "backend", "fullstack"],
+    "role": "Creator & Lead Engineer",
+    "timeline": "Aug 2026 - Sep 2026",
+    "architecture": "Daemon architecture built with Python, PipeWire raw PCM streaming, CPU-quantized faster-whisper (int8), local Ollama SLMs / cloud LLM router, and Linux Kernel /dev/uinput virtual hardware keystroke injection for Wayland & X11.",
+    "problem": "Modern AI dictation tools are privacy-invasive, cloud-dependent, and introduce latency. Additionally, modern Wayland Linux desktop environments isolate application windows, preventing standard synthetic input tools (like xdotool) from typing across applications without breaking security boundaries or causing desktop freezes.",
+    "solution": "Engineered an ultra-low latency (<300ms) background daemon with 100% local speech processing. Combines PipeWire audio streaming and energy-based VAD, a 2-tier interpreter (deterministic rule engine for <1ms verbal formatting and mid-sentence self-corrections + Ollama LLM router for deep context), Linux Kernel /dev/uinput virtual keyboard injection bypassing Wayland sandboxing at 1.5ms/char, an ambient 60 FPS fluid wave HUD with spring physics, and GNOME gsettings desktop keybinding conflict detection.",
+    "challenges": "Bypassing Wayland's strict compositor window isolation without requiring root privileges or window freezing, and resolving conversational self-corrections (e.g., 'at 8pm, no make it 9pm') with sub-millisecond overhead. Resolved by creating a kernel-level uinput virtual hardware device emitting hardware scancodes directly to the active window, coupled with an AST-based rule engine and GNOME gsettings introspection.",
+    "techStack": [
+      "Python",
+      "PipeWire",
+      "Whisper",
+      "Ollama",
+      "Linux Kernel (/dev/uinput)",
+      "Wayland & X11",
+      "GNOME IPC",
+      "Groq API"
+    ],
+    "lessonsLearned": "Gained deep expertise in Linux kernel input subsystems (/dev/uinput), PipeWire PCM streaming architectures, CPU-quantized speech-to-text inference optimization (CTranslate2), and desktop IPC synchronization.",
+    "video": "",
+    "images": [],
+    "screenshots": [],
+    "links": {
+      "github": "https://github.com/adarshacharya18/spic-voice-copilot"
+    },
+    "futureImprovements": "Support multi-language whisper models on-the-fly, expand uinput macros for IDE-specific voice refactoring commands, and package as a systemd user daemon with Flatpak/Snap distribution."
   },
   {
     "slug": "global-spaces-platform",

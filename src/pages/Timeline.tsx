@@ -8,13 +8,13 @@ import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import type { SeoConfig } from '../types/seo';
 import type { PersonaType } from '../types/persona';
 
-import { compareQuarters } from '../utils/sorting';
+import { compareTimelineItems } from '../utils/sorting';
 
 const Timeline: React.FC = () => {
   const { content: timeline, activePersona } = usePersonaContent('timeline');
   const seo = seoData as unknown as SeoConfig;
 
-  const filteredTimeline = timeline.sort((a, b) => compareQuarters(a.quarter, b.quarter));
+  const filteredTimeline = [...timeline].sort(compareTimelineItems);
 
   useDocumentMetadata({
     title: seo.timeline.title,

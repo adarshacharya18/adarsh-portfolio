@@ -1,3 +1,5 @@
+import type { TimelineItem } from '../types/timeline';
+
 /**
  * Parses the end date from a period string (e.g. "June 2025 - May 2026", "Jul 2025 - Present").
  * Returns a Date object representing the end of the period.
@@ -89,4 +91,25 @@ export function compareQuarters(q1: string, q2: string): number {
  */
 export function compareDates(d1: string, d2: string): number {
   return d2.localeCompare(d1);
+}
+
+/**
+ * Compares two timeline items:
+ * 1. Sorts by quarter descending (latest quarter at top).
+ * 2. If an incomplete ('In Progress') and completed project have the same quarter date,
+ *    keeps incomplete projects at the top so the timeline accent line remains continuous.
+ */
+export function compareTimelineItems(a: TimelineItem, b: TimelineItem): number {
+  const quarterDiff = compareQuarters(a.quarter, b.quarter);
+  if (quarterDiff !== 0) {
+    return quarterDiff;
+  }
+
+  const aInProgress = a.status === 'In Progress';
+  const bInProgress = b.status === 'In Progress';
+
+  if (aInProgress && !bInProgress) return -1;
+  if (!aInProgress && bInProgress) return 1;
+
+  return 0;
 }
