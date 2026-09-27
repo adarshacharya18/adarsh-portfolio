@@ -1,33 +1,80 @@
 [
   {
     "slug": "quickfiller-job-copilot",
-    "title": "QuickFiller: Local-First AI Job Application Copilot",
+    "title": "QuickFiller: Local-First Smart Job Application Copilot (Chrome & Firefox)",
     "personas": ["swe", "fullstack", "backend"],
     "role": "Creator & Lead Engineer",
     "timeline": "Sep 2026 - Present",
     "status": "In Progress",
-    "architecture": "Chromium extension (Manifest V3) architected with TypeScript, React, and WXT. Features a slide-out Copilot Drawer injected via an isolated closed Shadow DOM container, a client-side PDF parser extracting structured profile data and embedded hyperlinks, a synthetic input event dispatcher overcoming reactive framework state traps (React/Angular), and a background service worker routing prompts between local Ollama SLMs (llama3.2:3b, qwen2.5) and BYOK cloud LLMs.",
-    "problem": "Applying to jobs online requires endlessly re-typing identical credentials and drafting repetitive screening answers across fragmented ATS portals (Greenhouse, Lever, Workday). Existing autofill tools pose severe privacy risks by syncing sensitive personal and salary data to third-party proprietary servers, while frequently breaking on dynamic multi-step single-page application forms.",
-    "solution": "Engineered a 100% local-first, zero-telemetry job application copilot for Chromium browsers. Uses chrome.storage.local to secure all personal data entirely within the browser sandbox. Injects an isolated Shadow DOM drawer that populates complex input fields with one-click synthetic event dispatchers and drafts tailored, high-impact responses to bespoke screening questions in real time using local Ollama models or BYOK cloud APIs (Gemini, OpenAI, Claude). Includes automated client-side resume parsing with embedded link harvesting.",
-    "challenges": "Overcoming reactive framework change-detection traps in modern ATS platforms where direct DOM input.value mutations fail to trigger internal framework state updates, and ensuring zero CSS style pollution between host websites and the extension UI. Resolved by dispatching synthetic keyboard/input events using native HTMLInputElement setter prototypes and encapsulating the interactive drawer inside an isolated Shadow DOM container.",
+    "architecture": "Cross-browser extension targeting Chromium Manifest V3 and Mozilla Firefox Gecko MV2 architected with TypeScript, React 19, WXT, and Tailwind CSS. Officially approved and live on Mozilla Add-ons (Firefox AMO), with Google Chrome Web Store rollout coming soon. Features an in-page draggable Copilot Drawer isolated within a closed Shadow DOM container (zero page CSS bleeding), a prototype-level synthetic form autofill dispatcher bypassing React/Angular/Vue change-detection traps, a coordinate-aware client-side PDF resume and link parser using pdfjs-dist, an automated application submission interceptor with candidate portal discovery (Workday, Darwinbox, CRISIL, Greenhouse), and a background service worker routing prompts between local offline Ollama SLMs (llama3.2, qwen2.5) via Declarative Net Request CORS rewrites and BYOK cloud LLMs (Gemini, OpenAI, Claude).",
+    "problem": "Applying to software engineering roles online is notoriously repetitive, forcing candidates to repeatedly re-enter contact info, work histories, compensation numbers, and custom screening questions across fragmented ATS portals (Workday, Darwinbox, CRISIL, Greenhouse, Lever). Existing autofill tools present severe privacy risks by syncing sensitive resumes and personal data to third-party proprietary servers, while frequently breaking on modern reactive SPAs where synthetic inputs fail to trigger virtual DOM state updates.",
+    "solution": "Engineered a 100% local-first, privacy-focused application copilot officially live and approved on Mozilla Add-ons (Firefox AMO), with the Google Chrome Web Store edition coming soon. Uses chrome.storage.local to ensure zero telemetry and zero server exfiltration. Injects an interactive, draggable Shadow DOM drawer featuring single-click synthetic form autofill, an Outreach Message Refiner for custom LinkedIn connection notes (≤300 chars) and recruiter InMail pitches, a tailored Cover Letter generator, an automated Job Application Tracker with candidate portal discovery, and real-time AI answer generation powered by offline Ollama models or BYOK cloud LLMs.",
+    "challenges": "Overcoming complex ATS form traps where React, Angular, and Workday virtual DOM state engines discard direct DOM value modifications on blur, resolving Firefox PDF line-wrapping flattening caused by missing EOL markers on single-page resumes, preventing duplicate application tracking on rapid button clicks and empty submissions, and ensuring dual-manifest compliance (Chromium MV3 service workers + Firefox Gecko AMO standards with zero errors on addons-linter). Resolved by invoking native HTMLInputElement property descriptors prior to dispatching synthetic event bursts, implementing coordinate-aware deltaY line reconstruction in the PDF parser, designing double-commit locks in the submission watcher, and abstracting cross-browser runtime APIs.",
     "techStack": [
       "TypeScript",
-      "Chromium MV3",
-      "React",
+      "React 19",
+      "Chromium (MV3)",
+      "Firefox (Gecko)",
       "WXT",
       "Tailwind CSS",
       "Shadow DOM",
       "Ollama",
-      "PDF.js"
+      "pdfjs-dist",
+      "Vitest"
     ],
-    "lessonsLearned": "Mastered Chrome Extension Manifest V3 background service worker lifecycles, Shadow DOM event retargeting and style boundaries, synthetic DOM event dispatch protocols across reactive frameworks, and efficient local LLM prompt orchestration.",
+    "lessonsLearned": "Mastered cross-browser extension engineering across Chromium Manifest V3 and Mozilla Firefox Gecko, Shadow DOM encapsulation and event retargeting, synthetic DOM dispatch patterns across reactive frameworks (Workday, Angular, React), coordinate-aware PDF token reconstruction, Declarative Net Request rules for local Ollama CORS negotiation, and scalable unit testing across 276 automated test suites.",
     "video": "",
-    "images": [],
-    "screenshots": [],
+    "images": [
+      "/static/images/quickfiller/01-copilot-drawer-autofill.webp",
+      "/static/images/quickfiller/05-job-tracker-dashboard.webp",
+      "/static/images/quickfiller/03-copilot-drawer-outreach-studio.webp",
+      "/static/images/quickfiller/02-copilot-drawer-cover-letter.webp"
+    ],
+    "screenshots": [
+      "/static/images/quickfiller/01-copilot-drawer-autofill.webp",
+      "/static/images/quickfiller/05-job-tracker-dashboard.webp",
+      "/static/images/quickfiller/03-copilot-drawer-outreach-studio.webp",
+      "/static/images/quickfiller/02-copilot-drawer-cover-letter.webp"
+    ],
+    "gallery": [
+      {
+        "description": "Interactive Copilot Drawer rendered inside an isolated Shadow DOM container with zero page CSS bleeding. Features draggable window positioning, compact/wide width toggles, quick filter pills (Questions, Standard, Radios), and 1-click prototype-level synthetic form autofill across Workday, Darwinbox, CRISIL, and Greenhouse portals.",
+        "images": ["/static/images/quickfiller/01-copilot-drawer-autofill.webp"],
+        "caption": "Unified In-Page Copilot Drawer & Autofill Engine"
+      },
+      {
+        "description": "In-drawer AI tools that scrape active job descriptions to generate tailored cover letters (with customizable Tone and Focus areas) and refine candidate outreach messages for LinkedIn (enforcing <= 300-char connection requests and structured InMail pitches for Recruiters or Tech Leads) with 1-click injection.",
+        "images": [
+          "/static/images/quickfiller/02-copilot-drawer-cover-letter.webp",
+          "/static/images/quickfiller/03-copilot-drawer-outreach-studio.webp"
+        ],
+        "caption": "Outreach Studio & Tailored Cover Letter Generator"
+      },
+      {
+        "description": "Full-featured tracking dashboard that intercepts form submissions and SPA confirmation routes across major ATS platforms, discovers candidate tracking portal URLs, manages application pipeline stages (Applied, Interviewing, Offer), records interview notes, and exports to CSV.",
+        "images": ["/static/images/quickfiller/05-job-tracker-dashboard.webp"],
+        "caption": "Automated Job Application Tracker Dashboard"
+      },
+      {
+        "description": "Full-page configuration dashboard featuring coordinate-aware client-side PDF resume parsing (extracting work experience, education, and embedded hyperlink annotations for portfolios/repos), legal pre-screen answers (work auth, notice period, compensation), and a custom paste bank.",
+        "images": [
+          "/static/images/quickfiller/06-candidate-profile-contact-details.webp",
+          "/static/images/quickfiller/07-candidate-profile-experience-education.webp",
+          "/static/images/quickfiller/08-screening-qa-and-paste-bank.webp"
+        ],
+        "caption": "Candidate Profile & Coordinate-Aware Resume Parser"
+      },
+      {
+        "description": "Configuration panel enabling 100% private, zero-cost AI inference through local Ollama daemons (llama3.2, qwen2.5) with automated Declarative Net Request CORS rewriting, alongside BYOK cloud API options for Google Gemini, OpenAI, and Anthropic Claude.",
+        "images": ["/static/images/quickfiller/09-ai-settings-llm-configuration.webp"],
+        "caption": "Dual AI Engine: Local Offline Ollama & Cloud BYOK LLMs"
+      }
+    ],
     "links": {
-      "github": "https://github.com/adarshacharya18/QuickFiller"
+      "github": "https://github.com/adarshacharya18/QuickFiller",
+      "demo": "https://addons.mozilla.org/en-US/firefox/addon/quickfiller-job-copilot/"
     },
-    "futureImprovements": "Implement automated multi-step ATS page progression detection, add cross-browser support for Firefox WebExtensions, and build a local semantic vector store for instant screening answer retrieval across historical applications."
+    "futureImprovements": "Launch on the Google Chrome Web Store (currently live on Mozilla Add-ons for Firefox), implement automated multi-step page wizard navigation on complex enterprise portals, and integrate a local vector store with semantic embeddings for instant retrieval of tailored answers from past job applications."
   },
   {
     "slug": "leetcode-explainer-pipeline",

@@ -35,7 +35,12 @@ const ProjectLinksGroup: React.FC<ProjectLinksGroupProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-text-primary transition"
-          aria-label="View Live Demo"
+          aria-label={
+            demoUrl.includes('addons.mozilla.org') ? 'Install on Firefox (AMO)' : 'View Live Demo'
+          }
+          title={
+            demoUrl.includes('addons.mozilla.org') ? 'Install on Firefox (AMO)' : 'View Live Demo'
+          }
         >
           <FiExternalLink className="w-5 h-5" />
         </a>

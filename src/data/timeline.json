@@ -2,8 +2,8 @@
   {
     "id": "quickfiller-job-copilot",
     "quarter": "2026 Q3",
-    "title": "QuickFiller: Local-First AI Job Application Copilot",
-    "description": "Architected a privacy-first Chromium extension (Manifest V3) combining Shadow DOM copilot drawers, synthetic DOM event autofill for modern ATS portals, and local Ollama / cloud LLM streaming for custom screening questions.",
+    "title": "QuickFiller: Live on Firefox AMO | Chrome Coming Soon",
+    "description": "Published QuickFiller officially to Mozilla Add-ons (Firefox AMO), with Google Chrome Web Store edition coming soon. Built as a 100% local-first, privacy-focused job copilot with Shadow DOM drawers, prototype-level synthetic form autofill (Workday, Darwinbox, CRISIL, Greenhouse), and dual local Ollama / cloud LLM streaming validated across 276 automated tests.",
     "category": "Browser Extensions & AI",
     "personas": ["swe", "fullstack", "backend"],
     "status": "In Progress"

@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.17.0-quickfiller-firefox-amo-live] - 2026-09-27
+
+### Added
+
+- **QuickFiller Live on Mozilla Add-ons (Firefox AMO)**:
+  - Linked official public Firefox add-on release (`https://addons.mozilla.org/en-US/firefox/addon/quickfiller-job-copilot/`) to `demo` in `src/data/projects.json`.
+  - Updated `ProjectLinksGroup.tsx` with dynamic tooltip and accessible aria-label (`Install on Firefox (AMO)`).
+  - Documented live availability on Firefox AMO and upcoming launch on Google Chrome Web Store across `src/data/projects.json` and `src/data/timeline.json`.
+
+## [0.16.1-quickfiller-cross-browser-showcase] - 2026-09-22
+
+### Added
+
+- **QuickFiller Chrome & Firefox Cross-Browser Showcase**:
+  - Enriched `QuickFiller` project in `src/data/projects.json` with multi-browser architecture (Chromium Manifest V3 + Mozilla Firefox Gecko MV2).
+  - Documented deep ATS integrations (Workday, Darwinbox, CRISIL, Greenhouse), automated application tracker with candidate portal extraction, Outreach Studio for LinkedIn, and dual offline Ollama / BYOK cloud LLM engine.
+  - Converted and added 9 production WebP screenshots to `public/static/images/quickfiller/` with interactive 5-section gallery showcase.
+  - Highlighted full test coverage (276 unit tests across 21 test files with 100% pass rate) and Mozilla AMO addons-linter validation.
+  - Updated timeline entry in `src/data/timeline.json`.
+
 ## [0.16.0-timeline-line-continuity] - 2026-09-12
 
 ### Added
