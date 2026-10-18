@@ -11,11 +11,11 @@
   {
     "id": "quickfiller-job-copilot",
     "quarter": "2026 Q3",
-    "title": "QuickFiller: Live on Firefox AMO | Chrome Coming Soon",
-    "description": "Published QuickFiller officially to Mozilla Add-ons (Firefox AMO), with Google Chrome Web Store edition coming soon. Built as a 100% local-first, privacy-focused job copilot with Shadow DOM drawers, prototype-level synthetic form autofill (Workday, Darwinbox, CRISIL, Greenhouse), and dual local Ollama / cloud LLM streaming validated across 276 automated tests.",
+    "title": "QuickFiller: Shipped on Firefox AMO & Chrome Web Store",
+    "description": "Shipped QuickFiller — a 100% local-first, privacy-focused job application copilot — officially to Mozilla Add-ons (Firefox AMO) and the Google Chrome Web Store. Features Shadow DOM autofill drawers, prototype-level synthetic form dispatch across Workday, Darwinbox, CRISIL & Greenhouse ATS portals, an Outreach Studio, automated Job Application Tracker, coordinate-aware PDF resume parser, and dual local Ollama / cloud LLM streaming validated across 276 automated Vitest tests.",
     "category": "Browser Extensions & AI",
     "personas": ["swe", "fullstack", "backend"],
-    "status": "In Progress"
+    "status": "Completed"
   },
   {
     "id": "leetcode-explainer-pipeline",
