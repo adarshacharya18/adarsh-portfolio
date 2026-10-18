@@ -1,5 +1,14 @@
 [
   {
+    "id": "newshamlee-apparels-platform",
+    "quarter": "2026 Q4",
+    "title": "New Shamlee Apparels — Freelance Digital Platform (Bilingual Boutique & Order Tracker)",
+    "description": "Designing and building a four-phase digital platform for New Shamlee Apparels, a women's bespoke tailoring boutique in Shrirampur, Maharashtra. Includes a bilingual (English + Marathi) showroom with photo/video catalogues for dress necklines, blouse necklines, Saree Gonde tassels and dress materials; a frictionless admin portal with WebAuthn biometric + PIN auth; a public self-service numeric order tracker; and automated bilingual Marathi/English SMS pickup alerts via Android SIM gateway.",
+    "category": "Freelance Project",
+    "personas": ["swe", "fullstack", "wordpress"],
+    "status": "In Progress"
+  },
+  {
     "id": "quickfiller-job-copilot",
     "quarter": "2026 Q3",
     "title": "QuickFiller: Live on Firefox AMO | Chrome Coming Soon",

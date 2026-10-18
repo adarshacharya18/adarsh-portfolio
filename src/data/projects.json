@@ -1,5 +1,41 @@
 [
   {
+    "slug": "newshamlee-apparels-platform",
+    "title": "New Shamlee Apparels: Bilingual Digital Boutique & Order Tracking Platform",
+    "personas": ["swe", "fullstack", "wordpress"],
+    "role": "Freelance Full-Stack Developer & Solutions Architect",
+    "timeline": "Oct 2026 - Present",
+    "status": "In Progress",
+    "architecture": "Decoupled, edge-accelerated architecture built with Next.js (App Router, React 19, TypeScript, Tailwind CSS) on a unified codebase serving both the public showroom (newshamleeapparels.in) and shop admin portal (admin.newshamleeapparels.in) via Next.js Edge Middleware subdomain routing. Media assets are served via Cloudflare R2 with zero-egress global CDN delivery. PostgreSQL on Neon Serverless powers the relational order registry and catalogue with Prisma ORM. Admin authentication employs a three-tier frictionless model: WebAuthn biometric passkeys (Touch ID / Face ID / Android Fingerprint) via @simplewebauthn, long-lived 60-day HTTP-only secure device sessions, and a quick 4-digit shop floor PIN overlay. Bilingual Marathi & English SMS pickup alerts are dispatched via the shop's Android SIM gateway at zero extra cost. Public pages are SSG/ISR pre-rendered and edge-cached for sub-100ms festive-season peak loads.",
+    "problem": "New Shamlee Apparels — an established women's bespoke tailoring boutique in Shrirampur, Maharashtra — faced four critical bottlenecks: high daily call volume from customers asking about order readiness, disrupting active measurement sessions; repetitive price and design enquiries that could be self-served; physical paper catalogues that wore out and could not showcase video drape or tassel movement; and no proactive pickup alerts when orders completed ahead of schedule, causing storage congestion and delayed final payment collections.",
+    "solution": "Designed and built a four-phase freelance digital platform using Antigravity AI pair-programming. Phase 1: a bilingual (English default + instant Marathi toggle) mobile-first showroom with four interactive catalogues — Dress Neck Designs (DN-xx), Blouse Neck Designs (BN-xx), Saree Gonde tassels (GD-xx), and Dress Materials (DM-xx) — featuring high-resolution photos, video clips with smart filter and search, and one-tap click-to-call. Phase 2: a frictionless admin portal at admin.newshamleeapparels.in with WebAuthn biometric + 4-digit PIN auth, photo/video CMS, and live price editing. Phase 3: a self-service public numeric order tracker with garment-category-specific lifecycle stages (Registered → Cutting → Stitching → Ready for Pickup for dresses/blouses; Registered → Processing → Ready for Pickup for Saree Gonde). Phase 4: automated bilingual SMS notifications dispatched via the shop's Android SIM gateway when orders are ready.",
+    "challenges": "Designing frictionless WebAuthn authentication for shop owners handling 30–50 daily customer interactions where repetitive logins would cause system abandonment. Implementing Unicode Marathi SMS under TRAI DLT regulations (70 chars/segment vs 160 for ASCII). Building a mobile-phone media CMS with client-side WebP compression, video poster-frame generation, and direct Cloudflare R2 uploads. Rate-limiting the public order tracker to show only garment stage without exposing billing balances, customer phones, or advance payments. Ensuring sub-100ms catalogue loads during Maharashtra festive spikes (Diwali, Navratri, Gudi Padwa) via SSG/ISR edge caching. Implementing Anime.js mobile micro-interactions — tactile card spring taps, staggered grid reveals, Gonde tassel pendulum sway, golden-thread SVG stroke draw, and a craft-journey order tracker stitching line — with strict compositor-only motion rules and prefers-reduced-motion accessibility.",
+    "techStack": [
+      "Next.js (App Router)",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL (Neon Serverless)",
+      "Prisma ORM",
+      "Cloudflare R2",
+      "WebAuthn / Passkeys",
+      "Anime.js v4",
+      "Radix UI",
+      "Lucide React",
+      "Vercel"
+    ],
+    "lessonsLearned": "Architecting for low-literacy, high-touch retail users in tier-2 India demands extreme simplicity: biometric passkeys eliminated password friction for shop owners updating orders 30–50 times a day. Designing bilingual Marathi/English i18n from the ground up avoids deep component restructuring later. Zero-egress Cloudflare R2 with SSG/ISR edge caching proved far more cost-effective than VPS or Cloudinary pipelines for a boutique operating on ~₹70/month infrastructure. A phased rollout plan — not big-bang — let the client go live with immediate value (Phase 1 showroom) weeks before the full system was complete.",
+    "video": "",
+    "images": [],
+    "screenshots": [],
+    "gallery": [],
+    "links": {
+      "github": "",
+      "demo": "https://www.newshamleeapparels.in"
+    },
+    "futureImprovements": "Launch the live production domain newshamleeapparels.in after final content photography and video shoots at the Shrirampur shop. Complete Phase 2 admin CMS with WebAuthn passkey onboarding and video upload pipeline. Roll out Phase 3 self-service order tracker and Phase 4 automated bilingual SMS gateway. Future enhancements: a Digital Karigar (worker) Registry to assign orders to specific tailors, customer measurement history archive for repeat clients, and shop performance analytics for festive peak turnaround forecasting."
+  },
+  {
     "slug": "quickfiller-job-copilot",
     "title": "QuickFiller: Local-First Smart Job Application Copilot (Chrome & Firefox)",
     "personas": ["swe", "fullstack", "backend"],
