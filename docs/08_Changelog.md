@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.19.0-newshamlee-admin-screenshots-showcase] - 2026-11-19
+
+### Added
+
+- **New Shamlee Apparels Admin Screenshots & Production Showcase**:
+  - Converted 13 high-resolution admin site screenshots from `/home/adarsh/Pictures/New Shamlee Apparels Gallery/ADMIN SITE SCREENSHOT/` into optimized WebP assets (~1.2 MB total) in `public/static/images/newshamlee/`.
+  - Enriched `newshamlee-apparels-platform` in `src/data/projects.json` with a structured 5-section interactive case study gallery:
+    1. *Bilingual Digital Showroom & Atelier Brand Presence* (`01-home-page-hero-section.webp`)
+    2. *Atelier Control Center & Multi-Category Inventory Overview* (`02-admin-portal-overview.webp`, `11-admin-portal-overview-catalogue.webp`, `12-admin-portal-overview-dress-materials.webp`)
+    3. *Workshop Order Registry & Multi-Garment Intake Modals* (`03-admin-portal-orders-tab.webp`, `04-admin-portal-new-order-popup.webp`, `05-admin-portal-multiple-order-popup.webp`)
+    4. *Karigar Task Queues & Historical Worker Logs* (`06-admin-portal-karigar-tab.webp`, `07-admin-portal-worker-logs.webp`)
+    5. *Catalogue Lookbook Manager & Watermarked Media CMS* (`08-admin-portal-catalogue-tab.webp`, `09-admin-portal-new-catalogue-popup-1.webp`, `10-admin-portal-new-catalogue-popup-2.webp`, `13-admin-portal-price-manager-tab.webp`)
+  - Updated production architecture details: Next.js 15 (Turbopack, App Router), React 19, Tailwind CSS v4, compiled via OpenNext (`@opennextjs/cloudflare`) for $0/mo edge execution on Cloudflare Workers/Pages.
+  - Documented edge connection pooling with PostgreSQL (Supabase) via Cloudflare Hyperdrive, client-side Canvas watermark compositing (ADR-012), asynchronous R2 media upload queues (ADR-013), and multi-tenant subdomains (`admin.*`, `order-admin.*`, `content-admin.*`) with WebAuthn biometrics and 4-digit PIN unlock.
+  - Highlighted offline-first resilience: event-based Karigar worker task queues (ADR-018 to ADR-020, ADR-024) and IndexedDB asynchronous save queue (`newshamlee_offline_v1`) preventing data loss across unstable shop floor connectivity.
+  - Documented Turnstile anti-bot order tracking (`/track`) with synchronized FSM state machine preventing captcha thrashing and button locks (v0.20.22).
+  - Highlighted test coverage: **1,383 automated tests across 309 test suites (100% pass rate)**.
+  - Updated timeline entry in `src/data/timeline.json`.
+
 ## [0.18.0-resume-update-nov-2026] - 2026-11-19
 
 ### Added
