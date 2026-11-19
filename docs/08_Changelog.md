@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.19.0-newshamlee-production-showcase] - 2026-11-19
+
+### Added
+
+- **New Shamlee Apparels Production Platform Case Study**:
+  - Reviewed `/home/adarsh/Documents/Projects/newshaleeapparels.com/` and comprehensively updated `src/data/projects.json` for `newshamlee-apparels-platform`.
+  - Detailed the live commercial architecture: Next.js 15 (Turbopack, App Router), React 19, Tailwind CSS v4, compiled via OpenNext (`@opennextjs/cloudflare`) for $0/mo edge execution on Cloudflare Workers/Pages.
+  - Documented edge connection pooling with PostgreSQL (Supabase) via Cloudflare Hyperdrive, client-side Canvas watermark compositing (ADR-012), asynchronous R2 media upload queues (ADR-013), and multi-tenant subdomains (`admin.*`, `order-admin.*`, `content-admin.*`) with WebAuthn biometrics and 4-digit PIN unlock.
+  - Highlighted offline-first resilience: event-based Karigar worker task queues (ADR-018 to ADR-020, ADR-024) and IndexedDB asynchronous save queue (`newshamlee_offline_v1`) preventing data loss across unstable shop floor connectivity.
+  - Documented Turnstile anti-bot order tracking (`/track`) with synchronized FSM state machine preventing captcha thrashing and button locks (v0.20.22).
+  - Deployed 10 high-resolution boutique showcase assets to `public/static/images/newshamlee/` and configured a rich 5-section interactive case study gallery.
+  - Highlighted rigorous test coverage: **1,383 automated tests across 309 test suites (100% pass rate)**.
+  - Updated timeline entry in `src/data/timeline.json`.
+
 ## [0.18.0-resume-update-nov-2026] - 2026-11-19
 
 ### Added

@@ -4,36 +4,93 @@
     "title": "New Shamlee Apparels: Bilingual Digital Boutique & Order Tracking Platform",
     "personas": ["swe", "fullstack", "wordpress"],
     "role": "Freelance Full-Stack Developer & Solutions Architect",
-    "timeline": "Oct 2026 - Present",
+    "timeline": "Jul 2026 - Present",
     "status": "In Progress",
-    "architecture": "Decoupled, edge-accelerated architecture built with Next.js (App Router, React 19, TypeScript, Tailwind CSS) on a unified codebase serving both the public showroom (newshamleeapparels.in) and shop admin portal (admin.newshamleeapparels.in) via Next.js Edge Middleware subdomain routing. Media assets are served via Cloudflare R2 with zero-egress global CDN delivery. PostgreSQL on Neon Serverless powers the relational order registry and catalogue with Prisma ORM. Admin authentication employs a three-tier frictionless model: WebAuthn biometric passkeys (Touch ID / Face ID / Android Fingerprint) via @simplewebauthn, long-lived 60-day HTTP-only secure device sessions, and a quick 4-digit shop floor PIN overlay. Bilingual Marathi & English SMS pickup alerts are dispatched via the shop's Android SIM gateway at zero extra cost. Public pages are SSG/ISR pre-rendered and edge-cached for sub-100ms festive-season peak loads.",
-    "problem": "New Shamlee Apparels — an established women's bespoke tailoring boutique in Shrirampur, Maharashtra — faced four critical bottlenecks: high daily call volume from customers asking about order readiness, disrupting active measurement sessions; repetitive price and design enquiries that could be self-served; physical paper catalogues that wore out and could not showcase video drape or tassel movement; and no proactive pickup alerts when orders completed ahead of schedule, causing storage congestion and delayed final payment collections.",
-    "solution": "Designed and built a four-phase freelance digital platform using Antigravity AI pair-programming. Phase 1: a bilingual (English default + instant Marathi toggle) mobile-first showroom with four interactive catalogues — Dress Neck Designs (DN-xx), Blouse Neck Designs (BN-xx), Saree Gonde tassels (GD-xx), and Dress Materials (DM-xx) — featuring high-resolution photos, video clips with smart filter and search, and one-tap click-to-call. Phase 2: a frictionless admin portal at admin.newshamleeapparels.in with WebAuthn biometric + 4-digit PIN auth, photo/video CMS, and live price editing. Phase 3: a self-service public numeric order tracker with garment-category-specific lifecycle stages (Registered → Cutting → Stitching → Ready for Pickup for dresses/blouses; Registered → Processing → Ready for Pickup for Saree Gonde). Phase 4: automated bilingual SMS notifications dispatched via the shop's Android SIM gateway when orders are ready.",
-    "challenges": "Designing frictionless WebAuthn authentication for shop owners handling 30–50 daily customer interactions where repetitive logins would cause system abandonment. Implementing Unicode Marathi SMS under TRAI DLT regulations (70 chars/segment vs 160 for ASCII). Building a mobile-phone media CMS with client-side WebP compression, video poster-frame generation, and direct Cloudflare R2 uploads. Rate-limiting the public order tracker to show only garment stage without exposing billing balances, customer phones, or advance payments. Ensuring sub-100ms catalogue loads during Maharashtra festive spikes (Diwali, Navratri, Gudi Padwa) via SSG/ISR edge caching. Implementing Anime.js mobile micro-interactions — tactile card spring taps, staggered grid reveals, Gonde tassel pendulum sway, golden-thread SVG stroke draw, and a craft-journey order tracker stitching line — with strict compositor-only motion rules and prefers-reduced-motion accessibility.",
+    "architecture": "Edge-accelerated bespoke retail and atelier workflow platform architected with Next.js 15 (Turbopack, App Router), React 19, TypeScript, and Tailwind CSS v4, compiled via OpenNext (@opennextjs/cloudflare) for zero-cost, commercially compliant deployment on Cloudflare Workers and Pages. Connects to PostgreSQL (Supabase) via Cloudflare Hyperdrive connection pooling with a dual-mode local JSON/IndexedDB fallback for offline resilience on shop floor devices. Media assets (high-res photos and video clips) are managed via Cloudflare R2 object storage with asynchronous upload queues, client-side HTML5 Canvas watermarking preserving pristine master assets (ADR-012), and HEIC/HEIF decoding for direct iPhone uploads. Administrative operations are partitioned across multi-tenant subdomains (/admin, /order-admin, /content-admin) protected by WebAuthn hardware biometric passkeys, 4-digit PIN unlock overlays, and HMAC signed cookies. Public customer order tracking (/track) is shielded by Cloudflare Turnstile anti-bot verification with an FSM state machine preventing captcha thrashing. Client experience features instant zero-reload bilingual English/Marathi localization, 60fps mobile compositor physics powered by Anime.js v4, Lenis smooth scrolling, and full WCAG AAA color contrast compliance, thoroughly validated across 1,383 automated tests.",
+    "problem": "New Shamlee Apparels — an established women's bespoke tailoring boutique and retail fabric showroom in Shrirampur, Maharashtra run by an artisanal team and 7–10 specialized karigars — faced severe offline operational bottlenecks: high daily phone call volume from customers asking 'Is my order ready for pickup?', disrupting active measurement and fitting consultations; repetitive price and neckline pattern inquiries; worn physical paper catalogues that could not demonstrate drape, luster, or tassel swing; and delayed in-shop collections when garments completed ahead of schedule, congesting workshop storage racks.",
+    "solution": "Engineered and deployed an end-to-end digital showroom and atelier operations platform on newshamleeapparels.in. Built a mobile-first bilingual showroom (English default with instant Marathi मराठी switching) featuring 4 interactive lookbooks — Dress Necklines (DN-xx), Blouse Patterns (BN-xx), Saree Gonde tassels (GD-xx), and 3-Piece Dress Materials (DM-xx) — with high-resolution photography, video drape previews, transparent pricing studio (/prices), and one-tap consultation CTAs. Provided boutique staff with subdivided administrative portals: a workshop queue (/order-admin) with rapid slip intake, event-based Karigar task assignment, and an offline-first IndexedDB save queue for unstable shop connectivity; an atelier merchandising studio (/content-admin) with client-side watermarked R2 uploads; and a master admin portal (/admin) with biometric WebAuthn security. Built a public self-service numeric order tracker (/track) with Turnstile protection and category-specific progress milestones (Registered → Cutting → Stitching → Ready for Pickup).",
+    "challenges": "Overcoming Cloudflare Workers V8 edge isolate constraints by eliminating native Node.js C++ binaries (replacing server-side sharp with client-side HTML5 canvas watermark compositing and memory-bounded HEIC decoding); complying with Cloudflare Hyperdrive's strict SSL contract by omitting conflicting client SSL parameters to eliminate edge connection hangs; solving Turnstile captcha race conditions and button lockup via a synchronized FSM with background pre-verification; engineering an offline-first asynchronous order queue with IndexedDB (newshamlee_offline_v1) to handle mobile data and shop WiFi handovers without data loss; implementing event-based Karigar worker tracking across multi-garment slips; and achieving 96+ Google PageSpeed scores with WCAG AAA accessibility contrast ratios across warm boutique brand palettes.",
     "techStack": [
-      "Next.js (App Router)",
+      "Next.js 15 (App Router)",
       "React 19",
       "TypeScript",
-      "Tailwind CSS",
-      "PostgreSQL (Neon Serverless)",
-      "Prisma ORM",
+      "Tailwind CSS v4",
+      "Cloudflare Workers (OpenNext)",
+      "Cloudflare Hyperdrive",
+      "PostgreSQL (Supabase)",
       "Cloudflare R2",
       "WebAuthn / Passkeys",
+      "Cloudflare Turnstile",
       "Anime.js v4",
-      "Radix UI",
-      "Lucide React",
-      "Vercel"
+      "Lenis Smooth Scroll",
+      "IndexedDB",
+      "Lucide React"
     ],
-    "lessonsLearned": "Architecting for low-literacy, high-touch retail users in tier-2 India demands extreme simplicity: biometric passkeys eliminated password friction for shop owners updating orders 30–50 times a day. Designing bilingual Marathi/English i18n from the ground up avoids deep component restructuring later. Zero-egress Cloudflare R2 with SSG/ISR edge caching proved far more cost-effective than VPS or Cloudinary pipelines for a boutique operating on ~₹70/month infrastructure. A phased rollout plan — not big-bang — let the client go live with immediate value (Phase 1 showroom) weeks before the full system was complete.",
+    "lessonsLearned": "Discovered that deploying Next.js 15 App Router applications onto Cloudflare serverless edge isolates requires strict zero-Node-native architectural discipline, where client-side canvas compositing offloads CPU cost while preserving master R2 media assets. Learned that Cloudflare Hyperdrive requires raw upstream connection strings without synthetic client TLS wrapping. Validated that tier-2 Indian retail digitization demands offline-first fault tolerance: shop staff frequently encounter cellular dead zones during consultations, making IndexedDB local write buffering and automatic sync essential. Established that maintaining a comprehensive test suite (1,383 automated tests across 309 suites) is critical for iterating rapidly without edge deployment regressions.",
     "video": "",
-    "images": [],
-    "screenshots": [],
-    "gallery": [],
+    "images": [
+      "/static/images/newshamlee/hero-model.webp",
+      "/static/images/newshamlee/cat-blouse.webp",
+      "/static/images/newshamlee/cat-materials.webp",
+      "/static/images/newshamlee/craft-2.webp"
+    ],
+    "screenshots": [
+      "/static/images/newshamlee/hero-model.webp",
+      "/static/images/newshamlee/cat-dress.webp",
+      "/static/images/newshamlee/cat-blouse.webp",
+      "/static/images/newshamlee/cat-gonde.webp",
+      "/static/images/newshamlee/cat-materials.webp",
+      "/static/images/newshamlee/craft-1.webp",
+      "/static/images/newshamlee/craft-2.webp",
+      "/static/images/newshamlee/craft-3.webp"
+    ],
+    "gallery": [
+      {
+        "description": "Mobile-first editorial showroom featuring instant zero-reload switching between English and Marathi (मराठी). Features four dedicated craftsmanship showcases — Dress Neck Designs (DN-xx), Blouse Neck Designs (BN-xx), Saree Gonde tassels (GD-xx), and Dress Materials (DM-xx) — with tactile card physics powered by Anime.js v4 and Lenis smooth scrolling.",
+        "images": [
+          "/static/images/newshamlee/hero-model.webp",
+          "/static/images/newshamlee/cat-dress.webp",
+          "/static/images/newshamlee/cat-blouse.webp"
+        ],
+        "caption": "Bilingual Digital Showroom & Bespoke Design Lookbook"
+      },
+      {
+        "description": "Dedicated retail collections showcasing unstitched 3-piece fabric sets (Kurta, Bottom, Dupatta) with transparent pricing, discount badges, and fabric specifications, alongside handcrafted saree tassels (Gonde) with pendulum swing physics and one-tap consultation CTAs.",
+        "images": [
+          "/static/images/newshamlee/cat-gonde.webp",
+          "/static/images/newshamlee/cat-materials.webp"
+        ],
+        "caption": "Saree Finishing & Retail Textile Showcase"
+      },
+      {
+        "description": "Authentic 3-step visual narrative illustrating the boutique's bespoke journey — from customer fabric consultation and precise body measurements to master karigar pattern cutting, handcrafted tassel beading, and in-store pickup at Kesharprem Market, Shrirampur.",
+        "images": [
+          "/static/images/newshamlee/craft-1.webp",
+          "/static/images/newshamlee/craft-2.webp",
+          "/static/images/newshamlee/craft-3.webp"
+        ],
+        "caption": "Three-Step Artisanal Craft & Tailoring Journey"
+      },
+      {
+        "description": "Tri-subdomain administrative control center (/admin, /order-admin, /content-admin) secured by passwordless WebAuthn biometric passkeys, 4-digit shop floor PINs, and HMAC-signed cookies. Features quick slip intake, event-based Karigar worker assignment, workload balancing, and offline-first IndexedDB order queues for tablet/phone resilience.",
+        "images": [
+          "/static/images/newshamlee/og-image.jpg"
+        ],
+        "caption": "Multi-Tenant Shop Portals & Workshop Queue"
+      },
+      {
+        "description": "Self-service public order lookup (/track) secured against automated brute-force scraping via Cloudflare Turnstile CAPTCHA. Features an FSM state machine with background pre-verification, retained result staging, and category-specific milestone timelines (Dress/Blouse vs. Saree Gonde).",
+        "images": [
+          "/static/images/newshamlee/brand-model.svg"
+        ],
+        "caption": "Privacy-Sanitized Public Order Tracker Engine"
+      }
+    ],
     "links": {
       "github": "",
       "demo": "https://www.newshamleeapparels.in"
     },
-    "futureImprovements": "Launch the live production domain newshamleeapparels.in after final content photography and video shoots at the Shrirampur shop. Complete Phase 2 admin CMS with WebAuthn passkey onboarding and video upload pipeline. Roll out Phase 3 self-service order tracker and Phase 4 automated bilingual SMS gateway. Future enhancements: a Digital Karigar (worker) Registry to assign orders to specific tailors, customer measurement history archive for repeat clients, and shop performance analytics for festive peak turnaround forecasting."
+    "futureImprovements": "Expanding automated WhatsApp business notification templates for early order pickup alerts, integrating a client-side measurement profile archive for returning customers, and deploying seasonal demand forecasting analytics to balance Karigar workloads during peak Diwali, Eid, and wedding festival rushes."
   },
   {
     "slug": "quickfiller-job-copilot",
