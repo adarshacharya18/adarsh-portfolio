@@ -2,8 +2,8 @@
   {
     "id": "newshamlee-apparels-platform",
     "quarter": "2026 Q4",
-    "title": "New Shamlee Apparels — Live Bilingual Boutique & Atelier Platform",
-    "description": "Architected, built, and deployed an end-to-end bespoke tailoring e-commerce and workshop management platform for New Shamlee Apparels (Shrirampur, Maharashtra) using Next.js 15, React 19, Tailwind CSS v4, and Cloudflare OpenNext. Features a bilingual (English + Marathi) digital showroom with video drape lookbooks, Cloudflare R2 media storage with client-side canvas watermarking, a multi-tenant staff suite (/admin, /order-admin, /content-admin) with WebAuthn biometrics and Karigar task queues, offline-first IndexedDB save queues, and a Turnstile-secured customer order tracker, rigorously validated across 1,383 automated tests.",
+    "title": "New Shamlee Apparels — Freelance Digital Platform (Bilingual Boutique & Order Tracker)",
+    "description": "Designing and building a four-phase digital platform for New Shamlee Apparels, a women's bespoke tailoring boutique in Shrirampur, Maharashtra. Includes a bilingual (English + Marathi) showroom with photo/video catalogues for dress necklines, blouse necklines, Saree Gonde tassels and dress materials; a frictionless admin portal with WebAuthn biometric + PIN auth; a public self-service numeric order tracker; and automated bilingual Marathi/English SMS pickup alerts via Android SIM gateway.",
     "category": "Freelance Project",
     "personas": ["swe", "fullstack", "wordpress"],
     "status": "In Progress"
