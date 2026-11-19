@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.18.0-resume-update-nov-2026] - 2026-11-19
+
+### Added
+
+- **Resume Asset & Work Experience Update (November 2026)**:
+  - Deployed latest official resume document (`adarsh-acharya-resume-nov-2026.pdf`) to `public/` and removed legacy `adarsh-acharya-resume-sep-2026.pdf`.
+  - Updated `src/data/profile.json` default `resumeUrl`, `personaResumes` (`overall`, `swe`, `wordpress`), and individual `personaContent` links to point to `/adarsh-acharya-resume-nov-2026.pdf`.
+  - Synchronized `src/data/experience.json` with the new resume by adding the recent *Freelance Full Stack Engineer* milestone at *New Shamlee Apparel* (July 2026 - Present), covering Next.js 15, React 19, TypeScript, biometric auth, and bilingual localization.
+
 ## [0.17.0-quickfiller-firefox-amo-live] - 2026-09-27
 
 ### Added

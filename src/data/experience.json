@@ -1,5 +1,12 @@
 [
   {
+    "period": "July 2026 - Present",
+    "role": "Freelance Full Stack Engineer",
+    "company": "New Shamlee Apparel (newshamleeapparels.in)",
+    "description": "Architected and deployed an end-to-end bespoke tailoring e-commerce and workshop management platform using Next.js 15 (App Router), React 19, TypeScript, and Tailwind CSS v4. Built a multi-role administrative suite (/admin, /order-admin, /content-admin) featuring biometric/PIN device authentication, karigar task queues, and seamless English/Marathi bilingual localization.",
+    "personas": ["swe", "backend", "fullstack", "wordpress"]
+  },
+  {
     "period": "June 2025 - May 2026",
     "role": "Junior Software Developer",
     "company": "UniversalTech (universaltech.com)",
